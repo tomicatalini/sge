@@ -1,21 +1,30 @@
-<div [formGroup]="form" class="field">
-    <label [for]="field.property">{{field.label}}</label>
+<div [formGroup]="form">
     
-    <div [ngSwitch]="field.type">
-        <input *ngSwitchCase="0" [formControlName]="field.property" [id]="field.property" [type]="'text'" class="text">
+    <mat-form-field appearance="outline">
+        <mat-label>{{field.label}}</mat-label>
+        <div [ngSwitch]="field.type">
+            <input matInput *ngSwitchCase="0" [formControlName]="field.property" [id]="field.property">
+            
+            <mat-select *ngSwitchCase="4" [id]="field.property" [formControlName]="field.property"> 
+                <mat-option *ngFor="let op of field.options" [value]="op.value">{{op.key}}</mat-option>
+            </mat-select>
+            
+            <mat-radio-group *ngSwitchCase="6">
+                <mat-radio-button *ngFor="let op of field.options" [id]="field.property" [value]="op.value" [formControlName]="field.property">{{op.key}}</mat-radio-button>
+            </mat-radio-group>
 
-        <select *ngSwitchCase="4" [id]="field.property" [formControlName]="field.property" class="select">
-            <option value="" selected> SELECCIONAR </option>
-            <option *ngFor="let op of field.options" [value]="op.value">{{op.key}}</option>        
-        </select>
-        
-        <div *ngSwitchCase="6">
-            <div *ngFor="let op of field.options" class="radio">
-                <input type="radio" [id]="field.property" [value]="op.value" [formControlName]="field.property"> {{op.key}}
-            </div>
-        </div>
-        
             <div *ngSwitchDefault> No encontro ningun Match.. F</div>
-    </div>
-
-    <div class="errorMessage" *ngIf="!isValid">{{field.label}} {{this.form.controls[this.field.property].errors}}</div>
+        </div>
+        <mat-error *ngIf="!isValid">
+            <div *ngIf="this.form.controls[this.field.property].errors?.['required']">
+                {{this.field.property}} es requerido.
+            </div>
+            <div *ngIf="this.form.controls[this.field.property].errors?.['minlength']">
+                El campo {{this.field.property}} debe tener como minimo {{this.form.controls[this.field.property].errors?.['minlength'].requiredLength}} caracteres.
+            </div>
+            <div *ngIf="this.form.controls[this.field.property].errors?.['maxlength']">
+                El campo {{this.field.property}} debe tener como maximo {{this.form.controls[this.field.property].errors?.['maxlength'].requiredLength}} caracteres.
+            </div>
+        </mat-error>
+      </mat-form-field>
+</div>

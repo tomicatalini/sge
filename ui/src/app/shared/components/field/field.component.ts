@@ -17,6 +17,8 @@ export class FieldComponent implements OnInit {
 
   ngOnInit(): void { }    
 
-  get isValid() { return this.form.controls[this.field.property].valid; }
+  get isValid() {   
+    return this.form.controls[this.field.property].valid; 
+  }
 
 }

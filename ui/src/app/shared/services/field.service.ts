@@ -17,8 +17,6 @@ export class FieldService {
     //   form[ field.group ] = field.required ? new FormControl(field.property || '', Validators.required) : new FormControl(field.property || ''); 
     // })
 
-    console.log(form);
-
     for(let field of fields ){
       
       const validaciones: any = [];
@@ -26,7 +24,6 @@ export class FieldService {
       if(field.format != null && field.format != []){
       
         for(let i = 0; i < field.format.length; i++) {
-          console.log(field.format[i]);
           switch (field.format[i].key) {
             case "maxLength":
                 validaciones.push( Validators["maxLength"](field.format[i].value)); 
@@ -68,9 +65,6 @@ export class FieldService {
       });
     }
 
-    console.log(form);
-
     return new FormGroup( form );
-
   }
 }

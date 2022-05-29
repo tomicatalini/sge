@@ -25,15 +25,27 @@ export class FormComponent implements OnInit {
   createControls(){} 
 
   onSubmit(){
-    console.log(this.profileForm.errors?.['required']);
-    if(this.profileForm.errors){
+
+    if(this.anyErrors()){
       this.result = 'Hay errores rey';
-      console.log(this.profileForm);
     } else {
-      console.log(this.profileForm.errors);
       this.result = JSON.stringify( this.profileForm.getRawValue() );
     }
     return false;
+  }
+
+  anyErrors(){
+    let error: boolean = false;
+
+    if(this.profileForm.hasError('required')) {
+      error = true;
+    } else if (this.profileForm.hasError('maxLength')){
+      error = true;
+    } else if (this.profileForm.hasError('minLength')){
+      error = true;
+    }
+
+    return error;    
   }
 
 }
