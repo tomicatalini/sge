@@ -1,4 +1,4 @@
-enum TypeOfField {
+export enum TypeOfField {
     TEXT,
     FLOAT,
     NUMBER,
