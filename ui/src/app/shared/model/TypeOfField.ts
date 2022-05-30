@@ -1,12 +1,16 @@
 export enum TypeOfField {
     TEXT,
-    FLOAT,
+    TEXTAREA,
+    DATE,
+    CHECKBOX,
+    EMAIL,
+    PASSWORD,
+    RADIO,
+    SUBMIT,
     NUMBER,
     MONETARY,
-    SELECT,
-    CHECKBOX,
-    RADIO,
-    DATE,
     ICON,
-    ACTION    
+    FLOAT,
+    BUTTON,
+    SELECT   
 }
