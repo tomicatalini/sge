@@ -1,0 +1,7 @@
+TODO:
+* ver tema fecha min y max en fecha
+* checked del radio button
+* password: minlength y maxlength
+* monetary: maxlength
+* float: step: cantDecimal
+* No toma el formControlName cuando esta el ngSwitch, si se saca anda...

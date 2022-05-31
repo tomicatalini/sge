@@ -66,6 +66,7 @@ export class FieldService {
       });
     }
 
+    console.log(new FormGroup( form ));
     return new FormGroup( form );
   }
 }

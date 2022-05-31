@@ -14,22 +14,22 @@ export class AppComponent {
   title = 'ui';
 
   fields$: Observable< Field[] >;
-  valor:string="Sebastian Gomez";
-  tipo:TypeOfField= 0;
-  label:string="";
-  value:string | undefined;
-  type:TypeOfField | undefined;
-  entity:string |undefined;
-  property:string |undefined;
-  required:undefined | boolean; 
-  readonly:undefined | boolean;
-  order?:undefined | number;
-  group?:undefined | string; 
-  format ?: {key: string, value: Object}[] ;
-  options?: {key: string, value: Object}[];
-  minColumnas:any;
-  minFilas:any;
-  checked!:boolean;
+  // valor:string="Sebastian Gomez";
+  // tipo:TypeOfField= 0;
+  // label:string="";
+  // value:string | undefined;
+  // type:TypeOfField | undefined;
+  // entity:string |undefined;
+  // property:string |undefined;
+  // required:undefined | boolean; 
+  // readonly:undefined | boolean;
+  // order?:undefined | number;
+  // group?:undefined | string; 
+  // format ?: {key: string, value: Object}[] ;
+  // options?: {key: string, value: Object}[];
+  // minColumnas:any;
+  // minFilas:any;
+  // checked!:boolean;
   constructor( service: FormService) {
     this.fields$ = service.getFields();
   }

@@ -8,12 +8,12 @@ import {FormBuilder, FormGroup} from '@angular/forms';
 
 
 
-export class MyErrorStateMatcher implements ErrorStateMatcher {
-  isErrorState(control: FormControl | null, form: FormGroupDirective | NgForm | null): boolean {
-    const isSubmitted = form && form.submitted;
-    return !!(control && control.invalid && (control.dirty || control.touched || isSubmitted));
-  }
-}
+// export class MyErrorStateMatcher implements ErrorStateMatcher {
+//   isErrorState(control: FormControl | null, form: FormGroupDirective | NgForm | null): boolean {
+//     const isSubmitted = form && form.submitted;
+//     return !!(control && control.invalid && (control.dirty || control.touched || isSubmitted));
+//   }
+// }
 
 @Component({
   selector: 'app-field',
@@ -22,34 +22,37 @@ export class MyErrorStateMatcher implements ErrorStateMatcher {
 })
 export class FieldComponent implements OnInit {
 
-  @Input() value:string |number| undefined;
-  @Input() type:TypeOfField | undefined;
-  @Input() label:string |undefined;
-  @Input()entity:string |undefined;
-  @Input()property:string |undefined;
-  @Input()required:undefined | boolean; 
-  @Input()readonly:undefined | boolean;
-  @Input() order?:undefined | number;
-  @Input()group?:undefined | string; 
-  @Input()format ?: {key: string, value: Object}[] ;
-  @Input()options?: {key: string, value: Object}[];  
-  @Input()cantColumnas?:any ;
-  @Input()cantFilas?:any ;
-  @Input()minFecha?:any ;
-  @Input()maxFecha?:any ;
-  @Input()minL?:any;
-  @Input()maxL?:any;
-  @Input()checked?:boolean|undefined ;
-  @Input()cantDecimal?:number|undefined;
-  @Input()disabled?:boolean;
-  @Input()op:number[]=[1,2,3,4,5,6,7];
-  @Input()check!:boolean;
+  // @Input() value:string |number| undefined;
+  // @Input() type:TypeOfField | undefined;
+  // @Input() label:string |undefined;
+  // @Input()entity:string |undefined;
+  // @Input()property:string;
+  // @Input()required:undefined | boolean; 
+  // @Input()readonly:undefined | boolean;
+  // @Input() order?:undefined | number;
+  // @Input()group?:undefined | string; 
+  // @Input()format ?: {key: string, value: Object}[] ;
+  // @Input()options?: {key: string, value: Object}[];  
+  // @Input()cantColumnas?:any ;
+  // @Input()cantFilas?:any ;
+  // @Input()minFecha?:any ;
+  // @Input()maxFecha?:any ;
+  // @Input()minL?:any;
+  // @Input()maxL?:any;
+  // @Input()checked?:boolean|undefined ;
+  // @Input()cantDecimal?:number|undefined;
+  // @Input()disabled?:boolean;
+  // @Input()op:number[]=[1,2,3,4,5,6,7];
+  // @Input()check!:boolean;
+
+  @Input() field!: Field;
+  @Input() form!: FormGroup;
 
 
-  public inputControl!: FormControl;
-  emailFormControl = new FormControl('', [Validators.required, Validators.email]);
+  // public inputControl!: FormControl;
+  // emailFormControl = new FormControl('', [Validators.required, Validators.email]);
 
-  matcher = new MyErrorStateMatcher();
+  // matcher = new MyErrorStateMatcher();
   // toppings: FormGroup;
   constructor() { }
   // constructor(fb: FormBuilder) {
@@ -58,10 +61,10 @@ export class FieldComponent implements OnInit {
   
   //   });
   // }
-  ngOnInit(): void {
-    this.inputControl = new FormControl();
-  
-  
+  ngOnInit(): void {}
+
+  get isValid() {
+    return this.form.controls[ this.field.property ].valid;
   }
 
 }

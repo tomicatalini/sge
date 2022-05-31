@@ -25,12 +25,13 @@ export class FormComponent implements OnInit {
   createControls(){} 
 
   onSubmit(){
-
+    console.log('entro al submit');
     if(this.anyErrors()){
       this.result = 'Hay errores rey';
     } else {
       this.result = JSON.stringify( this.profileForm.getRawValue() );
     }
+    console.log(this.result);
     return false;
   }
 

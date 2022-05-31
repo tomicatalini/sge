@@ -1,144 +1,160 @@
 
 <!-- PRIMERO DEFINIR SI ES UN DATO A MOSTRAR O ES EDITABLE -->
-<div *ngIf="readonly;then readonlyTrue else readonlyFalse"></div>
-<ng-template   #readonlyTrue >
+<!-- <div *ngIf=" this.field.readonly; then readonlyTrue else readonlyFalse"></div>
+<ng-template   #readonlyTrue > -->
         <!-- <label for="">{{value}}</label> -->
-</ng-template>
-<ng-template   #readonlyFalse >                                 
+<!-- </ng-template>
+<ng-template   #readonlyFalse >                                  -->
  <!-- CONTROL SOBRE LOS LABEL -->
-        <div *ngIf="(label !== '') ;then blockTextTrue else blockTextFalse "></div>
+        <!-- <div *ngIf="(this.field.label !== '') ;then blockTextTrue else blockTextFalse "></div>
         <ng-template #blockTextTrue>
-                <h3>{{label}}</h3>
+                <h3>{{this.field.label}}</h3>
         </ng-template>
-        <ng-template #blockTextFalse>
+        <ng-template #blockTextFalse> -->
                 <!-- <h3>Caso de Label Vacio</h3> -->
-        </ng-template>                                 
+        <!-- </ng-template>                                  -->
 
 <!-- TIPO DE DATOS -->
-        <div [ngSwitch]="type">
-                <!-- TEXT -->
-                <div class="field" *ngSwitchCase="0">
-                        <mat-form-field class="example-form-field" appearance="fill">
-                                <mat-label>{{label}}</mat-label>
-                                <input matInput type="text" [(ngModel)]="value">
-                                <button *ngIf="value" matSuffix mat-icon-button aria-label="Clear" (click)="value=''">
-                                        <mat-icon>close</mat-icon>
-                                </button>
-                        </mat-form-field>                                                              
-                </div>
-                <!-- TEXTAREA -->
-                <div class="field" *ngSwitchCase="1">                        
-                         <mat-form-field class="example-full-width" appearance="fill">
-                                <mat-label>Ingrese su texto aquí...</mat-label>
-                                <textarea matInput placeholder="........." value="{{value}}"></textarea>
-                         </mat-form-field>
-                </div>
-                <!-- DATE -->
-                <div class="field" *ngSwitchCase="2">
-                        <div class="field-line">                                                                                                                             
-                                <input type="date" id="start" name="{{property}}" value="{{value}}" min="{{minFecha}}" max="{{maxFecha}}">                               
-                        </div>
-                </div>
-                <!-- CHECKBOX -->
-                <div class="field" *ngSwitchCase="3">
-            
-                        <p><mat-checkbox formControlName="controlCheckForm"  checked="checked" >{{value}}</mat-checkbox></p>
-                </div>
-                <!-- EMAIL -->
-                <div class="field" *ngSwitchCase="4">
-                        <!-- <div class="field-line">                                                                                              
-                                <input type="email" id="{{property}}" pattern=".+@gmail\.com" size="30" value="{{value}}" placeholder="prueba@example.com" >
-                        </div> -->
+        
+                <mat-form-field class="example-form-field" appearance="fill" [formGroup]="form">                        
                         
-                                <mat-form-field class="example-full-width" appearance="fill">
-                                  <mat-label>{{label}}</mat-label>
-                                  <input  matInput type="email"
-                                   [formControl]="emailFormControl"
-                                   [errorStateMatcher]="matcher"
-                                   placeholder="Ejemplo. correo@hotmail.com">
-                                  <mat-hint>no válido </mat-hint>
-                                  <mat-error *ngIf="emailFormControl.hasError('email') && !emailFormControl.hasError('required')">
-                                    Por favor ingrese un mail válido
-                                  </mat-error>
-                                  <mat-error *ngIf="emailFormControl.hasError('required')">
-                                   Campo <strong>obligatorio</strong>
-                                  </mat-error>
-                                </mat-form-field>
-                        
-                </div>
-                <!-- PASSWORD -->
-                <div class="field" *ngSwitchCase="5">
-                        <div class="field-line">                                                                                              
-                                <input type="password" id="{{property}}" name="password" minlength=":minL" maxlength=":minL" value="{{value}}" >
-                        </div>
-                </div>
-                <!-- RADIO -->
-                <div class="field" *ngSwitchCase="6">
-                        <div class="field-radio">                                                                                                                              
-                                <div *ngIf="checked;then blockTrueCheck else blockFalseCheck"></div>
-                                <ng-template #blockTrueCheck>
-                                        <input type="radio" id="{{property}}" name="{{property}}" checked value="{{value}}">
-                                                <label for="">{{label}}</label> 
-                                </ng-template>
-                                <ng-template #blockFalseCheck>
-                                                <input type="radio" id="{{property}}" name="{{property}}" value="{{value}}" >
-                                                        <label for="">{{label}}</label> 
-                                </ng-template>
-                                                                        
-                        </div>
-                </div>     
-                 <!-- SUBMIT -->
-                 <div class="field" *ngSwitchCase="7">
-                        <div class="field-submit">                                                                                              
-                                 <input type="submit" name="property"  id="{{property}}"  value="{{value}}">
-                        </div>
-                </div>    
-                <!-- NUMBER -->
-                <div class="field" *ngSwitchCase="8">
-                        <div class="field-line">                                                                                              
-                                <input type="number" name="" id="{{property}}" value="{{value | number:'1.0-0'}} " required="{{required}}"  step="1">                                                                            
-                        </div>
-                </div>                       
+                        <mat-label>{{this.field.label}}</mat-label>
 
-                <!-- MONETARY -->
-                <div class="field" *ngSwitchCase="9">
-                        <div class="field-line">                                                                                              
-                                <input type="text" name="" id="{{property}}" value="{{ value | currency:'$' }} " required="{{required}}" maxlength="maxL"   >
+                        <div [ngSwitch]="this.field.type" >
+                                <!-- TEXT -->
+                                <!-- <div class="field" > -->
+                                        <input matInput *ngSwitchCase="0" [formControlName]="this.field.property"  [id]="this.field.property">
+                                        <!-- <button *ngIf="this.field.value" matSuffix mat-icon-button aria-label="Clear" (click)="this.field.value=''">
+                                                <mat-icon>close</mat-icon>
+                                        </button> -->
+                                <!-- </div> -->
+
+                                <!-- TEXTAREA -->
+                                <!-- <div class="field" *ngSwitchCase="1">
+                                        <textarea matInput [formControlName]="field.property" placeholder="........." value="{{this.field.value}}"></textarea>
+                               </div> -->
+                               
+                               <!-- DATE -->
+                                <!-- <div class="field" *ngSwitchCase="2">
+                                        <div class="field-line">                                                                                                                             
+                                                <input type="date" id="start" name="{{this.field.property}}" value="{{this.field.value}}" min="{{minFecha}}" max="{{maxFecha}}">                               
+                                                <input type="date" id="start" name="{{this.field.property}}" value="{{this.field.value}}"/>                               
+                                        </div>
+                                </div> -->
+
+                                <!-- CHECKBOX -->
+                                <!-- <div class="field" *ngSwitchCase="3">                        
+                                        <p><mat-checkbox formControlName="controlCheckForm" checked="checked" >{{this.field.value}}</mat-checkbox></p>
+                                </div> -->
+
+                                <!-- EMAIL -->
+                                <!-- <div class="field" *ngSwitchCase="4"> -->
+                                        <!-- <div class="field-line">                                                                                              
+                                                <input type="email" id="{{property}}" pattern=".+@gmail\.com" size="30" value="{{value}}" placeholder="prueba@example.com" >
+                                        </div> -->
+                                        
+                                                <!-- s -->
+                                        
+                                <!-- </div> -->
+                
+                                <!-- PASSWORD -->
+                                <!-- <div class="field" *ngSwitchCase="5">
+                                        <div class="field-line">                                                                                              
+                                                <input type="password" id="{{this.field.property}}" name="password" minlength=":minL" maxlength=":minL" value="{{this.field.value}}" >
+                                                <input type="password" id="{{this.field.property}}" name="password" value="{{this.field.value}}" >
+                                        </div>
+                                </div> -->
+                
+                                <!-- RADIO -->
+                                <!-- <div class="field" *ngSwitchCase="6">
+                                        <div class="field-radio">                                                                                                                              
+                                                <div *ngIf="checked;then blockTrueCheck else blockFalseCheck"></div>
+                                                <div *ngIf="false;then blockTrueCheck else blockFalseCheck"></div>
+                                                <ng-template #blockTrueCheck>
+                                                        <input type="radio" id="{{this.field.property}}" name="{{this.field.property}}" checked value="{{this.field.value}}">
+                                                        <label for="">{{this.field.label}}</label> 
+                                                </ng-template>
+                                                <ng-template #blockFalseCheck>
+                                                        <input type="radio" id="{{this.field.property}}" name="{{this.field.property}}" value="{{this.field.value}}" >
+                                                        <label for="">{{this.field.label}}</label> 
+                                                </ng-template>
+                                                                                        
+                                        </div>
+                                </div> -->
+
+                                <!-- SUBMIT -->
+                                <!-- <div class="field" *ngSwitchCase="7">
+                                        <div class="field-submit">                                                                                              
+                                                <input type="submit" name="property"  id="{{this.field.property}}" value="{{this.field.value}}">
+                                        </div>
+                                </div>  -->
+
+                                <!-- NUMBER -->
+                                <!-- <div class="field" *ngSwitchCase="8">
+                                        <div class="field-line">                                                                                              
+                                                <input type="number" name="" id="{{this.field.property}}" value="{{this.field.value | number:'1.0-0'}} " required="{{this.field.required}}"  step="1">                                                                            
+                                        </div>
+                                </div>                        -->
+
+                                <!-- MONETARY -->
+                                <!-- <div class="field" *ngSwitchCase="9">
+                                        <div class="field-line">                                                                                              
+                                                <input type="text" name="" id="{{this.field.property}}" value="{{ this.field.value | currency:'$' }} " required="{{this.field.required}}" maxlength="maxL">
+                                                <input type="text" name="" id="{{this.field.property}}" value="{{ this.field.value | currency:'$' }} " required="{{this.field.required}}">
+                                        </div>
+                                </div>                        -->
+                                
+                                <!-- ICON -->
+                                <!--
+                                <div class="field" *ngSwitchCase="10">
+                                        <div class="field-icon">                                                                                              
+                                                <textarea name="{{property}}" id="{{property}}" cols="{{cantColumnas}}}" rows="{{cantFilas}}"value="{{value}}" ></textarea>                                
+                                        </div>
+                                </div>                        
+                                -->
+
+                                <!-- FLOAT -->
+                                <!-- <div class="field" *ngSwitchCase="11">
+                                        <div class="field-line">                                                                                              
+                                                <input type="number" name="" id="{{this.field.property}}" value="{{this.field.value | number:'1.0-2'}} " required="{{this.field.required}}"  step="{{cantDecimal}}">
+                                                <input type="number" name="" id="{{this.field.property}}" value="{{this.field.value | number:'1.0-2'}} " required="{{this.field.required}}">
+                                                <h6>{{this.field.value | number:'1.0-2'}}</h6>                                     
+                                        </div>
+                                </div> -->
+
+                                <!-- BUTTON -->
+                                <!-- <div class="field" *ngSwitchCase="12">
+                                        <div class="field-button">                                                                                              
+                                                <button class="button" type="button" id="{{this.field.property}}" onclick="evenet();"> {{this.field.label}} </button>
+                                        </div>
+                                </div> -->
+
+                                <!-- SELECT -->
+                                <!-- <div class="field" *ngSwitchCase="13">
+                                        <div class="field-line">                                                                                              
+                                                <select name="{{this.field.property}}" id="{{this.field.property}}">
+                                                        <option value="">--Elija una Opcion--</option>
+                                                        <option *ngFor="let opcion of this.field.options" value="{{opcion.key}}">
+                                                                {{opcion.value}}
+                                                        </option>
+                                                </select>
+                                        </div>
+                                </div> -->
+                                <div *ngSwitchDefault> No encontro ningun Match.. F</div>
                         </div>
-                </div>                       
-                <!-- ICON
-                <div class="field" *ngSwitchCase="10">
-                        <div class="field-icon">                                                                                              
-                                <textarea name="{{property}}" id="{{property}}" cols="{{cantColumnas}}}" rows="{{cantFilas}}"value="{{value}}" ></textarea>                                
-                        </div>
-                </div>                        -->
-                <!-- FLOAT -->
-                <div class="field" *ngSwitchCase="11">
-                        <div class="field-line">                                                                                              
-                                <input type="number" name="" id="{{property}}" value="{{value | number:'1.0-2'}} " required="{{required}}"  step="{{cantDecimal}}">
-                                <h6>{{value | number:'1.0-2'}}</h6>                                     
-                        </div>
-                </div>                       
-                <!-- BUTTON -->
-                <div class="field" *ngSwitchCase="12">
-                        <div class="field-button">                                                                                              
-                                        <button class="button" type="button" id="{{property}}" onclick="evenet();"> {{label}} </button>
-                        </div>
-                </div>                       
-                <!-- SELECT -->
-                <div class="field" *ngSwitchCase="13">
-                        <div class="field-line">                                                                                              
-                                <select name="{{property}}" id="{{property}}">
-                                        <option value="">--Elija una Opcion--</option>
-                                        <option *ngFor="let opcion of op "value="{{opcion}}">
-                                                {{opcion}}
-                                        </option>
-                                </select>
-                        </div>
-                </div>     
+                        <mat-error *ngIf="!isValid">
+                                <div *ngIf="this.form.controls[this.field.property].errors?.['required']">
+                                        El campo {{this.field.property}} es obligatorio.
+                                </div>
+                                <div *ngIf="this.form.controls[this.field.property].errors?.['minlength']">
+                                        El campo {{this.field.property}} debe tener como minimo {{this.form.controls[this.field.property].errors?.['minlength'].requiredLength}} caracteres.
+                                </div>
+                                <div *ngIf="this.form.controls[this.field.property].errors?.['maxlength']">
+                                        El campo {{this.field.property}} debe tener como maximo {{this.form.controls[this.field.property].errors?.['maxlength'].requiredLength}} caracteres.
+                                </div>                        
+                        </mat-error>
+
+                </mat-form-field>                                                              
 
 
-
-
-        </div>
-</ng-template>
+<!-- </ng-template> -->
