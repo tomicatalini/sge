@@ -22,41 +22,59 @@
 
                         <div [ngSwitch]="this.field.type" >
                                 <!-- TEXT -->
-                                <!-- <div class="field" > -->
+                            <ng-container>
+                                <div class="field" > 
                                         <input matInput *ngSwitchCase="0" [formControlName]="this.field.property"  [id]="this.field.property">
-                                        <!-- <button *ngIf="this.field.value" matSuffix mat-icon-button aria-label="Clear" (click)="this.field.value=''">
-                                                <mat-icon>close</mat-icon>
-                                        </button> -->
-                                <!-- </div> -->
+                                        <button *ngIf="this.field.value" matSuffix mat-icon-button aria-label="Clear" (click)="this.field.value=''">
+                                        <mat-icon>close</mat-icon>
+                                        </button>
+                                </div>
+                            </ng-container>   
 
                                 <!-- TEXTAREA -->
-                                <!-- <div class="field" *ngSwitchCase="1">
-                                        <textarea matInput [formControlName]="field.property" placeholder="........." value="{{this.field.value}}"></textarea>
-                               </div> -->
-                               
+                            <ng-container>
+                                <div class="field" *ngSwitchCase="1">
+                                        <textarea matInput [formControlName]="this.field.property" placeholder="........." value="{{this.field.value}}"></textarea>
+                               </div>                               
+                            </ng-container>
+                                
                                <!-- DATE -->
-                                <!-- <div class="field" *ngSwitchCase="2">
-                                        <div class="field-line">                                                                                                                             
-                                                <input type="date" id="start" name="{{this.field.property}}" value="{{this.field.value}}" min="{{minFecha}}" max="{{maxFecha}}">                               
-                                                <input type="date" id="start" name="{{this.field.property}}" value="{{this.field.value}}"/>                               
-                                        </div>
-                                </div> -->
+                                <ng-container>
+                                        <div class="field" *ngSwitchCase="2">
+                                                <mat-label>Elija una fecha</mat-label>
+                                                <!-- <input matInput [matDatepicker]="datepicker">
+                                                <mat-hint>MM/DD/YYYY</mat-hint>
+                                                <mat-datepicker-toggle matSuffix [for]="datepicker"></mat-datepicker-toggle>
+                                                <mat-datepicker #datepicker>
+                                                  <mat-datepicker-actions>
+                                                    <button mat-button matDatepickerCancel>Cancel</button>
+                                                    <button mat-raised-button color="primary" matDatepickerApply>Apply</button>
+                                                  </mat-datepicker-actions>
+                                                </mat-datepicker> --> 
+                                        </div>        
+                                </ng-container>
+                                
 
                                 <!-- CHECKBOX -->
-                                <!-- <div class="field" *ngSwitchCase="3">                        
-                                        <p><mat-checkbox formControlName="controlCheckForm" checked="checked" >{{this.field.value}}</mat-checkbox></p>
-                                </div> -->
-
+                                <ng-container>
+                                        <div class="field" *ngSwitchCase="3">                        
+                                                <p><mat-checkbox [formControlName]="this.field.property" checked="checked" >{{this.field.value}}</mat-checkbox></p>
+                                        </div>        
+                                </ng-container>
+                                
                                 <!-- EMAIL -->
-                                <!-- <div class="field" *ngSwitchCase="4"> -->
-                                        <!-- <div class="field-line">                                                                                              
-                                                <input type="email" id="{{property}}" pattern=".+@gmail\.com" size="30" value="{{value}}" placeholder="prueba@example.com" >
-                                        </div> -->
-                                        
-                                                <!-- s -->
-                                        
-                                <!-- </div> -->
-                
+                                <ng-container>
+                                        <div class="field" *ngSwitchCase="4">
+                                                <div class="field-line">                                                                                              
+                                                   
+                                                        <input matInput placeholder="sde@mcdu.com" [formControlName]="this.field.property" required>
+                                                        <mat-error *ngIf="email.invalid">{{getErrorMessage()}}</mat-error>
+   
+                                                        </div>
+                                        </div>
+                                
+                                </ng-container>
+                                
                                 <!-- PASSWORD -->
                                 <!-- <div class="field" *ngSwitchCase="5">
                                         <div class="field-line">                                                                                              
@@ -154,7 +172,7 @@
                                 </div>                        
                         </mat-error>
 
-                </mat-form-field>                                                              
+                        </mat-form-field>                                                              
 
 
 <!-- </ng-template> -->

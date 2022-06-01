@@ -41,11 +41,11 @@ export class FormService {
       ,
       {
         entity: 'Persona',
-        property: 'apodo',
-        type: TypeOfField.TEXT,
-        label: 'Apodo',
+        property: 'email',
+        type: TypeOfField.EMAIL,
+        label: 'Email',
         value: '',
-        required: false,
+        required: true,
         readonly: false,
         order: 1,
         group: '',
@@ -54,9 +54,9 @@ export class FormService {
       }
       ,{
         entity: 'Persona',
-        property: 'apellido',
-        type: TypeOfField.TEXT,
-        label: 'Apellido',
+        property: 'fecha',
+        type: TypeOfField.DATE,
+        label: 'Fecha:',
         value: '',
         required: true,
         readonly: false,

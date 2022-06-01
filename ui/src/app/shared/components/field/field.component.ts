@@ -4,16 +4,8 @@ import { TypeOfField} from '../../model/TypeOfField';
 import {FormControl, FormGroupDirective, NgForm, Validators} from '@angular/forms';
 import {ErrorStateMatcher} from '@angular/material/core';
 import {FormBuilder, FormGroup} from '@angular/forms';
+import {MatDatepickerModule} from '@angular/material/datepicker';
 
-
-
-
-// export class MyErrorStateMatcher implements ErrorStateMatcher {
-//   isErrorState(control: FormControl | null, form: FormGroupDirective | NgForm | null): boolean {
-//     const isSubmitted = form && form.submitted;
-//     return !!(control && control.invalid && (control.dirty || control.touched || isSubmitted));
-//   }
-// }
 
 @Component({
   selector: 'app-field',
@@ -21,47 +13,25 @@ import {FormBuilder, FormGroup} from '@angular/forms';
   styleUrls: ['./field.component.css']
 })
 export class FieldComponent implements OnInit {
-
-  // @Input() value:string |number| undefined;
-  // @Input() type:TypeOfField | undefined;
-  // @Input() label:string |undefined;
-  // @Input()entity:string |undefined;
-  // @Input()property:string;
-  // @Input()required:undefined | boolean; 
-  // @Input()readonly:undefined | boolean;
-  // @Input() order?:undefined | number;
-  // @Input()group?:undefined | string; 
-  // @Input()format ?: {key: string, value: Object}[] ;
-  // @Input()options?: {key: string, value: Object}[];  
-  // @Input()cantColumnas?:any ;
-  // @Input()cantFilas?:any ;
-  // @Input()minFecha?:any ;
-  // @Input()maxFecha?:any ;
-  // @Input()minL?:any;
-  // @Input()maxL?:any;
-  // @Input()checked?:boolean|undefined ;
-  // @Input()cantDecimal?:number|undefined;
-  // @Input()disabled?:boolean;
-  // @Input()op:number[]=[1,2,3,4,5,6,7];
-  // @Input()check!:boolean;
-
+ 
   @Input() field!: Field;
   @Input() form!: FormGroup;
+  email = new FormControl('', [Validators.required, Validators.email]);
 
+  getErrorMessage() {
+    if (this.email.hasError('required')) {
+      return 'Debes completar este campo';
+    }
 
-  // public inputControl!: FormControl;
-  // emailFormControl = new FormControl('', [Validators.required, Validators.email]);
+    return this.email.hasError('email') ? 'El mail ingresado no es valido' : '';
+  }
 
-  // matcher = new MyErrorStateMatcher();
-  // toppings: FormGroup;
   constructor() { }
-  // constructor(fb: FormBuilder) {
-  //   this.toppings = fb.group({
-  //     controlCheckForm: true
-  
-  //   });
-  // }
-  ngOnInit(): void {}
+
+  ngOnInit(): void {  
+   this.form.controls[ this.field.property ].valid;
+   this.getErrorMessage();
+  }
 
   get isValid() {
     return this.form.controls[ this.field.property ].valid;

@@ -16,7 +16,7 @@ import { AppComponent } from './app.component';
 import { FieldComponent } from './shared/components/field/field.component';
 import { FormComponent } from './shared/components/form/form.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-
+import {MatDatepickerModule} from '@angular/material/datepicker';
 // import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 // import { ErrorStateMatcher, ShowOnDirtyErrorStateMatcher } from '@angular/material/core';
 
@@ -36,7 +36,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     // FontAwesomeModule,
     CommonModule,
     MatIconModule,
-    MatCheckboxModule    
+    MatCheckboxModule,
+    MatDatepickerModule    
   ],
   // providers: [{provide: ErrorStateMatcher, useClass: ShowOnDirtyErrorStateMatcher}],
   providers: [],
