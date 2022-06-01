@@ -3,7 +3,6 @@ import { TypeOfField } from "./TypeOfField";
 export class Field {
     entity: string;
     property: string;
-
     type: TypeOfField;
     label?: string;
     value?: any;        

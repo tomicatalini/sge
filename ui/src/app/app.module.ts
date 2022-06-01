@@ -22,7 +22,11 @@ import { ErrorStateMatcher, ShowOnDirtyErrorStateMatcher } from '@angular/materi
 
 import {MatIconModule} from '@angular/material/icon'; 
 
-import {MatCheckboxModule} from '@angular/material/checkbox'; 
+import {MatCheckboxModule} from '@angular/material/checkbox';
+import { TablaPersonaComponent } from './core/components/persona/tabla/tabla-persona/tabla-persona.component'; 
+import { TableComponent } from './shared/components/table/table/table.component';
+import { MatDialogModule } from '@angular/material/dialog';
+import { PersonaService } from './core/services/persona.service';
 
 
 
@@ -30,7 +34,9 @@ import {MatCheckboxModule} from '@angular/material/checkbox';
   declarations: [
     AppComponent,
     FieldComponent,
-    FormComponent
+    FormComponent,
+    TableComponent,
+    TablaPersonaComponent
   ],
   imports: [
     BrowserModule,
@@ -47,9 +53,11 @@ import {MatCheckboxModule} from '@angular/material/checkbox';
     MatIconModule,
     MatFormFieldModule,
     ReactiveFormsModule,
-    MatCheckboxModule    
+    MatCheckboxModule,
+    MatDialogModule   
   ],
-  providers: [{provide: ErrorStateMatcher, useClass: ShowOnDirtyErrorStateMatcher}],
+  providers: [{provide: ErrorStateMatcher, useClass: ShowOnDirtyErrorStateMatcher},PersonaService],
+  entryComponents:[TablaPersonaComponent],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
