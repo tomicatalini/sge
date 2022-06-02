@@ -12,6 +12,7 @@ import { AppComponent } from './app.component';
 import { FieldComponent } from './shared/components/field/field.component';
 import { FormComponent } from './shared/components/form/form.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { TableComponent } from './components/table/table.component';
 
 
 
@@ -19,7 +20,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
   declarations: [
     AppComponent,
     FieldComponent,
-    FormComponent
+    FormComponent,
+    TableComponent
   ],
   imports: [
     BrowserModule,
