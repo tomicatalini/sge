@@ -1,5 +1,6 @@
 export enum TypeOfField {
     TEXT,
+    EMAIL,
     FLOAT,
     NUMBER,
     MONETARY,

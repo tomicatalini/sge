@@ -28,10 +28,6 @@ export class FormService {
           'value': '' 
         },
         {
-          'key': 'maxLength',
-          'value': 25
-        },
-        {
           'key': 'minLength',
           'value': 5
         }
@@ -49,7 +45,12 @@ export class FormService {
         readonly: false,
         order: 1,
         group: '',
-        format: [],
+        format: [
+          {
+            'key': 'maxLength',
+            'value': 15
+          }
+        ],
         options: []
       }
       ,{
@@ -62,19 +63,33 @@ export class FormService {
         readonly: false,
         order: 1,
         group: '',
-        format: [],
+        format: [
+          {
+            'key': 'required',
+            'value': '' 
+          }
+        ],
         options: []
       },{
         entity: 'Persona',
         property: 'mail',
-        type: TypeOfField.TEXT,
+        type: TypeOfField.EMAIL,
         label: 'Correo Electrónico',
         value: '',
         required: false,
         readonly: false,
         order: 1,
         group: '',
-        format: [],
+        format: [
+          {
+            'key': 'required',
+            'value': '' 
+          },
+          {
+            'key': 'email',
+            'value': ''
+          }
+        ],
         options: []
       },
       {
@@ -87,7 +102,12 @@ export class FormService {
         readonly: false,
         order: 3,
         group: '',
-        format: [],
+        format: [
+          {
+            'key': 'required',
+            'value': '' 
+          }
+        ],
         options: [{
             key: 'Argentina',
             value: 'argentino'

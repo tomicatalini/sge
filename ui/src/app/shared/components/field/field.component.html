@@ -1,30 +1,46 @@
 <div [formGroup]="form">
     
-    <mat-form-field appearance="outline">
-        <mat-label>{{field.label}}</mat-label>
-        <div [ngSwitch]="field.type">
+    <div [ngSwitch]="field.type">
+        <mat-form-field  appearance="outline">
+            <mat-label>{{field.label}}</mat-label>
+            
             <input matInput *ngSwitchCase="0" [formControlName]="field.property" [id]="field.property">
             
-            <mat-select *ngSwitchCase="4" [id]="field.property" [formControlName]="field.property"> 
+            <input matInput *ngSwitchCase="1" [formControlName]="field.property" [id]="field.property" type="email">
+            
+            <mat-select *ngSwitchCase="5" [id]="field.property" [formControlName]="field.property"> 
                 <mat-option *ngFor="let op of field.options" [value]="op.value">{{op.key}}</mat-option>
             </mat-select>
-            
-            <mat-radio-group *ngSwitchCase="6">
-                <mat-radio-button *ngFor="let op of field.options" [id]="field.property" [value]="op.value" [formControlName]="field.property">{{op.key}}</mat-radio-button>
-            </mat-radio-group>
 
-            <div *ngSwitchDefault> No encontro ningun Match.. F</div>
-        </div>
-        <mat-error *ngIf="!isValid">
-            <div *ngIf="this.form.controls[this.field.property].errors?.['required']">
-                {{this.field.property}} es requerido.
-            </div>
-            <div *ngIf="this.form.controls[this.field.property].errors?.['minlength']">
-                El campo {{this.field.property}} debe tener como minimo {{this.form.controls[this.field.property].errors?.['minlength'].requiredLength}} caracteres.
-            </div>
-            <div *ngIf="this.form.controls[this.field.property].errors?.['maxlength']">
-                El campo {{this.field.property}} debe tener como maximo {{this.form.controls[this.field.property].errors?.['maxlength'].requiredLength}} caracteres.
-            </div>
-        </mat-error>
-      </mat-form-field>
+            <div *ngSwitchDefault> No encontro ningun Match.. F</div>            
+            
+            <mat-error *ngIf="!isValid">
+                <div *ngIf="this.form.controls[this.field.property].errors?.['required']">
+                    {{this.field.property}} es requerido.
+                </div>
+                <div *ngIf="this.form.controls[this.field.property].errors?.['minlength']">
+                    El campo {{this.field.property}} debe tener como minimo {{this.form.controls[this.field.property].errors?.['minlength'].requiredLength}} caracteres.
+                </div>
+                <div *ngIf="this.form.controls[this.field.property].errors?.['maxlength']">
+                    El campo {{this.field.property}} debe tener como maximo {{this.form.controls[this.field.property].errors?.['maxlength'].requiredLength}} caracteres.
+                </div>
+                <div *ngIf="this.form.controls[this.field.property].errors?.['min']">
+                    El valor {{this.field.property}} debe ser mayor a {{this.form.controls[this.field.property].errors?.['min'].requiredLength}}.
+                </div>
+                <div *ngIf="this.form.controls[this.field.property].errors?.['max']">
+                    El valor {{this.field.property}} debe ser menor a {{this.form.controls[this.field.property].errors?.['max'].requiredLength}}.
+                </div>
+                <div *ngIf="this.form.controls[this.field.property].errors?.['email']">
+                    El email ingresado es inválido.
+                </div>
+                <div *ngIf="this.form.controls[this.field.property].errors?.['pattern']">
+                    El campo {{this.field.property}} no cumple con el "patron" esperado.
+                </div>
+            </mat-error>
+        </mat-form-field>
+        
+        <mat-radio-group *ngSwitchCase="7" [formControlName]="field.property" [id]="field.property">
+            <mat-radio-button *ngFor="let op of field.options"  [value]="op.value" >{{op.key}}</mat-radio-button>
+        </mat-radio-group>
+    </div>
 </div>
