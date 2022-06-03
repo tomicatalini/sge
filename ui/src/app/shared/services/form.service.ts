@@ -120,30 +120,30 @@ export class FormService {
           }
         ]
       }
-      // , 
-      // {
-      //   entity: 'Persona',
-      //   property: 'sexo',
-      //   type: TypeOfField.RADIO,
-      //   label: 'Sexo',
-      //   value: '',
-      //   required: true,
-      //   readonly: false,
-      //   order: 2,
-      //   group: '',
-      //   format: [],
-      //   options: [{
-      //     key: 'Femenino',
-      //     value: 'F'
-      //   },{
-      //     key: 'Masculino',
-      //     value: 'M'
-      //   },{
-      //     key: 'Otros',
-      //     value: 'O'
-      //   }
-      // ]
-      // }
+      , 
+      {
+        entity: 'Persona',
+        property: 'sexo',
+        type: TypeOfField.RADIO,
+        label: 'Sexo',
+        value: '',
+        required: true,
+        readonly: false,
+        order: 2,
+        group: '',
+        format: [],
+        options: [{
+          key: 'Femenino',
+          value: 'F'
+        },{
+          key: 'Masculino',
+          value: 'M'
+        },{
+          key: 'Otros',
+          value: 'O'
+        }
+      ]
+      }
     ];
 
     return of( options );

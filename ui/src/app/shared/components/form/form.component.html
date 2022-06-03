@@ -1,10 +1,10 @@
-<form [formGroup]="profileForm" (ngSubmit)="onSubmit()">
+<form [formGroup]="profileForm" (ngSubmit)="onSubmit()" id="form">
     <div *ngFor="let field of fields">
         <app-field [field]="field" [form]="profileForm"></app-field>
     </div>
 
     <div>
-        <button type="submit">Enviar</button>
+        <button mat-raised-button color="primary" type="submit" [disabled]="this.profileForm.invalid">Enviar</button>
     </div>
 </form>
 

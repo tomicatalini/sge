@@ -20,32 +20,14 @@ export class FormComponent implements OnInit {
 
   ngOnInit(): void {
     this.profileForm = this.fieldService.toFormGroup( this.fields as Field[] );
-  }
-
-  createControls(){} 
+  } 
 
   onSubmit(){
-
-    if(this.anyErrors()){
+    if(this.profileForm.invalid){
       this.result = 'Hay errores rey';
     } else {
       this.result = JSON.stringify( this.profileForm.getRawValue() );
     }
-    return false;
-  }
-
-  anyErrors(){
-    let error: boolean = false;
-
-    if(this.profileForm.hasError('required')) {
-      error = true;
-    } else if (this.profileForm.hasError('maxLength')){
-      error = true;
-    } else if (this.profileForm.hasError('minLength')){
-      error = true;
-    }
-
-    return error;    
   }
 
 }

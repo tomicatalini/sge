@@ -21,6 +21,7 @@ import {MatSelectModule} from '@angular/material/select';
 import {MatRadioModule} from '@angular/material/radio';
 import { PersonaService } from './core/services/persona.service';
 import {MatIconModule} from '@angular/material/icon';
+import {MatButtonModule} from '@angular/material/button';
 //import { DialogComponent } from './core/components/persona/dialog/dialog.component';
 
 
@@ -41,7 +42,7 @@ import {MatIconModule} from '@angular/material/icon';
     BrowserAnimationsModule,
     MatFormFieldModule, MatInputModule, MatSelectModule, MatRadioModule,
     HttpClientModule,
-    MatTableModule,MatIconModule
+    MatTableModule,MatIconModule, MatButtonModule
   ],
   providers: [PersonaService],
   entryComponents:[TablaComponent],
