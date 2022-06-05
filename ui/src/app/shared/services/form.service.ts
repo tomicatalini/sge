@@ -143,6 +143,101 @@ export class FormService {
           value: 'O'
         }
       ]
+      },
+      {
+        entity: 'Persona',
+        property: 'fecha',
+        type: TypeOfField.DATE,
+        label: 'Fecha',
+        value: '',
+        required: true,
+        readonly: false,
+        order: 2,
+        group: '',
+        format: [],
+        options: [{
+          key: 'Femenino',
+          value: 'F'
+        },{
+          key: 'Masculino',
+          value: 'M'
+        },{
+          key: 'Otros',
+          value: 'O'
+        }
+      ]
+      },{
+        entity: 'Persona',
+        property: 'sexoCheck',
+        type: TypeOfField.CHECKBOX,
+        label: 'Sexo',
+        value: '',
+        required: true,
+        readonly: false,
+        order: 2,
+        group: '',
+        format: [],
+        options: [{
+          key: 'Femenino',
+          value: 'F'
+        },{
+          key: 'Masculino',
+          value: 'M'
+        },{
+          key: 'Otros',
+          value: 'O'
+        }
+      ]
+      }
+      ,{
+        entity: 'Persona',
+        property: 'float',
+        type: TypeOfField.FLOAT,
+        label: 'Flotante',
+        value: '1.23333333333',
+        required: false,
+        readonly: false,
+        order: 2,
+        group: '',    
+        format: [
+        {
+          'key': 'decimales',
+          'value': 2
+        }
+      ],
+        options: []
+      },
+      {
+        entity: 'Persona',
+        property: 'monetary',
+        type: TypeOfField.MONETARY,
+        label: 'Moneda',
+        value: '1.54',
+        required: false,
+        readonly: false,
+        order: 2,
+        group: '',    
+        format: [
+        {
+          'key': 'decimales',
+          'value': 0.01
+        }
+      ],
+        options: []
+      },
+      {
+        entity: 'Persona',
+        property: 'boton',
+        type: TypeOfField.BOTON,
+        label: 'Boton',
+        value: 'Hacer Algo',
+        required: false,
+        readonly: false,
+        order: 2,
+        group: '',    
+        format: [        
+      ],
+        options: []
       }
     ];
 

@@ -1,54 +1,109 @@
 <div [formGroup]="form">
-    <div *ngIf="this.field.type < 6">
-        <div [ngSwitch]="field.type">
-            <mat-form-field appearance="outline">
-                <mat-label>{{field.label}}</mat-label>
-                
-                <input matInput *ngSwitchCase="0" [formControlName]="field.property" [id]="field.property">
-                
-                <input matInput *ngSwitchCase="2" [formControlName]="field.property" [id]="field.property" type="email">
-                
-                <mat-select *ngSwitchCase="5" [id]="field.property" [formControlName]="field.property"> 
-                    <mat-option *ngFor="let op of field.options" [value]="op.value">{{op.key}}</mat-option>
-                </mat-select>                       
-                
-                <mat-error *ngIf="!isValid">
-                    <div *ngIf="this.form.controls[this.field.property].errors?.['required']">
-                        {{this.field.property}} es requerido.
+    <ng-template *ngIf="this.field.type < 5;then trueBlock else falseBlock"></ng-template>
+    <ng-template #trueBlock>
+            <ng-container [ngSwitch]="field.type">
+                    <mat-form-field appearance="outline">
+                        <mat-label>{{field.label}}</mat-label>
+                        <ng-container *ngSwitchCase="0">
+                            <input matInput  [formControlName]="field.property" [id]="field.property">                
+                        </ng-container>
+                        <ng-container *ngSwitchCase="1">
+                            <input matInput  [formControlName]="field.property" [id]="field.property" type="email">                
+                        </ng-container>
+                        
+                        <ng-container *ngSwitchCase="2">
+                            <input matInput  [formControlName]="field.property" [id]="field.property" type="number">                
+                        </ng-container>
+                        <ng-container *ngSwitchCase="3">
+                            <input matInput  [formControlName]="field.property" [id]="field.property" type="tel">                
+                        </ng-container>
+                        
+                        <ng-container *ngSwitchCase="4">
+                            <mat-select  [id]="field.property" [formControlName]="field.property"> 
+                                <mat-option *ngFor="let op of field.options" [value]="op.value">{{op.key}}</mat-option>
+                            </mat-select>                                           
+                        </ng-container>
+                        
+                        <mat-error *ngIf="!isValid">
+                            <div *ngIf="this.form.controls[this.field.property].errors?.['required']">
+                                {{this.field.property}} es requerido.
+                            </div>
+                            <div *ngIf="this.form.controls[this.field.property].errors?.['minlength']">
+                                El campo {{this.field.property}} debe tener como minimo {{this.form.controls[this.field.property].errors?.['minlength'].requiredLength}} caracteres.
+                            </div>
+                            <div *ngIf="this.form.controls[this.field.property].errors?.['maxlength']">
+                                El campo {{this.field.property}} debe tener como maximo {{this.form.controls[this.field.property].errors?.['maxlength'].requiredLength}} caracteres.
+                            </div>
+                            <div *ngIf="this.form.controls[this.field.property].errors?.['min']">
+                                El valor {{this.field.property}} debe ser mayor a {{this.form.controls[this.field.property].errors?.['min'].requiredLength}}.
+                            </div>
+                            <div *ngIf="this.form.controls[this.field.property].errors?.['max']">
+                                El valor {{this.field.property}} debe ser menor a {{this.form.controls[this.field.property].errors?.['max'].requiredLength}}.
+                            </div>
+                            <div *ngIf="this.form.controls[this.field.property].errors?.['email']">
+                                El email ingresado es inválido.
+                            </div>
+                            <div *ngIf="this.form.controls[this.field.property].errors?.['pattern']">
+                                El campo {{this.field.property}} no cumple con el "patron" esperado.
+                            </div>
+                        </mat-error>
+                    </mat-form-field>
+                </ng-container>
+    </ng-template>
+    <ng-template #falseBlock> 
+            <div [ngSwitch]="field.type">
+                    <ng-container *ngSwitchCase="5" >
+                            <div class="input-float">
+                                <mat-label>{{field.label}}</mat-label>          
+                                <input matInput type="number" [formControlName]="field.property"  [id]="field.property"  value="{{field.value | number:'1.0-2'}} "  step="field.format.value">                      
+                                                                                                      
                     </div>
-                    <div *ngIf="this.form.controls[this.field.property].errors?.['minlength']">
-                        El campo {{this.field.property}} debe tener como minimo {{this.form.controls[this.field.property].errors?.['minlength'].requiredLength}} caracteres.
+                    </ng-container> 
+                    <ng-container *ngSwitchCase="6" >
+                            <div class="input-monetary" >
+                                <mat-label>{{field.label}}</mat-label>          
+                                <!-- <input matInput  [formControlName]="field.property" [id]="field.property"  value="{{field.value | currency:'$'}}">       -->
+                                <input type="text"   [id]="field.property"  value="{{ field.value | currency:'$' }} "  >                                                                                                                      
+                            </div>
+                    </ng-container> 
+                    <ng-container *ngSwitchCase="7" >
+                            <div >
+                                <mat-label>{{field.label}}</mat-label>                           
+                                <mat-checkbox *ngFor="let op of field.options"  [value]="op.value" [formControlName]="field.property" [id]="field.property" class="checkbox" >{{op.key}}</mat-checkbox >
                     </div>
-                    <div *ngIf="this.form.controls[this.field.property].errors?.['maxlength']">
-                        El campo {{this.field.property}} debe tener como maximo {{this.form.controls[this.field.property].errors?.['maxlength'].requiredLength}} caracteres.
-                    </div>
-                    <div *ngIf="this.form.controls[this.field.property].errors?.['min']">
-                        El valor {{this.field.property}} debe ser mayor a {{this.form.controls[this.field.property].errors?.['min'].requiredLength}}.
-                    </div>
-                    <div *ngIf="this.form.controls[this.field.property].errors?.['max']">
-                        El valor {{this.field.property}} debe ser menor a {{this.form.controls[this.field.property].errors?.['max'].requiredLength}}.
-                    </div>
-                    <div *ngIf="this.form.controls[this.field.property].errors?.['email']">
-                        El email ingresado es inválido.
-                    </div>
-                    <div *ngIf="this.form.controls[this.field.property].errors?.['pattern']">
-                        El campo {{this.field.property}} no cumple con el "patron" esperado.
-                    </div>
-                </mat-error>
-            </mat-form-field>
-        </div>
-    </div>
-    <div *ngIf="this.field.type >= 6">
-        <div [ngSwitch]="field.type">
-            <div *ngSwitchCase="9" >
-                <mat-label>{{field.label}}</mat-label>
-                <mat-radio-group [formControlName]="field.property" [id]="field.property" class="radio">
-                    <mat-radio-button *ngFor="let op of field.options"  [value]="op.value" >{{op.key}}</mat-radio-button>
-                </mat-radio-group>
-            </div>
-
-            <div *ngSwitchDefault> No encontro ningun Match.. F</div> 
-        </div>       
-
-    </div>    
+                    </ng-container> 
+                    <ng-container *ngSwitchCase="8" >
+                     <div >
+                         <mat-label>{{field.label}}</mat-label>
+                         <mat-radio-group [formControlName]="field.property" [id]="field.property" class="radio">
+                             <mat-radio-button *ngFor="let op of field.options"  [value]="op.value" >{{op.key}}</mat-radio-button>
+                         </mat-radio-group>
+                     </div>
+                    </ng-container> 
+                    <ng-container *ngSwitchCase="9" >
+                            <div >
+                                <mat-label>{{field.label}}</mat-label>
+                                <button  [formControlName]="field.property" [id]="field.property"  type="button" mat-button (click)="clicked = true">
+                                       {{field.value}}
+                                      </button>
+                                      
+                            </div>
+                    </ng-container> 
+                    <ng-container *ngSwitchCase="10" >
+                            <div class="fecha-container" >
+                                    <!-- <mat-form-field appearance="fill"> -->
+                                            <mat-label class="label-fecha">{{field.label}}</mat-label>
+                                         <div class="input-fecha">
+                                                <input matInput [matDatepicker]="picker" [formControlName]="field.property" [id]="field.property" class="fecha"  >
+                                                <!-- <mat-hint>DD/MM/YYYY</mat-hint> -->
+                                                <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                                                <mat-datepicker #picker></mat-datepicker>                                          
+                                         </div>
+                                            
+                            </div>
+                    </ng-container> 
+                     <ng-container *ngSwitchDefault> El tipo ingresado no esta contemplado...</ng-container> 
+            </div>       
+    </ng-template>
+    
 </div>

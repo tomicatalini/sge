@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { ReactiveFormsModule } from '@angular/forms';
+import { CommonModule } from '@angular/common';
 
 
 
@@ -22,6 +23,12 @@ import {MatRadioModule} from '@angular/material/radio';
 import { PersonaService } from './core/services/persona.service';
 import {MatIconModule} from '@angular/material/icon';
 import {MatButtonModule} from '@angular/material/button';
+import {MatNativeDateModule} from '@angular/material/core';
+import {MatDatepickerModule} from '@angular/material/datepicker';
+import {MatCheckboxModule} from '@angular/material/checkbox';
+
+
+
 //import { DialogComponent } from './core/components/persona/dialog/dialog.component';
 
 
@@ -37,12 +44,16 @@ import {MatButtonModule} from '@angular/material/button';
   ],
   imports: [
     BrowserModule,
+    CommonModule,
     AppRoutingModule,
     ReactiveFormsModule,
     BrowserAnimationsModule,
     MatFormFieldModule, MatInputModule, MatSelectModule, MatRadioModule,
     HttpClientModule,
-    MatTableModule,MatIconModule, MatButtonModule
+    MatTableModule,MatIconModule, MatButtonModule,
+    MatDatepickerModule,MatNativeDateModule,
+    MatCheckboxModule
+
   ],
   providers: [PersonaService],
   entryComponents:[TablaComponent],

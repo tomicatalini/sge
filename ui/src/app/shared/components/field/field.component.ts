@@ -13,6 +13,8 @@ export class FieldComponent implements OnInit {
   @Input() field!: Field;
   @Input() form!: FormGroup;
   
+  clicked = false;
+
   constructor() { }
 
   ngOnInit(): void { }    
