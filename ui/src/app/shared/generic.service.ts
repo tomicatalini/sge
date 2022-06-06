@@ -1,8 +1,15 @@
 import { Inject, Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { environment } from 'src/environments/environment';
-import { map, Observable } from 'rxjs';
+import { catchError, map, Observable, throwError } from 'rxjs';
+import Swal from 'sweetalert2';
 
+const Toast = Swal.mixin({
+  toast: true,
+  position: "top",
+  showConfirmButton: false,
+  timer: 3000
+});
 @Injectable({
   providedIn: 'root'
 })
@@ -21,5 +28,21 @@ export abstract class GenericService<T> {
       .pipe(
         map((response: any) => response.data as T)
       );
+  }
+  save(request: T):Observable<any>{
+    if (request) {
+      const path = `${this.api}${this.endPoint}`;
+      return this.http.post<any>(path, request, { headers: this.httpClientHeaders })
+        .pipe(
+          catchError(e => {
+            Toast.fire({
+              icon: 'error',
+              title: e.error.mensaje
+            });
+            return throwError(() => e);
+          })
+        );
+    }
+    throw new Error(`Id NotFound`)
   }
 }
