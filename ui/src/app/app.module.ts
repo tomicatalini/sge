@@ -22,10 +22,14 @@ import {MatSelectModule} from '@angular/material/select';
 import {MatRadioModule} from '@angular/material/radio';
 import { PersonaService } from './core/services/persona.service';
 import {MatIconModule} from '@angular/material/icon';
+import {MatCardModule} from '@angular/material/card';
 import {MatButtonModule} from '@angular/material/button';
 import {MatNativeDateModule} from '@angular/material/core';
 import {MatDatepickerModule} from '@angular/material/datepicker';
 import {MatCheckboxModule} from '@angular/material/checkbox';
+import { PersonaDialogComponent } from './core/components/persona-dialog/persona-dialog/persona-dialog.component';
+import { MatDialogModule } from '@angular/material/dialog';
+import { DialogComponent } from './shared/components/dialog/dialog/dialog.component';
 
 
 
@@ -40,7 +44,8 @@ import {MatCheckboxModule} from '@angular/material/checkbox';
     FormComponent,
     TableComponent,
     TablaComponent,
-    //DialogComponent
+    PersonaDialogComponent,
+    DialogComponent
   ],
   imports: [
     BrowserModule,
@@ -50,7 +55,7 @@ import {MatCheckboxModule} from '@angular/material/checkbox';
     BrowserAnimationsModule,
     MatFormFieldModule, MatInputModule, MatSelectModule, MatRadioModule,
     HttpClientModule,
-    MatTableModule,MatIconModule, MatButtonModule,
+    MatTableModule,MatDialogModule,MatIconModule,MatCardModule, MatButtonModule,
     MatDatepickerModule,MatNativeDateModule,
     MatCheckboxModule
 
