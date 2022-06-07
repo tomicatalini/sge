@@ -194,16 +194,18 @@ export class FormService {
         property: 'float',
         type: TypeOfField.FLOAT,
         label: 'Flotante',
-        value: '1.23333333333',
+        value: 1.23333333333,
         required: false,
         readonly: false,
         order: 2,
-        group: '',    
+        group: '',
+        decimales:'001',  
         format: [
         {
-          'key': 'decimales',
+          'key': 'decimal',
           'value': 2
         }
+        
       ],
         options: []
       },

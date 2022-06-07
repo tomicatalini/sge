@@ -2,6 +2,8 @@ import { Component, OnInit, Input } from '@angular/core';
 import { FormGroup } from '@angular/forms';
 
 import { Field } from '../../model/Field';
+import { TypeOfField } from '../../model/TypeOfField';
+
 
 @Component({
   selector: 'app-field',
@@ -14,13 +16,18 @@ export class FieldComponent implements OnInit {
   @Input() form!: FormGroup;
   
   clicked = false;
-
+  valor:number;
   constructor() { }
 
-  ngOnInit(): void { }    
+ 
 
+  ngOnInit(): void { 
+
+  }    
+  
   get isValid() {   
     return this.form.controls[this.field.property].valid; 
+  
   }
 
 }

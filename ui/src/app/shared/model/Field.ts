@@ -1,5 +1,7 @@
 import { TypeOfField } from "./TypeOfField";
 
+
+
 export class Field {
     entity: string;
     property: string;
@@ -11,6 +13,7 @@ export class Field {
     readonly: boolean;
     order: number;
     group: string;
+    decimales?:string;
     
     format?: {key: string, value: any}[]; //Formatos especiales para cada una de las opciones del TypeOfField.. cantDecimal, maxLength..
     options?: {key: string, value: string}[]; //Diferentes opciones para los tipos SELECT, RADIO, CHECKBOX..
@@ -26,6 +29,7 @@ export class Field {
         group?: string;
         format?: {key: string, value: any}[];
         options?: {key: string, value: string}[];
+        decimales?:string;
     } = {}) {
         this.entity = options.entity || '';
         this.property = options.property || '';
@@ -38,5 +42,6 @@ export class Field {
         this.order = options.order === undefined ? 1 : options.order;
         this.format = options.format || [];
         this.options = options.options || [];
+        this.decimales= options.decimales == null || options.decimales== undefined? '01':options.decimales;
     }
 }

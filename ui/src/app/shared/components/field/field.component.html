@@ -53,17 +53,27 @@
     <ng-template #falseBlock> 
             <div [ngSwitch]="field.type">
                     <ng-container *ngSwitchCase="5" >
-                            <div class="input-float">
-                                <mat-label>{{field.label}}</mat-label>          
-                                <input matInput type="number" [formControlName]="field.property"  [id]="field.property"  value="{{field.value | number:'1.0-2'}} "  step="field.format.value">                      
-                                                                                                      
-                    </div>
+                        <div class="input-float" >
+                               
+                            <mat-form-field  floatLabel="always">
+                                <mat-label>{{field.label}}</mat-label>
+                                
+                                <input matInput type="number" step="0.{{field.decimales }}" min=0 [id]="field.property" [formControlName]="field.property" >
+
+                                
+                              </mat-form-field>                                                                                                                   
+                        </div>
                     </ng-container> 
                     <ng-container *ngSwitchCase="6" >
                             <div class="input-monetary" >
-                                <mat-label>{{field.label}}</mat-label>          
-                                <!-- <input matInput  [formControlName]="field.property" [id]="field.property"  value="{{field.value | currency:'$'}}">       -->
-                                <input type="text"   [id]="field.property"  value="{{ field.value | currency:'$' }} "  >                                                                                                                      
+                               
+                                <mat-form-field floatLabel="always">
+                                    <mat-label>{{field.label}}</mat-label>
+                                    <input matInput type="number"  [id]="field.property" [formControlName]="field.property" class="example-right-align" value={{field.value}} >
+                                    <span matPrefix>$&nbsp;</span>
+
+                                    
+                                  </mat-form-field>                                                                                                                   
                             </div>
                     </ng-container> 
                     <ng-container *ngSwitchCase="7" >
