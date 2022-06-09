@@ -7,6 +7,7 @@ export enum TypeOfField {
     //compatible with 
     SELECT,
     FLOAT,
+
     //independently implemented
     MONETARY,
     CHECKBOX,
