@@ -41,6 +41,8 @@ import { FormasComunicacionComponent } from './core/forma-comunicacion/component
 import { LocalidadesComponent } from './core/localidades/components/localidades/localidades.component';
 import { PersonasComponent } from './core/persona/components/personas/personas.component';
 import { FormCallerComponent } from './shared/components/form/form-caller/form-caller.component';
+import { ComponentViewerComponent } from './shared/components/component-viewer/component-viewer.component';
+import {MatTabsModule} from '@angular/material/tabs';
 
 //import { DialogComponent } from './core/components/persona/dialog/dialog.component';
 
@@ -61,7 +63,8 @@ import { FormCallerComponent } from './shared/components/form/form-caller/form-c
     FormasComunicacionComponent,
     LocalidadesComponent,
     PersonasComponent,
-    FormCallerComponent
+    FormCallerComponent,
+    ComponentViewerComponent
   ],
   imports: [
     BrowserModule,
@@ -76,8 +79,8 @@ import { FormCallerComponent } from './shared/components/form/form-caller/form-c
     MatCheckboxModule,
     MatToolbarModule,
     MatSidenavModule,
-    MatListModule
-
+    MatListModule,
+    MatTabsModule
   ],
   providers: [PersonaService, MenuItems],
   entryComponents:[TablaComponent],

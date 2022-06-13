@@ -1,14 +1,18 @@
 import { Component, NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { TablaComponent } from './core/components/tabla-Persona/tabla.component';
 import { DomiciliosComponent } from './core/domicilio/components/domicilios/domicilios.component';
 import { FormasComunicacionComponent } from './core/forma-comunicacion/components/formas-comunicacion/formas-comunicacion.component';
 import { LocalidadesComponent } from './core/localidades/components/localidades/localidades.component';
 import { PersonasComponent } from './core/persona/components/personas/personas.component';
+import { ComponentViewerComponent } from './shared/components/component-viewer/component-viewer.component';
 import { FormCallerComponent } from './shared/components/form/form-caller/form-caller.component';
 import { FormComponent } from './shared/components/form/form.component';
 
 const routes: Routes = [
-  { path: 'personas', component: PersonasComponent },
+  { path: 'personas', component: TablaComponent },
+  { path: 'personas/list', component: TablaComponent },
+  { path: 'personas/new', component: PersonasComponent },
   { path: 'domicilios', component: DomiciliosComponent },
   { path: 'localidades', component: LocalidadesComponent },
   { path: 'formasComunicacion', component: FormasComunicacionComponent },

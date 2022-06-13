@@ -28,14 +28,7 @@
       </mat-sidenav>
   
       <mat-sidenav-content>
-        <mat-toolbar color="primary" class="example-toolbar toolbar-secondary">
-          <button mat-button [class.example-is-mobile-personaBtn]="mobileQuery.matches">Listar</button>
-          <a class="" appAccordionToggle [routerLink]="['/', 'formulario']" >
-            <button mat-button [class.example-is-mobile-personaBtn]="mobileQuery.matches">Nuevo</button>
-          </a>
-          <!-- <span class="example-spacer"></span>       -->
-        </mat-toolbar>
-        <router-outlet></router-outlet>
+        <app-component-viewer></app-component-viewer>
       </mat-sidenav-content>
     </mat-sidenav-container>
   </div>
