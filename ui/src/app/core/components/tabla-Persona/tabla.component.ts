@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { Field } from 'src/app/shared/model/Field';
 import { TypeOfField } from 'src/app/shared/model/TypeOfField';
+import { FormService } from 'src/app/shared/services/form.service';
 import { Persona } from '../../model/persona';
 import { PersonaService } from '../../services/persona.service';
 import { PersonaDialogComponent } from '../persona-dialog/persona-dialog/persona-dialog.component';
@@ -13,91 +14,44 @@ import { PersonaDialogComponent } from '../persona-dialog/persona-dialog/persona
 })
 export class TablaComponent implements OnInit {
 
-  fields: Field[]= [
-    {
-      entity: 'Persona',
-      property: 'id',
-      type: TypeOfField.TEXT,
-      label: 'Nombre',
-      value: '',
-      required: true,
-      readonly: false,
-      order: 1,
-      group: '',
-      format: [{
-        'key': 'required',
-        'value': '' 
-      },
-      {
-        'key': 'maxLength',
-        'value': 25
-      },
-      {
-        'key': 'minLength',
-        'value': 5
-      }
-    ],
-      options: []
-    }
-    ,
-    {
-      entity: 'Persona',
-      property: 'nombre',
-      type: TypeOfField.TEXT,
-      label: 'Apodo',
-      value: '',
-      required: false,
-      readonly: false,
-      order: 1,
-      group: '',
-      format: [],
-      options: []
-    }
-    ,{
-      entity: 'Persona',
-      property: 'apellido',
-      type: TypeOfField.TEXT,
-      label: 'Apellido',
-      value: '',
-      required: true,
-      readonly: false,
-      order: 1,
-      group: '',
-      format: [],
-      options: []
-    },{
-      entity: 'Persona',
-      property: 'biografia',
-      type: TypeOfField.TEXT,
-      label: 'Correo Electrónico',
-      value: '',
-      required: false,
-      readonly: false,
-      order: 1,
-      group: '',
-      format: [],
-      options: []
-    }
-  ];
-  tablaHead: string[]=['id','nombre','apellido','biografia'];
+  fields: Field[];
+  tablaHead: string[];
   editable:boolean = true;
   entidad:string="Persona";
+
   constructor(
     public dialog: MatDialog,
-    public personaService: PersonaService
+    public personaService: PersonaService,
+    public formService: FormService
   ) { }
 
   ngOnInit(): void {
-    if (this.editable==true){
-      this.tablaHead.push('acciones')
-    }  
-  }
-  edit(persona: Persona){
-    const dialogEdit = this.dialog.open( PersonaDialogComponent,{
-      disableClose:true,
-      width:'60%',
-      data:persona
-    });
 
+    this.tablaHead = this.getHeaders();
+
+    this.formService.getFields().subscribe( res => this.fields = res);
+    
   }
+
+  getHeaders(){
+    let headers: string[] = [];
+    let prueba: Field[] = [];
+
+    this.formService.getFields().subscribe( res => prueba = res);
+
+    for(let field of prueba){
+      headers.push(field.property);
+    }
+
+    return headers;
+  }
+
+  // edit(persona: Persona){
+  //   const dialogEdit = this.dialog.open( PersonaDialogComponent,{
+  //     disableClose:true,
+  //     width:'60%',
+  //     data:persona
+  //   });
+
+  // }
 }

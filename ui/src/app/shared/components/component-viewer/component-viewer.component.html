@@ -1,15 +1,11 @@
 <div class="component-viewer">
-    <nav mat-tab-nav-bar [tabPanel]="tabPanel" class="component-viewer-tab-nav">
-        <a mat-tab-link 
-            [routerLink]="['personas', 'list']"
-            (click)="activeLink = 'List'"
-            [active]="activeLink == 'List'">List</a>
-        <a mat-tab-link
-            [routerLink]="['personas', 'new']"
-            (click)="activeLink = 'New'"
-            [active]="activeLink == 'New'">New</a>
-    </nav>
-    <mat-tab-nav-panel #tabPanel></mat-tab-nav-panel>
+    <header class="component-viewer-header">
+        <mat-toolbar color="primary">
+            <mat-toolbar-row>
+              <span>{{model}}</span>
+            </mat-toolbar-row>
+        </mat-toolbar>
+    </header>
 
     <div class="component-viewer-content">
         <router-outlet></router-outlet>

@@ -35,12 +35,7 @@ import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatSidenavModule} from '@angular/material/sidenav';
 import {MatListModule} from '@angular/material/list';
 import { SidenavComponent } from './shared/components/sidenav/sidenav.component';
-import { HomeComponent } from './shared/components/home/home.component';
-import { DomiciliosComponent } from './core/domicilio/components/domicilios/domicilios.component';
-import { FormasComunicacionComponent } from './core/forma-comunicacion/components/formas-comunicacion/formas-comunicacion.component';
-import { LocalidadesComponent } from './core/localidades/components/localidades/localidades.component';
 import { PersonasComponent } from './core/persona/components/personas/personas.component';
-import { FormCallerComponent } from './shared/components/form/form-caller/form-caller.component';
 import { ComponentViewerComponent } from './shared/components/component-viewer/component-viewer.component';
 import {MatTabsModule} from '@angular/material/tabs';
 
@@ -58,12 +53,7 @@ import {MatTabsModule} from '@angular/material/tabs';
     PersonaDialogComponent,
     DialogComponent,
     SidenavComponent,
-    HomeComponent,
-    DomiciliosComponent,
-    FormasComunicacionComponent,
-    LocalidadesComponent,
     PersonasComponent,
-    FormCallerComponent,
     ComponentViewerComponent
   ],
   imports: [

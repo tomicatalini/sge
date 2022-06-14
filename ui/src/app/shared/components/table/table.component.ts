@@ -6,6 +6,7 @@ import { MatDialog } from '@angular/material/dialog';
 import { GenericHelper } from '../../model/generic-helper';
 import { DialogComponent } from '../dialog/dialog/dialog.component';
 import { PersonaDialogComponent } from 'src/app/core/components/persona-dialog/persona-dialog/persona-dialog.component';
+import { PersonaService } from 'src/app/core/services/persona.service';
 //import { DialogComponent } from 'src/app/core/components/persona/dialog/dialog.component';
 
 
@@ -23,12 +24,14 @@ export class TableComponent implements OnInit {
   @Input()entidad:String;
   dataSource: any[];
   constructor(
-    public dialog: MatDialog
+    public dialog: MatDialog,
+    public personaService: PersonaService
   ) { }
 
   ngOnInit(): void {
-    this.findAllAll();
+    this.dataSource = this.personaService.getAll();
   }
+
   findAllAll(): void{
     this.servicio.findAll().subscribe(
       response => {

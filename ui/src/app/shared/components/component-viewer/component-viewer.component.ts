@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-component-viewer',
@@ -7,7 +7,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ComponentViewerComponent implements OnInit {
 
-  activeLink = 'List';  
+  @Input() model: string = 'Persona';
 
   constructor() { }
 
