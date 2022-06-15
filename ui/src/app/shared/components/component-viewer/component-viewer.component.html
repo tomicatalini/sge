@@ -1,9 +1,19 @@
 <div class="component-viewer">
     <header class="component-viewer-header">
-        <mat-toolbar color="primary">
+        <mat-toolbar color="primary">            
             <mat-toolbar-row>
-              <span>{{model}}</span>
-            </mat-toolbar-row>
+                <button mat-flat-button color="warn" class="" [routerLink]="['/persona', 'id']" (click)="onClick()" *ngIf="this.list">Nuevo</button>
+                <span>{{model}}</span>
+                <div *ngIf="this.list">
+                    <mat-form-field appearance="standard">
+                        <mat-label>Filter</mat-label>
+                        <input matInput placeholder="Ex. Mia" #input>
+                    </mat-form-field>
+                    <button mat-icon-button>
+                        <mat-icon>search</mat-icon>
+                    </button>
+                </div>
+            </mat-toolbar-row>            
         </mat-toolbar>
     </header>
 

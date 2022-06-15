@@ -163,7 +163,7 @@ export class FormService {
         entity: 'Persona',
         property: 'fecha',
         type: TypeOfField.DATE,
-        label: 'Fecha',
+        label: 'Fecha de Nacimiento',
         value: '',
         required: true,
         readonly: false,

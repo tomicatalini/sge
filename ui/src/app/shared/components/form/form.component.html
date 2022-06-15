@@ -1,6 +1,6 @@
 <form [formGroup]="profileForm" (ngSubmit)="onSubmit()" id="form">
-    <div *ngFor="let field of fields">
-        <app-field [field]="field" [form]="profileForm"></app-field>
+    <div *ngFor="let field of fields" class="form-fields-container">
+        <app-field [field]="field" [form]="profileForm" class="form-field"></app-field>    
     </div>
 
     <div>

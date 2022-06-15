@@ -2,7 +2,7 @@ import { Injectable } from "@angular/core";
 import { Menu } from "./menu";
 
 const MENUITEMS: Menu[] = [
-    { state: 'personas', name: 'Persona', type: 'link', icon:''}
+    { state: 'persona', name: 'Persona', type: 'link', icon:''}
 ];
 
 @Injectable()

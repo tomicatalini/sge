@@ -5,8 +5,8 @@ import { PersonasComponent } from './core/persona/components/personas/personas.c
 import { DynamicListComponent } from './shared/components/dynamic-list/dynamic-list.component';
 
 const routes: Routes = [
-  { path: 'personas', component: DynamicListComponent },
-  { path: 'personas/new', component: PersonasComponent }
+  { path: 'persona', component: DynamicListComponent },
+  { path: 'persona/id', component: PersonasComponent }
 ];
 
 @NgModule({

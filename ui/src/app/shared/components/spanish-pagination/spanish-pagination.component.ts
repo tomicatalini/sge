@@ -1,5 +1,4 @@
 import { Component, Injectable, NgModule, OnInit } from '@angular/core';
-// import { localize } from '@angular/localize';
 
 import { MatPaginatorIntl, MatPaginatorModule } from '@angular/material/paginator';
 import { Subject } from 'rxjs';
@@ -8,9 +7,9 @@ import { Subject } from 'rxjs';
 export class MyCustomPaginatorIntl implements MatPaginatorIntl {
   changes = new Subject<void>();
 
-  firstPageLabel = $localize`Primer Página`;
-  itemsPerPageLabel = $localize`Items por página:`;
-  lastPageLabel = $localize`Última Página`;
+  firstPageLabel = `Primer Página`;
+  itemsPerPageLabel = `Items por página:`;
+  lastPageLabel = `Última Página`;
 
   nextPageLabel = 'Siguiente';
   previousPageLabel = 'Anterior';

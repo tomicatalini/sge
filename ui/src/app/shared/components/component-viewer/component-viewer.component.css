@@ -4,6 +4,33 @@
     flex-direction: column;
     gap: 1rem;
 }
-.component-viewer-header {
+.component-viewer-header{
+    padding: 0;
+}
+.component-viewer-header mat-toolbar-row {
+    display: flex;
+    flex-direction: row;
+    gap: 1rem;
+    overflow: hidden;
+}
 
+.component-viewer-header mat-toolbar-row button {
+    flex: 0 0 auto;
+}
+
+.component-viewer-header mat-toolbar-row div, .component-viewer-header mat-toolbar-row span {
+    flex: 1 1 auto;
+}
+.component-viewer-header mat-toolbar-row div{
+    padding: 1rem;
+}
+
+.mat-form-field {
+    width: 100%;
+    font-size: 14px;
+    
+  }
+
+.hidden {
+    display: none;
 }
