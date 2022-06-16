@@ -11,6 +11,68 @@ export class FormService {
 
   constructor() { }
 
+  getFields_Form_permisos(){
+    const options: Field[] = [
+      {
+        entity: 'Permisos',
+        property: 'id',
+        type: TypeOfField.TEXT,
+        label: '',
+        value: '',
+        required: false,
+        readonly: true,
+        order: 1,
+        group: '',
+        format: [],
+        options: []
+      }
+      ,
+      {
+        entity: 'Permiso',
+        property: 'Usuario',
+        type: TypeOfField.TEXT,
+        label: 'usuario',
+        value: '',
+        required: false,
+        readonly: false,
+        order: 1,
+        group: '',
+        format: [
+          {
+            'key': 'maxLength',
+            'value': 15
+          }
+        ],
+        options: []
+      }
+      ,{
+        entity: 'permisos',
+        property: 'contraseña',
+        type: TypeOfField.TEXT,
+        label: 'Contraseña',
+        value: '',
+        required: true,
+        readonly: false,
+        order: 1,
+        group: '',
+        format: [],
+        options: []
+      },{
+        entity: 'Persona',
+        property: 'repetirContraseña',
+        type: TypeOfField.EMAIL,
+        label: 'repetir Contraseña',
+        value: '',
+        required: true,
+        readonly: false,
+        order: 1,
+        group: '',
+        format: [],
+        options: []
+      }
+    ];
+    return of( options );
+  }
   getFields(){
     const options: Field[] = [
       {

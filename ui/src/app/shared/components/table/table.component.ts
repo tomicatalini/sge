@@ -6,8 +6,6 @@ import { MatDialog } from '@angular/material/dialog';
 import { GenericHelper } from '../../model/generic-helper';
 import { DialogComponent } from '../dialog/dialog/dialog.component';
 import { PersonaDialogComponent } from 'src/app/core/components/persona-dialog/persona-dialog/persona-dialog.component';
-//import { DialogComponent } from 'src/app/core/components/persona/dialog/dialog.component';
-
 
 @Component({
   selector: 'app-table',
@@ -27,10 +25,13 @@ export class TableComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    this.findAllAll();
+    this.findAll_permisos();
   }
-  findAllAll(): void{
-    this.servicio.findAll().subscribe(
+  //Por ahora la tabla llama al servicio particular FindAll_permisos
+  // luego cuando la entidad permisos exista, y pueda aplicarse el 
+  //metdo FindAllGenerico Se usara ese metodo
+  findAll_permisos(): void{
+    this.servicio.findAll_permisos().subscribe(
       response => {
         JSON.stringify(this.fields);
         JSON.stringify(response);
@@ -53,8 +54,9 @@ export class TableComponent implements OnInit {
      genericHelper.isEdit=true;
     
      const dialogEdit= this.dialog.open( PersonaDialogComponent,{
-       disableClose:true,
-       width:'60%',
+       disableClose:false,
+       width:'90%',
+       height:'90%',
        //ESTA DATA SERA LA QUE PASE MATIAS
        data:_data}
        )

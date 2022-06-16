@@ -16,10 +16,10 @@ export class PersonaDialogComponent implements OnInit {
    constructor(
     service: FormService,
     public dialogRef: MatDialogRef<PersonaDialogComponent>,
-    @Inject(MAT_DIALOG_DATA)public persona:any     
+    @Inject(MAT_DIALOG_DATA)public permisos:any     
   ) {    
-    this.fields$ = service.getFields();
-    console.log("Prueba de Datos enviados desde la tabla"+ persona.biografia);
+    this.fields$ = service.getFields_Form_permisos(); 
+    console.log("Prueba de Datos enviados desde la tabla "+ permisos.usuario);
   }
 
   //save(){

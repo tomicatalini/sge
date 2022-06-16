@@ -29,6 +29,25 @@ export abstract class GenericService<T> {
         map((response: any) => response.data as T)
       );
   }
+  //Servicio PROVISORIO PARA PERMISOS
+  findAll_permisos(): Observable<any> {
+    const datosDePrueba = [
+      {
+      id:1,
+      nombre: "Matias",
+      usuario: "luduenama",
+      ultimaConexion: "12/2/21"
+      },
+      {
+        id:2,
+        nombre: "Pedro",
+        usuario: "perezpe",
+        ultimaConexion: "12/3/21"
+        }
+    ];
+    return new Observable( (observer) => { observer.next(datosDePrueba)});
+  }
+  //
   save(request: T):Observable<any>{
     if (request) {
       const path = `${this.api}${this.endPoint}`;

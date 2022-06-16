@@ -11,7 +11,7 @@ import { Field } from 'src/app/shared/model/Field';
 })
 export class DialogComponent implements OnInit {
   
-  @Input()fields$: Observable< Field[] >;
+  @Input()fields$: Observable< Field[] >;//son los fiels que le llegan del componente que pide el dialog
   //@Input()fields!: Field[];
   @Input()servicio: GenericService<any>
   
@@ -26,8 +26,7 @@ export class DialogComponent implements OnInit {
   }
   save(){
     console.log("guardado");
-    }
-  
+    }  
   ngOnInit(): void {
   }
 

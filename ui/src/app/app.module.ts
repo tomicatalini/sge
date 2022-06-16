@@ -27,9 +27,13 @@ import {MatButtonModule} from '@angular/material/button';
 import {MatNativeDateModule} from '@angular/material/core';
 import {MatDatepickerModule} from '@angular/material/datepicker';
 import {MatCheckboxModule} from '@angular/material/checkbox';
-import { PersonaDialogComponent } from './core/components/persona-dialog/persona-dialog/persona-dialog.component';
 import { MatDialogModule } from '@angular/material/dialog';
 import { DialogComponent } from './shared/components/dialog/dialog/dialog.component';
+import { TablaPermisosComponent } from './core/components/permisos/tabla-permisos/tabla-permisos.component';
+import { PermisoService } from './core/services/permisos.service';
+import { PersonaDialogComponent } from './core/components/persona-dialog/persona-dialog/persona-dialog.component';
+
+
 
 
 
@@ -45,7 +49,8 @@ import { DialogComponent } from './shared/components/dialog/dialog/dialog.compon
     TableComponent,
     TablaComponent,
     PersonaDialogComponent,
-    DialogComponent
+    DialogComponent,
+    TablaPermisosComponent
   ],
   imports: [
     BrowserModule,
@@ -60,7 +65,7 @@ import { DialogComponent } from './shared/components/dialog/dialog/dialog.compon
     MatCheckboxModule
 
   ],
-  providers: [PersonaService],
+  providers: [PersonaService,PermisoService],
   entryComponents:[TablaComponent],
   bootstrap: [AppComponent]
 })

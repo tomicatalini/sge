@@ -14,6 +14,7 @@ export enum TypeOfField {
     BOTON,
     DATE ,
     ACTION
+    //AGREGAR Tipo Password
        
 }
 
