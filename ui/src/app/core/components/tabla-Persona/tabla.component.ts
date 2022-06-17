@@ -13,72 +13,72 @@ import { PersonaDialogComponent } from '../persona-dialog/persona-dialog/persona
 })
 export class TablaComponent implements OnInit {
 
-  fields: Field[]= [
-    {
-      entity: 'Persona',
-      property: 'id',
-      type: TypeOfField.TEXT,
-      label: 'Nombre',
-      value: '',
-      required: true,
-      readonly: false,
-      order: 1,
-      group: '',
-      format: [{
-        'key': 'required',
-        'value': '' 
-      },
-      {
-        'key': 'maxLength',
-        'value': 25
-      },
-      {
-        'key': 'minLength',
-        'value': 5
-      }
-    ],
-      options: []
-    }
-    ,
-    {
-      entity: 'Persona',
-      property: 'nombre',
-      type: TypeOfField.TEXT,
-      label: 'Apodo',
-      value: '',
-      required: false,
-      readonly: false,
-      order: 1,
-      group: '',
-      format: [],
-      options: []
-    }
-    ,{
-      entity: 'Persona',
-      property: 'apellido',
-      type: TypeOfField.TEXT,
-      label: 'Apellido',
-      value: '',
-      required: true,
-      readonly: false,
-      order: 1,
-      group: '',
-      format: [],
-      options: []
-    },{
-      entity: 'Persona',
-      property: 'biografia',
-      type: TypeOfField.TEXT,
-      label: 'Correo Electrónico',
-      value: '',
-      required: false,
-      readonly: false,
-      order: 1,
-      group: '',
-      format: [],
-      options: []
-    }
-  ];
+  fields: Field[]= [];
+  //   {
+  //     entity: 'Persona',
+  //     property: 'id',
+  //     type: TypeOfField.TEXT,
+  //     label: 'Nombre',
+  //     value: '',
+  //     required: true,
+  //     readonly: false,
+  //     order: 1,
+  //     group: '',
+  //     format: [{
+  //       'key': 'required',
+  //       'value': '' 
+  //     },
+  //     {
+  //       'key': 'maxLength',
+  //       'value': 25
+  //     },
+  //     {
+  //       'key': 'minLength',
+  //       'value': 5
+  //     }
+  //   ],
+  //     options: []
+  //   }
+  //   ,
+  //   {
+  //     entity: 'Persona',
+  //     property: 'nombre',
+  //     type: TypeOfField.TEXT,
+  //     label: 'Apodo',
+  //     value: '',
+  //     required: false,
+  //     readonly: false,
+  //     order: 1,
+  //     group: '',
+  //     format: [],
+  //     options: []
+  //   }
+  //   ,{
+  //     entity: 'Persona',
+  //     property: 'apellido',
+  //     type: TypeOfField.TEXT,
+  //     label: 'Apellido',
+  //     value: '',
+  //     required: true,
+  //     readonly: false,
+  //     order: 1,
+  //     group: '',
+  //     format: [],
+  //     options: []
+  //   },{
+  //     entity: 'Persona',
+  //     property: 'biografia',
+  //     type: TypeOfField.TEXT,
+  //     label: 'Correo Electrónico',
+  //     value: '',
+  //     required: false,
+  //     readonly: false,
+  //     order: 1,
+  //     group: '',
+  //     format: [],
+  //     options: []
+  //   }
+  // ];
   tablaHead: string[]=['id','nombre','apellido','biografia'];
   editable:boolean = true;
   entidad:string="Persona";

@@ -13,6 +13,7 @@ export class FormComponent implements OnInit {
 
   @Input() entity: string;
   @Input() fields: Field[] | null = [];
+  @Input() data: any | null;
   profileForm!: FormGroup;
   result = '';
   
@@ -20,6 +21,12 @@ export class FormComponent implements OnInit {
 
   ngOnInit(): void {
     this.profileForm = this.fieldService.toFormGroup( this.fields as Field[] );
+    
+    if(this.data){
+      for(let property in this.data){
+        console.log(`${property}: ${this.data[property]}`);
+      }
+    }
   } 
 
   onSubmit(){

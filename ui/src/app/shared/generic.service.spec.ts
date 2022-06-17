@@ -3,7 +3,7 @@ import { TestBed } from '@angular/core/testing';
 import { GenericService } from './generic.service';
 
 describe('GenericService', () => {
-  let service: GenericService;
+  let service: GenericService<any>;
 
   beforeEach(() => {
     TestBed.configureTestingModule({});
