@@ -20,7 +20,7 @@ export class FormComponent implements OnInit {
   formGroup: FormGroup;
 
   constructor( 
-    private fieldService: FieldService 
+    private fieldService: FieldService
     ) {}
 
   ngOnInit(): void {
