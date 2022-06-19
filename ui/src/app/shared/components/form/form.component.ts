@@ -12,6 +12,7 @@ import { GenericService } from '../../services/generic.service';
 })
 export class FormComponent implements OnInit {
 
+  @Input() service: GenericService<any>;
   @Input() entity: string;
   @Input() fields!: Field[] | null;
   @Input() data!: any;
@@ -19,8 +20,7 @@ export class FormComponent implements OnInit {
   formGroup: FormGroup;
 
   constructor( 
-    private fieldService: FieldService,
-    private service: GenericService<any>
+    private fieldService: FieldService 
     ) {}
 
   ngOnInit(): void {
