@@ -3,6 +3,7 @@ import { FormGroup } from '@angular/forms';
 
 import { Field } from '../../model/Field';
 import { FieldService } from '../../services/field.service';
+import { FormService } from '../../services/form.service';
 import { GenericService } from '../../services/generic.service';
 
 @Component({
@@ -20,15 +21,19 @@ export class FormComponent implements OnInit {
   formGroup: FormGroup;
 
   constructor( 
-    private fieldService: FieldService
+    private fieldService: FieldService,
+    private formService: FormService
     ) {}
 
   ngOnInit(): void {
 
     //Get data
     if( !this.fields ){
-      this.service.findAll().subscribe({ 
-          next: (res) => this.fields = res,
+      this.formService.getFields().subscribe({ 
+          next: (res) => {
+            this.fields = res;
+            console.log(res)
+          },
           error: (e) => { 
             console.warn('Error al obtener datos para el formulario');
             console.log(e)

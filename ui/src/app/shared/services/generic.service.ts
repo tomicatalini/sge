@@ -3,6 +3,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { environment } from '../../../environments/environment';
 import { catchError, map, Observable, throwError } from 'rxjs';
 import Swal from 'sweetalert2';
+// import { StringMap } from '@angular/compiler/src/compiler_facade_interface';
 
 const Toast = Swal.mixin({
   toast: true,

@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { of } from 'rxjs';
 
 import { Persona } from '../../core/model/persona';
 
@@ -34,6 +35,6 @@ export class DataService {
       }
     ];
 
-    return personas;
+    return of(personas);
   }
 }
