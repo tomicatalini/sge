@@ -1,9 +1,13 @@
-<form [formGroup]="profileForm" (ngSubmit)="onSubmit()" id="form">
-        <app-field *ngFor="let field of fields" [field]="field" [form]="profileForm" class="{{field.property}}"></app-field>
-        <button mat-raised-button class="btn" color="primary" type="submit" [disabled]="this.profileForm.invalid">Enviar</button>
+<form [formGroup]="formGroup" (ngSubmit)="onSubmit()">
+        <app-field 
+            *ngFor="let field of fields" 
+            [field]="field" 
+            [form]="formGroup" 
+            class="{{field.property}}"></app-field>
+        <button 
+            mat-raised-button 
+            class="btn" 
+            color="primary" 
+            type="submit" 
+            [disabled]="this.formGroup.invalid">Enviar</button>
 </form>
-
-<div *ngIf="result">
-    {{result}}
-</div>
-

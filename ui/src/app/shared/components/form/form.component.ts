@@ -11,29 +11,34 @@ import { FieldService } from '../../services/field.service';
 })
 export class FormComponent implements OnInit {
 
-  @Input() entity: string;
-  @Input() fields: Field[] | null = [];
-  @Input() data: any | null;
-  profileForm!: FormGroup;
-  result = '';
+  @Input() entity!: string;
+  @Input() fields!: Field[] | null;
+  @Input() data!: any;
   
-  constructor( private fieldService: FieldService) {}
+  formGroup: FormGroup;
+
+  constructor( 
+    private fieldService: FieldService
+    ) {}
 
   ngOnInit(): void {
-    this.profileForm = this.fieldService.toFormGroup( this.fields as Field[] );
+
+    //Get form fields
+    this.formGroup = this.fieldService.toFormGroup( this.fields as Field[] );
     
     if(this.data){
       for(let property in this.data){
-        console.log(`${property}: ${this.data[property]}`);
+        this.formGroup.get(`${property}`)?.setValue( this.data[property] );
       }
     }
+
   } 
 
   onSubmit(){
-    if(this.profileForm.invalid){
-      this.result = 'Hay errores rey';
+    if(this.formGroup.invalid){
+      console.error("Formulario Inválido. Faltan campos o algún campo fue ingresado incorrectamente.");
     } else {
-      this.result = JSON.stringify( this.profileForm.getRawValue() );
+      console.log( JSON.stringify( this.formGroup.getRawValue() ) );
     }
   }
 
