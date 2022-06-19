@@ -7,9 +7,9 @@ export class Persona{
     
     //Formas de Comunicacion
     email: string;
-    telefono: number;
+    telefono: number | null;
     movil: number;
-    fax: number;
+    fax: number | null;
 
     //Documento
     tipoDocumento: string;
