@@ -1,15 +1,15 @@
-<div class="component-viewer">
-    <nav mat-tab-nav-bar [tabPanel]="tabPanel" class="component-viewer-tab-nav">
-        <a mat-tab-link 
-            [routerLink]="['personas', 'list']"
-            (click)="activeLink = 'List'"
-            [active]="activeLink == 'List'">List</a>
-        <a mat-tab-link
-            [routerLink]="['personas', 'new']"
-            (click)="activeLink = 'New'"
-            [active]="activeLink == 'New'">New</a>
-    </nav>
-    <mat-tab-nav-panel #tabPanel></mat-tab-nav-panel>
+<div class="component-viewer" [ngClass]="{'component-viewer-smallDevice': isSmallDevice}">
+    <mat-toolbar color="primary">
+        <div class="toolbar-btn-container" *ngFor="let btn of this.buttons">
+            <a mat-flat-button *ngIf="btn.type === 'link'" color="accent" [routerLink]="['/', btn.state]">{{btn.name}}</a>
+        </div>
+        <div class="toolbar-title">
+            <span>{{entity}}</span>
+        </div>
+        <div class="toolbar-search-container">            
+            <span>Search Bar: not implemented yet</span>
+        </div>
+      </mat-toolbar>
 
     <div class="component-viewer-content">
         <router-outlet></router-outlet>

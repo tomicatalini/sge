@@ -1,4 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
+import { Component, Input, OnInit } from '@angular/core';
+import { DataService } from '../../services/data.service';
+import { Menu } from '../menu-items/menu';
 
 @Component({
   selector: 'app-component-viewer',
@@ -7,11 +10,34 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ComponentViewerComponent implements OnInit {
 
-  activeLink = 'List';  
+  @Input() entity: String;
+  @Input() buttons: Menu[] = [];
 
-  constructor() { }
+  isSmallDevice: boolean = false;
+
+  constructor(
+    private responsive: BreakpointObserver,
+    private dataService: DataService
+  ) {}
 
   ngOnInit(): void {
+    
+    this.responsive
+      .observe(Breakpoints.XSmall)
+        .subscribe({
+          next: (res) => {
+            if(res.matches){
+              this.isSmallDevice = true;
+            } else {
+              this.isSmallDevice = false;
+            }
+          },
+          error: (e) => {console.error('Error en breakpoint component-viewer')},
+          complete: () => console.info('complete')
+        });
+    
+    this.buttons = this.dataService.getPersonasButtons();
+    
   }
 
 }

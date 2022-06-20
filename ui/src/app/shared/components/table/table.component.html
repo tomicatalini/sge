@@ -1,10 +1,10 @@
-<h2>Tabla de datos entidad {{entidad}}</h2>
+<!-- <h2>Tabla de datos entidad {{entidad}}</h2> -->
 <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
 
     <!--recorro la tablaColumns para setear los variables que ofresca en backend-->
     <div *ngFor="let i= index;let columna of fields">
       <!--<div *ngIf="columna.visible==true">-->
-        <ng-container   matColumnDef="{{columna.property}}">
+        <ng-container   matColumnDef="{{columna.property}}"> 
           <th mat-header-cell *matHeaderCellDef> {{columna.property}} </th>
           <td mat-cell  *matCellDef="let data ">{{data[columna.property]}} </td>
         </ng-container> 

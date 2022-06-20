@@ -1,3 +1,7 @@
+:host{
+    box-sizing: border-box;
+}
+
 .generic-form-comp .id { grid-area: id;}
 .generic-form-comp .nombre { grid-area: nom;}
 .generic-form-comp .apellido { grid-area: ape;}
@@ -20,18 +24,19 @@
 .generic-form-comp .btn { grid-area: btn;}
 
 .generic-form-comp form{
-    width: 100%;
-    margin: 0 auto;
+    /* margin: 0 auto; */
     padding: 1rem;
     display: grid;
     row-gap: 1rem;
     column-gap: 2rem;
+    grid-template-columns: repeat(4, minmax(80px, 1fr));
+    grid-template-rows: auto;
     grid-template-areas: 
         "id id id id" "nom nom ape ape" "nac nac . ." "sexo sexo sexo sexo"
         "mail mail mail ." "tel tel tel ." "movil movil movil ." "fax fax fax ."
         "tipo doc doc ." "calle calle calle2 calle2" "loc loc postal ." "prov pais . ."
-        "titulo puesto puesto ." ". btn btn .";
-    outline: 2px solid orange;
+        "titulo puesto puesto ." "btn btn btn btn";
+    /* outline: 2px solid orange; */
 }
 
 .generic-form-comp-smallDevice form {
@@ -40,6 +45,6 @@
     padding: .5rem !important;
     display: flex !important;
     flex-direction: column !important;
-    outline: 2px solid slateblue !important;
+    /* outline: 2px solid slateblue !important; */
 
 }

@@ -41,11 +41,10 @@ import { DomiciliosComponent } from './core/domicilio/components/domicilios/domi
 import { FormasComunicacionComponent } from './core/forma-comunicacion/components/formas-comunicacion/formas-comunicacion.component';
 import { LocalidadesComponent } from './core/localidades/components/localidades/localidades.component';
 import { PersonasComponent } from './core/persona/components/personas/personas.component';
-import { FormCallerComponent } from './shared/components/form/form-caller/form-caller.component';
 import { ComponentViewerComponent } from './shared/components/component-viewer/component-viewer.component';
 import {MatTabsModule} from '@angular/material/tabs';
 import { FormularioPersonaComponent } from './core/components/formulario-persona/formulario-persona.component';
-
+import {MatPaginatorModule} from '@angular/material/paginator';
 
 //import { DialogComponent } from './core/components/persona/dialog/dialog.component';
 
@@ -66,7 +65,6 @@ import { FormularioPersonaComponent } from './core/components/formulario-persona
     FormasComunicacionComponent,
     LocalidadesComponent,
     PersonasComponent,
-    FormCallerComponent,
     ComponentViewerComponent,
     FormularioPersonaComponent
   ],
@@ -84,7 +82,8 @@ import { FormularioPersonaComponent } from './core/components/formulario-persona
     MatToolbarModule,
     MatSidenavModule,
     MatListModule,
-    MatTabsModule
+    MatTabsModule,
+    MatPaginatorModule
   ],
   providers: [PersonaService, MenuItems, DataService],
   entryComponents:[TablaComponent],

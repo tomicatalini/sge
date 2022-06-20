@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { of } from 'rxjs';
 
 import { Persona } from '../../core/model/persona';
+import { Menu } from '../components/menu-items/menu';
 
 @Injectable({
   providedIn: 'root'
@@ -36,5 +37,28 @@ export class DataService {
     ];
 
     return of(personas);
+  }
+
+  getPersonasButtons(){
+    const btns: Menu[] = [];
+
+    let btn: Menu = {
+      state: 'personas',
+      name: 'Lista',
+      type: 'link',
+      icon: ''
+    }
+
+    let btn2: Menu = {
+      state: 'personas#',
+      name: 'Nuevo',
+      type: 'link',
+      icon: ''
+    }
+
+    btns.push(btn);
+    btns.push(btn2);
+
+    return btns;
   }
 }

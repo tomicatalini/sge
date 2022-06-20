@@ -6,6 +6,7 @@ import { MatDialog } from '@angular/material/dialog';
 import { GenericHelper } from '../../model/generic-helper';
 import { DialogComponent } from '../dialog/dialog/dialog.component';
 import { PersonaDialogComponent } from 'src/app/core/components/persona-dialog/persona-dialog/persona-dialog.component';
+import { Overlay, ScrollStrategyOptions } from '@angular/cdk/overlay';
 //import { DialogComponent } from 'src/app/core/components/persona/dialog/dialog.component';
 
 
@@ -35,7 +36,7 @@ export class TableComponent implements OnInit {
         JSON.stringify(this.fields);
         JSON.stringify(response);
         this.dataSource= response as any[];
-        console.log(this.dataSource)
+        console.log(this.dataSource);
       },
       err =>{
         console.log("Error al mostrar"+ err)
@@ -51,12 +52,14 @@ export class TableComponent implements OnInit {
      genericHelper.content="";
      genericHelper.entidad= _data;
      genericHelper.isEdit=true;
+     console.log(_data);
     
      const dialogEdit= this.dialog.open( PersonaDialogComponent,{
        disableClose:true,
        width:'60%',
        //ESTA DATA SERA LA QUE PASE MATIAS
-       data:_data}
+       data:_data
+      }
        )
    }
   delete(){
