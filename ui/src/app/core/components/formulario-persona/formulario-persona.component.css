@@ -1,36 +1,45 @@
-#form .id { grid-area: id;}
-#form .nombre { grid-area: nom;}
-#form .apellido { grid-area: ape;}
-#form .fechaNacimiento { grid-area: nac;}
-#form .sexo { grid-area: sexo;}
-#form .email { grid-area: mail;}
-#form .telefono { grid-area: tel;}
-#form .movil { grid-area: movil;}
-#form .fax { grid-area: fax;}
-#form .tipoDocumento { grid-area: tipo;}
-#form .documento { grid-area: doc;}
-#form .callePrincipal { grid-area: calle;}
-#form .calleSecundaria { grid-area: calle2;}
-#form .localidad { grid-area: loc;}
-#form .codigoPostal { grid-area: postal;}
-#form .provincia { grid-area: prov;}
-#form .pais { grid-area: pais;}
-#form .titulo { grid-area: titulo;}
-#form .puesto { grid-area: puesto;}
-#form .btn { grid-area: btn;}
+.generic-form-comp .id { grid-area: id;}
+.generic-form-comp .nombre { grid-area: nom;}
+.generic-form-comp .apellido { grid-area: ape;}
+.generic-form-comp .fechaNacimiento { grid-area: nac;}
+.generic-form-comp .sexo { grid-area: sexo;}
+.generic-form-comp .email { grid-area: mail;}
+.generic-form-comp .telefono { grid-area: tel;}
+.generic-form-comp .movil { grid-area: movil;}
+.generic-form-comp .fax { grid-area: fax;}
+.generic-form-comp .tipoDocumento { grid-area: tipo;}
+.generic-form-comp .documento { grid-area: doc;}
+.generic-form-comp .callePrincipal { grid-area: calle;}
+.generic-form-comp .calleSecundaria { grid-area: calle2;}
+.generic-form-comp .localidad { grid-area: loc;}
+.generic-form-comp .codigoPostal { grid-area: postal;}
+.generic-form-comp .provincia { grid-area: prov;}
+.generic-form-comp .pais { grid-area: pais;}
+.generic-form-comp .titulo { grid-area: titulo;}
+.generic-form-comp .puesto { grid-area: puesto;}
+.generic-form-comp .btn { grid-area: btn;}
 
-
-#form{
-    width: 60vw;
+.generic-form-comp form{
+    width: 100%;
     margin: 0 auto;
     padding: 1rem;
     display: grid;
     row-gap: 1rem;
-    column-gap: 1rem;
+    column-gap: 2rem;
     grid-template-areas: 
-        "id id id id" "nom nom ape ape" "nac nac nac nac" "sexo sexo sexo sexo"
-        "mail mail mail mail" "tel tel tel tel" "movil movil movil movil" "fax fax fax fax"
-        "tipo doc doc doc" "calle calle calle2 calle2" "loc loc loc postal" "prov prov pais pais"
-        "titulo titulo puesto puesto" "btn btn btn btn";
+        "id id id id" "nom nom ape ape" "nac nac . ." "sexo sexo sexo sexo"
+        "mail mail mail ." "tel tel tel ." "movil movil movil ." "fax fax fax ."
+        "tipo doc doc ." "calle calle calle2 calle2" "loc loc postal ." "prov pais . ."
+        "titulo puesto puesto ." ". btn btn .";
     outline: 2px solid orange;
+}
+
+.generic-form-comp-smallDevice form {
+    width: 90% !important;
+    margin: 0 auto !important;
+    padding: .5rem !important;
+    display: flex !important;
+    flex-direction: column !important;
+    outline: 2px solid slateblue !important;
+
 }

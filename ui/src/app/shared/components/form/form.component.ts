@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, ViewEncapsulation } from '@angular/core';
 import { FormGroup } from '@angular/forms';
 
 import { Field } from '../../model/Field';
@@ -9,7 +9,8 @@ import { GenericService } from '../../services/generic.service';
 @Component({
   selector: 'generic-form',
   templateUrl: './form.component.html',
-  styleUrls: ['./form.component.css']
+  styleUrls: ['./form.component.css'],
+  encapsulation: ViewEncapsulation.None
 })
 export class FormComponent implements OnInit {
 
