@@ -86,8 +86,7 @@ import { FormularioPersonaComponent } from './core/components/formulario-persona
     MatListModule,
     MatTabsModule
   ],
-  providers: [PersonaService, MenuItems],
-  providers: [PersonaService, DataService],
+  providers: [PersonaService, MenuItems, DataService],
   entryComponents:[TablaComponent],
   bootstrap: [AppComponent]
 })
