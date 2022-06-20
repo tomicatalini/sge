@@ -67,7 +67,7 @@ import { FormularioPersonaComponent } from './core/components/formulario-persona
     LocalidadesComponent,
     PersonasComponent,
     FormCallerComponent,
-    ComponentViewerComponent
+    ComponentViewerComponent,
     FormularioPersonaComponent
   ],
   imports: [
