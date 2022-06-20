@@ -21,6 +21,7 @@ import {MatInputModule} from '@angular/material/input';
 import {MatSelectModule} from '@angular/material/select';
 import {MatRadioModule} from '@angular/material/radio';
 import { PersonaService } from './core/services/persona.service';
+import { DataService } from './shared/services/data.service';
 import {MatIconModule} from '@angular/material/icon';
 import {MatCardModule} from '@angular/material/card';
 import {MatButtonModule} from '@angular/material/button';
@@ -43,6 +44,8 @@ import { PersonasComponent } from './core/persona/components/personas/personas.c
 import { FormCallerComponent } from './shared/components/form/form-caller/form-caller.component';
 import { ComponentViewerComponent } from './shared/components/component-viewer/component-viewer.component';
 import {MatTabsModule} from '@angular/material/tabs';
+import { FormularioPersonaComponent } from './core/components/formulario-persona/formulario-persona.component';
+
 
 //import { DialogComponent } from './core/components/persona/dialog/dialog.component';
 
@@ -65,6 +68,7 @@ import {MatTabsModule} from '@angular/material/tabs';
     PersonasComponent,
     FormCallerComponent,
     ComponentViewerComponent
+    FormularioPersonaComponent
   ],
   imports: [
     BrowserModule,
@@ -83,6 +87,7 @@ import {MatTabsModule} from '@angular/material/tabs';
     MatTabsModule
   ],
   providers: [PersonaService, MenuItems],
+  providers: [PersonaService, DataService],
   entryComponents:[TablaComponent],
   bootstrap: [AppComponent]
 })
