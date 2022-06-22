@@ -21,6 +21,7 @@ import {MatInputModule} from '@angular/material/input';
 import {MatSelectModule} from '@angular/material/select';
 import {MatRadioModule} from '@angular/material/radio';
 import { PersonaService } from './core/services/persona.service';
+import { DataService } from './shared/services/data.service';
 import {MatIconModule} from '@angular/material/icon';
 import {MatCardModule} from '@angular/material/card';
 import {MatButtonModule} from '@angular/material/button';
@@ -35,6 +36,7 @@ import { PersonaDialogComponent } from './core/components/persona-dialog/persona
 
 
 
+import { FormularioPersonaComponent } from './core/components/formulario-persona/formulario-persona.component';
 
 
 //import { DialogComponent } from './core/components/persona/dialog/dialog.component';
@@ -50,7 +52,8 @@ import { PersonaDialogComponent } from './core/components/persona-dialog/persona
     TablaComponent,
     PersonaDialogComponent,
     DialogComponent,
-    TablaPermisosComponent
+    TablaPermisosComponent,
+    FormularioPersonaComponent
   ],
   imports: [
     BrowserModule,
@@ -65,7 +68,7 @@ import { PersonaDialogComponent } from './core/components/persona-dialog/persona
     MatCheckboxModule
 
   ],
-  providers: [PersonaService,PermisoService],
+  providers: [PersonaService,PermisoService, DataService],  
   entryComponents:[TablaComponent],
   bootstrap: [AppComponent]
 })

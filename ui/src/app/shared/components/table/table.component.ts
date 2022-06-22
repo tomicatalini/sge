@@ -1,5 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { GenericService } from '../../generic.service';
+import { GenericService } from '../../services/generic.service';
 
 import { Field } from '../../model/Field';
 import { MatDialog } from '@angular/material/dialog';

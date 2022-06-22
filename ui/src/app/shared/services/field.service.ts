@@ -23,38 +23,69 @@ export class FieldService {
 
       if(field.format != null && field.format != []){
       
-        for(let i = 0; i < field.format.length; i++) {
-          switch (field.format[i].key) {
-            case "maxLength":
-                validaciones.push( Validators["maxLength"](field.format[i].value)); 
-              break;
-            case "max":
-                validaciones.push( Validators["max"](field.format[i].value)); 
-              break;
-            case "minLength":
-                validaciones.push( Validators["minLength"](field.format[i].value)); 
-              break;
-            case "min":
-                validaciones.push( Validators["min"](field.format[i].value)); 
-              break;
-            case "email":
-                validaciones.push( Validators["email"]); 
-              break;
-            case "nullValidator":
-                validaciones.push( Validators["nullValidator"]); 
-              break;
-            case "pattern":
-                validaciones.push( Validators["pattern"](field.format[i].value)); 
-              break;
-            case "required":
-                validaciones.push( Validators["required"]); 
-              break;
-            default:
-              break;
+        if(field.format[0].validation){
+          for(let prop in field.format[0].validation){
+            switch (prop.toString()) {
+              case "maxLength":
+                  validaciones.push( Validators["maxLength"](field.format[0].validation.maxLength)); 
+                break;
+              case "max":
+                  validaciones.push( Validators["max"](field.format[0].validation.max)); 
+                break;
+              case "minLength":
+                  validaciones.push( Validators["minLength"](field.format[0].validation.minLength)); 
+                break;
+              case "min":
+                  validaciones.push( Validators["min"](field.format[0].validation.min)); 
+                break;
+              case "email":
+                  validaciones.push( Validators["email"]); 
+                break;
+              case "nullValidator":
+                  validaciones.push( Validators["nullValidator"]); 
+                break;
+              case "pattern":
+                  validaciones.push( Validators["pattern"](field.format[0].validation.pattern)); 
+                break;
+              case "required":
+                  validaciones.push( Validators["required"]); 
+                break;
+              default:
+                break;
+            }
           }
-          
+          // for(let i = 0; i < field.format.length; i++) {
+          //   switch (field.format[i].key) {
+          //     case "maxLength":
+          //         validaciones.push( Validators["maxLength"](field.format[i].value)); 
+          //       break;
+          //     case "max":
+          //         validaciones.push( Validators["max"](field.format[i].value)); 
+          //       break;
+          //     case "minLength":
+          //         validaciones.push( Validators["minLength"](field.format[i].value)); 
+          //       break;
+          //     case "min":
+          //         validaciones.push( Validators["min"](field.format[i].value)); 
+          //       break;
+          //     case "email":
+          //         validaciones.push( Validators["email"]); 
+          //       break;
+          //     case "nullValidator":
+          //         validaciones.push( Validators["nullValidator"]); 
+          //       break;
+          //     case "pattern":
+          //         validaciones.push( Validators["pattern"](field.format[i].value)); 
+          //       break;
+          //     case "required":
+          //         validaciones.push( Validators["required"]); 
+          //       break;
+          //     default:
+          //       break;
+          //   }
+            
+          // }
         }
-
       }      
 
       Object.defineProperty(form, field.property.toString() , { 
