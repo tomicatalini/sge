@@ -30,7 +30,15 @@ import {MatCheckboxModule} from '@angular/material/checkbox';
 import { PersonaDialogComponent } from './core/components/persona-dialog/persona-dialog/persona-dialog.component';
 import { MatDialogModule } from '@angular/material/dialog';
 import { DialogComponent } from './shared/components/dialog/dialog/dialog.component';
-
+import { MenuItems } from './shared/components/menu-items/menu-items';
+import {MatSidenavModule} from '@angular/material/sidenav';
+import {MatToolbarModule} from '@angular/material/toolbar';
+import {MatListModule} from '@angular/material/list';
+import { SidenavComponent } from './shared/components/sidenav/sidenav.component';
+import { HomeComponent } from './shared/components/home/home.component';
+import { PersonaComponent } from './core/components/persona/persona.component';
+import { LocalidadesComponent } from './core/components/localidades/localidades.component';
+import { DomiciliosComponent } from './core/components/domicilios/domicilios.component';
 
 
 //import { DialogComponent } from './core/components/persona/dialog/dialog.component';
@@ -45,7 +53,12 @@ import { DialogComponent } from './shared/components/dialog/dialog/dialog.compon
     TableComponent,
     TablaComponent,
     PersonaDialogComponent,
-    DialogComponent
+    DialogComponent,
+    SidenavComponent,
+    HomeComponent,
+    PersonaComponent,
+    LocalidadesComponent,
+    DomiciliosComponent
   ],
   imports: [
     BrowserModule,
@@ -57,10 +70,11 @@ import { DialogComponent } from './shared/components/dialog/dialog/dialog.compon
     HttpClientModule,
     MatTableModule,MatDialogModule,MatIconModule,MatCardModule, MatButtonModule,
     MatDatepickerModule,MatNativeDateModule,
-    MatCheckboxModule
+    MatCheckboxModule,
+    MatToolbarModule,MatSidenavModule,MatListModule
 
   ],
-  providers: [PersonaService],
+  providers: [PersonaService,MenuItems],
   entryComponents:[TablaComponent],
   bootstrap: [AppComponent]
 })
