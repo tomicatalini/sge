@@ -33,5 +33,15 @@ mat-form-field {
   input.example-right-align {
     -moz-appearance: textfield;
   }
-  
-  
+  .block-readonly-true{
+    display: flex;
+  }
+  .readonly-label{
+    font-weight: bold;
+    margin-right: 5px;
+    font-size: 14px;
+  }
+  .readonly-label::after{
+    content: ':';
+    font-weight: bold;
+  }

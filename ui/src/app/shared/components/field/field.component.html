@@ -1,5 +1,13 @@
 <div [formGroup]="form">
-    <ng-template *ngIf="this.field.type < 5;then trueBlock else falseBlock"></ng-template>
+    <ng-template *ngIf="this.field.readonly;then readonlyTrueBlock else readonlyFalseBlock"></ng-template>
+    <ng-template  #readonlyTrueBlock>
+        <div class="block-readonly-true">
+            <mat-label class="readonly-label">{{field.label}}</mat-label>
+            <input matInput  [formControlName]="field.property" [id]="field.property" readonly >   
+        </div>                  
+    </ng-template>
+    <ng-template #readonlyFalseBlock>
+        <ng-template *ngIf="this.field.type < 6;then trueBlock else falseBlock"></ng-template>
     <ng-template #trueBlock>
             <ng-container [ngSwitch]="field.type">
                     <mat-form-field appearance="outline">
@@ -17,8 +25,10 @@
                         <ng-container *ngSwitchCase="3">
                             <input matInput  [formControlName]="field.property" [id]="field.property" type="tel">                
                         </ng-container>
-                        
                         <ng-container *ngSwitchCase="4">
+                            <input matInput  [formControlName]="field.property" [id]="field.property" type="password">                
+                        </ng-container>
+                        <ng-container *ngSwitchCase="5">
                             <mat-select  [id]="field.property" [formControlName]="field.property"> 
                                 <mat-option *ngFor="let op of field.options" [value]="op.value">{{op.key}}</mat-option>
                             </mat-select>                                           
@@ -52,7 +62,7 @@
     </ng-template>
     <ng-template #falseBlock> 
             <div [ngSwitch]="field.type">
-                    <ng-container *ngSwitchCase="5" >
+                    <ng-container *ngSwitchCase="6" >
                         <div class="input-float" >
                                
                             <mat-form-field  floatLabel="always">
@@ -64,7 +74,7 @@
                               </mat-form-field>                                                                                                                   
                         </div>
                     </ng-container> 
-                    <ng-container *ngSwitchCase="6" >
+                    <ng-container *ngSwitchCase="7" >
                             <div class="input-monetary" >
                                
                                 <mat-form-field floatLabel="always">
@@ -76,13 +86,13 @@
                                   </mat-form-field>                                                                                                                   
                             </div>
                     </ng-container> 
-                    <ng-container *ngSwitchCase="7" >
+                    <ng-container *ngSwitchCase="8" >
                             <div >
                                 <mat-label>{{field.label}}</mat-label>                           
                                 <mat-checkbox *ngFor="let op of field.options"  [value]="op.value" [formControlName]="field.property" [id]="field.property" class="checkbox" >{{op.key}}</mat-checkbox >
                     </div>
                     </ng-container> 
-                    <ng-container *ngSwitchCase="8" >
+                    <ng-container *ngSwitchCase="9" >
                      <div >
                          <mat-label>{{field.label}}</mat-label>
                          <mat-radio-group [formControlName]="field.property" [id]="field.property" class="radio">
@@ -90,7 +100,7 @@
                          </mat-radio-group>
                      </div>
                     </ng-container> 
-                    <ng-container *ngSwitchCase="9" >
+                    <ng-container *ngSwitchCase="10" >
                             <div >
                                 <mat-label>{{field.label}}</mat-label>
                                 <button  [formControlName]="field.property" [id]="field.property"  type="button" mat-button (click)="clicked = true">
@@ -99,7 +109,7 @@
                                       
                             </div>
                     </ng-container> 
-                    <ng-container *ngSwitchCase="10" >
+                    <ng-container *ngSwitchCase="11" >
                             <div class="fecha-container" >
                                     <!-- <mat-form-field appearance="fill"> -->
                                             <mat-label class="label-fecha">{{field.label}}</mat-label>
@@ -115,5 +125,9 @@
                      <ng-container *ngSwitchDefault> El tipo ingresado no esta contemplado...</ng-container> 
             </div>       
     </ng-template>
+    </ng-template>
+        
+    
+    
     
 </div>

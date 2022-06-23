@@ -44,7 +44,11 @@ import { PersonasComponent } from './core/persona/components/personas/personas.c
 import { ComponentViewerComponent } from './shared/components/component-viewer/component-viewer.component';
 import {MatTabsModule} from '@angular/material/tabs';
 import { FormularioPersonaComponent } from './core/components/formulario-persona/formulario-persona.component';
+
 import {MatPaginatorModule} from '@angular/material/paginator';
+
+
+
 
 //import { DialogComponent } from './core/components/persona/dialog/dialog.component';
 
@@ -84,7 +88,7 @@ import {MatPaginatorModule} from '@angular/material/paginator';
     MatListModule,
     MatTabsModule,
     MatPaginatorModule
-  ],
+ ],
   providers: [PersonaService, MenuItems, DataService],
   entryComponents:[TablaComponent],
   bootstrap: [AppComponent]
