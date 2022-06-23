@@ -7,11 +7,12 @@ import { FormasComunicacionComponent } from './core/forma-comunicacion/component
 import { LocalidadesComponent } from './core/localidades/components/localidades/localidades.component';
 import { PersonasComponent } from './core/persona/components/personas/personas.component';
 
+// Iterar sobre las rutas pasadas como parametros ,tienen que ser de tipo ruta
 const routes: Routes = [
   { path: 'personas', component: TablaComponent },
   { path: 'personas#', component: FormularioPersonaComponent },
   { path: 'domicilios', component: DomiciliosComponent },
-  { path: 'localidades', component: LocalidadesComponent },
+  // { path: 'localidades', component: LocalidadesComponent },
   { path: 'formasComunicacion', component: FormasComunicacionComponent }
 ];
 

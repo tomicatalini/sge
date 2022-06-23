@@ -1,5 +1,5 @@
 import { MediaMatcher } from '@angular/cdk/layout';
-import { ChangeDetectorRef, Component, OnDestroy, OnInit } from '@angular/core';
+import { ChangeDetectorRef, Component, Input, OnDestroy, OnInit } from '@angular/core';
 import { Menu } from '../menu-items/menu';
 import { MenuItems } from '../menu-items/menu-items';
 
@@ -9,7 +9,8 @@ import { MenuItems } from '../menu-items/menu-items';
   styleUrls: ['./sidenav.component.css']
 })
 export class SidenavComponent implements OnDestroy {
-  
+  // @Input() arrayEntity:String[];
+  // arrayEntities:String[]=['Persona','Domicilio','Localidaes'];  
   mobileQuery: MediaQueryList;
 
   fillerNav: Menu[];
