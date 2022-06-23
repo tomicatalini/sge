@@ -9,11 +9,12 @@
              entidad y los fields.. los datos, 
              para recuperarlos en los inputs
             [_dataEnElFormGenerico]="dataDesdeElComponent"-->    
-            <app-form 
+            <generic-form 
+                [data]="data"
                 [entity]="permisos"
                 [fields]="fields$ | async"                
                 id="app">
-            </app-form>
+            </generic-form>
           </div>
     </mat-card-content>
 </mat-card>
