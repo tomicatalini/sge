@@ -17,8 +17,8 @@ export class FormService {
         entity: 'Persona',
         property: 'id',
         type: TypeOfField.NUMBER,
-        label: '',
-        value: '',
+        label: 'Id',
+        value: '123',
         readonly: true,
         order: 1,
         group: '',
@@ -36,6 +36,25 @@ export class FormService {
         property: 'nombre',
         type: TypeOfField.TEXT,
         label: 'Nombre',
+        value: 'Pepiteishon',
+        readonly: true,
+        order: 2,
+        group: 'principal',
+        format: [
+          {
+            validation: {required: true,
+              minLength: 2 
+            },
+            render: {float: 'fill'}
+          }
+      ],
+        options: []
+      }
+      ,   {
+        entity: 'Persona',
+        property: 'password',
+        type: TypeOfField.PASSWORD,
+        label: 'Contraseña',
         value: '',
         readonly: false,
         order: 2,
@@ -49,8 +68,7 @@ export class FormService {
           }
       ],
         options: []
-      }
-      ,
+      },
       {
         entity: 'Persona',
         property: 'apellido',

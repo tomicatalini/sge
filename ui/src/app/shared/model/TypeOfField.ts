@@ -4,6 +4,7 @@ export enum TypeOfField {
     EMAIL,
     NUMBER,
     TEL,
+    PASSWORD,
     //compatible with 
     SELECT,
     FLOAT,

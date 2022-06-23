@@ -32,7 +32,7 @@ import { PersonaDialogComponent } from './core/components/persona-dialog/persona
 import { MatDialogModule } from '@angular/material/dialog';
 import { DialogComponent } from './shared/components/dialog/dialog/dialog.component';
 import { FormularioPersonaComponent } from './core/components/formulario-persona/formulario-persona.component';
-
+import {MatTabsModule} from '@angular/material/tabs';
 
 //import { DialogComponent } from './core/components/persona/dialog/dialog.component';
 
@@ -59,7 +59,8 @@ import { FormularioPersonaComponent } from './core/components/formulario-persona
     HttpClientModule,
     MatTableModule,MatDialogModule,MatIconModule,MatCardModule, MatButtonModule,
     MatDatepickerModule,MatNativeDateModule,
-    MatCheckboxModule
+    MatCheckboxModule,
+    MatTabsModule
 
   ],
   providers: [PersonaService, DataService],
