@@ -3,4 +3,5 @@ export interface Menu {
     name: string;
     type: string;
     icon: string;
+    options?: {key: string, value: string}[];
 }

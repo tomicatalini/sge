@@ -19,7 +19,7 @@
     margin-left: 8px;
   }
   
-  .example-sidenav-container {
+  .example-sidenav-container { 
     /* When the sidenav is not fixed, stretch the sidenav container to fill the available space. This
        causes `<mat-sidenav-content>` to act as our scrolling element for desktop layouts. */
     flex: 1;
@@ -42,4 +42,26 @@
 
   .toolbar-primary {
     box-shadow: 0 3px 5px -1px #0003,0 6px 10px #00000024,0 1px 18px #0000001f !important;
+  }
+
+  .mainMenu-component{
+    margin-right: 5px;
+    margin-left: 5px;
+    display:flex;
+    align-items:center;
+  }
+
+  .mainMenu-component-icon{
+    color:#fff;
+    /* border:1px solid green; */
+  }
+
+  
+  .mainMenu-component-span{
+    color:#fff;
+    /* border:1px solid yellow; */
+  }
+
+  .menu-vertical{
+    width:200px;
   }

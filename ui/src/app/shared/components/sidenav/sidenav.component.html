@@ -3,6 +3,20 @@
       <button mat-icon-button (click)="snav.toggle()"><mat-icon>menu</mat-icon></button>
       <h1 class="example-app-name">SGE: Sistema de Gestión de Expedientes</h1>
       <span class="example-spacer"></span>
+<!-- //agregar aca las entidades -->
+<mat-list-item appAccordionLink *ngFor="let menuitem of fillerNav" routerLinkActive="selected">
+  <a class="" appAccordionToggle [routerLink]="['/', menuitem.state]" *ngIf="menuitem.type === 'link'">
+    <div class="mainMenu-component">
+      <mat-icon class="mainMenu-component-icon">{{menuitem.icon}}</mat-icon> 
+      <span class="mainMenu-component-span">{{menuitem.name}}</span>     
+    </div>
+      
+      <span fxFlex></span>
+  </a>
+
+</mat-list-item>
+
+
       <button mat-icon-button class="example-icon favorite-icon" aria-label="Example icon-button with heart icon">
         <mat-icon>account_circle</mat-icon>
       </button>
@@ -16,15 +30,21 @@
       <mat-sidenav #snav opened [mode]="mobileQuery.matches ? 'over' : 'side'"
                    [fixedInViewport]="mobileQuery.matches" fixedTopGap="56">
         <mat-nav-list appAccordion class="menu-vertical">
-            <mat-list-item appAccordionLink *ngFor="let menuitem of fillerNav" routerLinkActive="selected">
-                <a class="" appAccordionToggle [routerLink]="['/', menuitem.state]" *ngIf="menuitem.type === 'link'">
-                    <mat-icon>{{menuitem.icon}}</mat-icon>
-                    <span>{{menuitem.name}}</span>
-                    <span fxFlex></span>
-                </a>
-
-            </mat-list-item>
+          <div *ngFor="let menuitem of fillerNav">
+          <ng-template *ngIf="menuitem.name == 'Persona';then trueBlock"></ng-template>
+          <ng-template #trueBlock>
+            <div *ngFor="let option of menuitem.options">
+              <h3>{{option.value}}</h3>
+            </div>          
+          </ng-template>
+         
+          
+          
+         </div>
+          
+        
         </mat-nav-list>
+       
       </mat-sidenav>
   
       <mat-sidenav-content>
