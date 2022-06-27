@@ -43,14 +43,14 @@ export class DataService {
     const btns: Menu[] = [];
 
     let btn: Menu = {
-      state: 'personas',
+      state: '',
       name: 'Lista',
       type: 'link',
       icon: ''
     }
 
     let btn2: Menu = {
-      state: 'personas#',
+      state: ':id',
       name: 'Nuevo',
       type: 'link',
       icon: ''
@@ -60,5 +60,19 @@ export class DataService {
     btns.push(btn2);
 
     return btns;
+  }
+
+  getCustomGrids(style: any){
+    let grids: any[] = [
+      {
+        small: { 'grid-template-areas': '"id id . ." "nom ape . ." "nac nac . ." "sexo sexo . ." "mail mail . ." "movil movil . ." "fax . . ." "tel tel . ." "tipo doc . ." "calle . calle2 ." "loc postal . ." "prov pais . ." "titulo puesto . ." "btn . . ."'},
+        medium: {'grid-template-areas':'"id id id ." "nom ape ape ." "nac nac . ." "sexo sexo sexo ." "mail mail . ." "movil movil . ." "fax . . ." "tel tel tel ." "tipo doc . ." "calle calle calle2 ." "loc . postal ." "prov pais . ." "titulo puesto . ." "btn btn . ."'},
+        large: {'grid-template-areas':'"id id id id" "nom nom ape ape" "nac nac . ." "sexo sexo sexo sexo" "mail mail mail ." "tel tel tel ." "movil movil movil ." "fax fax fax ." "tipo doc doc ." "calle calle calle2 calle2" "loc loc postal ." "prov pais . ." "titulo puesto puesto ." "btn btn btn btn"'}
+      }
+    ];
+
+    console.log(style);
+    console.log(grids[0][style]);
+    return grids[0][style];
   }
 }

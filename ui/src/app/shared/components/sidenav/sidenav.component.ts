@@ -12,17 +12,21 @@ export class SidenavComponent implements OnDestroy {
   
   mobileQuery: MediaQueryList;
 
-  fillerNav: Menu[];
+  menu: Menu = { state: 'personas', name: 'Persona', type: 'link', icon:''};
+
+  fillerNav: Menu[] = [this.menu];
 
   private _mobileQueryListener: () => void;
 
-  constructor(changeDetectorRef: ChangeDetectorRef, 
+  constructor(
+    changeDetectorRef: ChangeDetectorRef, 
     media: MediaMatcher,
-    private menuItems: MenuItems) {
+    private menuItems: MenuItems
+    ) {
     this.mobileQuery = media.matchMedia('(max-width: 600px)');
     this._mobileQueryListener = () => changeDetectorRef.detectChanges();
     this.mobileQuery.addListener(this._mobileQueryListener);
-    this.fillerNav = menuItems.getMenuItem();
+    this.fillerNav = this.menuItems.getMenuItem();
   }
 
   ngOnDestroy(): void {

@@ -34,6 +34,10 @@ import { PersonaDialogComponent } from './core/components/persona-dialog/persona
 import { MatDialogModule } from '@angular/material/dialog';
 import { DialogComponent } from './shared/components/dialog/dialog/dialog.component';
 import { FormularioPersonaComponent } from './core/components/formulario-persona/formulario-persona.component';
+import { SidenavComponent } from './shared/components/sidenav/sidenav.component';
+import {MatSidenavModule} from '@angular/material/sidenav';
+import { ComponentViewerComponent } from './shared/components/component-viewer/component-viewer.component';
+import {MatListModule} from '@angular/material/list';
 
 
 //import { DialogComponent } from './core/components/persona/dialog/dialog.component';
@@ -49,7 +53,9 @@ import { FormularioPersonaComponent } from './core/components/formulario-persona
     TablaComponent,
     PersonaDialogComponent,
     DialogComponent,
-    FormularioPersonaComponent
+    FormularioPersonaComponent,
+    SidenavComponent,
+    ComponentViewerComponent
   ],
   imports: [
     BrowserModule,
@@ -64,8 +70,9 @@ import { FormularioPersonaComponent } from './core/components/formulario-persona
     MatCheckboxModule,
     MatPaginatorModule,
     MatToolbarModule,
-    RouterModule
-
+    RouterModule,
+    MatSidenavModule,
+    MatListModule
   ],
   providers: [PersonaService, DataService],
   entryComponents:[TablaComponent],

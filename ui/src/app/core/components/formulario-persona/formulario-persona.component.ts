@@ -1,5 +1,6 @@
 import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
 import { Component, OnInit, ViewEncapsulation } from '@angular/core';
+import { DataService } from 'src/app/shared/services/data.service';
 import { GenericService } from 'src/app/shared/services/generic.service';
 import { Persona } from '../../model/persona';
 import { PersonaService } from '../../services/persona.service';
@@ -15,9 +16,14 @@ export class FormularioPersonaComponent implements OnInit {
   service: PersonaService;
   isSmallDevice: boolean = false;
 
+  public grid = {
+    "grid-template-areas": '"id id . ." "nom ape . ." "nac nac . ." "sexo sexo . ." "mail mail . ." "movil movil . ." "fax . . ." "tel tel . ." "tipo doc . ." "calle . calle2 ." "loc postal . ." "prov pais . ." "titulo puesto . ." "btn . . ."'
+  }; 
+
   constructor( 
     private personaService: PersonaService,
-    private responsive: BreakpointObserver
+    private responsive: BreakpointObserver,
+    private dataService: DataService
     ) {
     this.service = this.personaService;
   }
@@ -35,6 +41,13 @@ export class FormularioPersonaComponent implements OnInit {
             }
           }
           );
+
+      
   }
+
+  getStyle(filter: any){
+    let style = this.dataService.getCustomGrids(filter);
+    return style;
+  };
 
 }

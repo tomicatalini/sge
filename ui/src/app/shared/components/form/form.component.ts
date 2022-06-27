@@ -20,6 +20,7 @@ export class FormComponent implements OnInit, OnDestroy {
   @Input() entity: string;
   @Input() fields!: Field[] | null;
   @Input() data!: any;
+  @Input() presentacion: any = {};
   
   formGroup: FormGroup;
 
