@@ -46,11 +46,11 @@ export class TablaComponent implements OnInit {
   }
 
   edit(persona: Persona){
-    const dialogEdit = this.dialog.open( PersonaDialogComponent,{
-      disableClose:true,
-      width:'60%',
-      data:persona
-    });
+    // const dialogEdit = this.dialog.open( PersonaDialogComponent,{
+    //   disableClose:true,
+    //   width:'60%',
+    //   data:persona
+    // });
   }
 
   getHeaders(){

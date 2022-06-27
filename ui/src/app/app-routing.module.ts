@@ -9,7 +9,7 @@ import { PersonasComponent } from './core/persona/components/personas/personas.c
 
 const routes: Routes = [
   { path: 'personas', component: TablaComponent },
-  { path: 'personas#', component: FormularioPersonaComponent },
+  { path: 'personas/:id', component: FormularioPersonaComponent },
   { path: 'domicilios', component: DomiciliosComponent },
   { path: 'localidades', component: LocalidadesComponent },
   { path: 'formasComunicacion', component: FormasComunicacionComponent }

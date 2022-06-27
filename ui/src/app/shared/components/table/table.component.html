@@ -15,7 +15,7 @@
       <th mat-header-cell *matHeaderCellDef> Acciones </th>
       <td mat-cell *matCellDef="let data">
         <div *ngIf="editable==true">
-          <button mat-icon-button  (click)="edit(data)">
+          <button mat-icon-button (click)="goToForm(data)">
             <mat-icon>edit_box</mat-icon>
           </button>
           <button mat-icon-button (click)="delete()">
