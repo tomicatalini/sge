@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, ViewEncapsulation, OnDestroy  } from '@angular/core';
+import { Component, OnInit, Input, ViewEncapsulation  } from '@angular/core';
 import { FormGroup } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
 
@@ -14,17 +14,16 @@ import { GenericService } from '../../services/generic.service';
   styleUrls: ['./form.component.css'],
   encapsulation: ViewEncapsulation.None
 })
-export class FormComponent implements OnInit, OnDestroy {
+export class FormComponent implements OnInit {
 
   @Input() service: GenericService<any>;
   @Input() entity: string;
   @Input() fields!: Field[] | null;
   @Input() data!: any;
+  
   @Input() presentacion: any = {};
   
   formGroup: FormGroup;
-
-  private sub: any;
 
   constructor( 
     private fieldService: FieldService,
@@ -34,35 +33,15 @@ export class FormComponent implements OnInit, OnDestroy {
     ) {}
 
   ngOnInit(): void {
+    //Generación de Formulario
+      this.getFormStructure();
 
-    //Get data
-    if( !this.fields ){
-      this.formService.getFields().subscribe({ 
-          next: (res) => {
-            this.fields = res;
-            console.log(res)
-          },
-          error: (e) => { 
-            console.warn('Error al obtener datos para el formulario');
-            console.log(e)
-          },
-          complete: () => console.info('complete')
-      });
-      console.log("formulario pre router");
-      this.sub = this.route.params.subscribe({
-        next: (res) => {
-          this.data = this.getData(res);
-          console.log(res);
-          console.log(this.getData(res));
-        },
-        error: (e) => { 
-          console.warn('Error al obtener datos para el formulario');
-          console.log(e)
-        },
-        complete: () => console.info('complete')
-      });
-      console.log("formulario post router");
-    }
+    //Obtener datos
+    const id = Number(this.route.snapshot.paramMap.get('id'));
+    
+    if(id != null) {
+      this.data = this.getData(id);
+    }    
 
     //Transform feilds to FormGroup
     this.formGroup = this.fieldService.toFormGroup( this.fields as Field[] );
@@ -72,8 +51,24 @@ export class FormComponent implements OnInit, OnDestroy {
         this.formGroup.get(`${property}`)?.setValue( this.data[property] );
       }
     }
+  }
+  
+  getFormStructure(){
+   
+    if( !this.fields ){
+      
+      this.formService.getFields().subscribe({ 
+          next: (res) => {
+            this.fields = res;
+          },
+          error: (e) => { 
+            console.warn('Error al obtener datos para el formulario');
+          },
+          complete: () => console.info('complete')
+      });
+    }
 
-  } 
+  }
 
   onSubmit(){
     if(this.formGroup.invalid){
@@ -83,23 +78,18 @@ export class FormComponent implements OnInit, OnDestroy {
     }
   }
 
-  getData(_id: any){
+  getData(_id: Number){
     // this.service.findById();
     let persona;
 
     this.dataService.getPersonas().subscribe({
       next: (res) => {
-        persona = res.find( persona => persona['id'] == _id.id);
+        persona = res.find( persona => persona['id'] == _id);
       },
       error: (error) => { console.error(error)},
       complete: () => console.info('Complete')
     }
     );
-
     return persona;
-  }
-
-  ngOnDestroy(): void {
-    this.sub.unsubscribe();
   }
 }

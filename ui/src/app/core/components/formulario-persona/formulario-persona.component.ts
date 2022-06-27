@@ -33,21 +33,18 @@ export class FormularioPersonaComponent implements OnInit {
       .observe(Breakpoints.XSmall)
         .subscribe( result => {
             if(result.matches){
-              console.log('Device Match');
-              console.log(result);
               this.isSmallDevice = true;
             } else {
               this.isSmallDevice = false;
             }
           }
-          );
+      );
 
       
   }
 
   getStyle(filter: any){
-    let style = this.dataService.getCustomGrids(filter);
-    return style;
+    return this.dataService.getCustomGrids(filter);
   };
 
 }

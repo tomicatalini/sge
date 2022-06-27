@@ -11,7 +11,7 @@ import { Menu } from '../menu-items/menu';
 export class ComponentViewerComponent implements OnInit {
 
   @Input() entity: String;
-  @Input() buttons: Menu[] = [];
+  @Input() buttons: any[] = [];
 
   isSmallDevice: boolean = false;
 

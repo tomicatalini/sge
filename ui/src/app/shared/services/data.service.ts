@@ -40,17 +40,19 @@ export class DataService {
   }
 
   getPersonasButtons(){
-    const btns: Menu[] = [];
+    const btns: any[] = [];
 
-    let btn: Menu = {
-      state: '',
+    let btn: any = {
+      state: 'personas',
+      params: '',
       name: 'Lista',
       type: 'link',
       icon: ''
     }
 
-    let btn2: Menu = {
-      state: ':id',
+    let btn2: any = {
+      state: 'personas',
+      params: ':id',
       name: 'Nuevo',
       type: 'link',
       icon: ''
@@ -70,9 +72,6 @@ export class DataService {
         large: {'grid-template-areas':'"id id id id" "nom nom ape ape" "nac nac . ." "sexo sexo sexo sexo" "mail mail mail ." "tel tel tel ." "movil movil movil ." "fax fax fax ." "tipo doc doc ." "calle calle calle2 calle2" "loc loc postal ." "prov pais . ." "titulo puesto puesto ." "btn btn btn btn"'}
       }
     ];
-
-    console.log(style);
-    console.log(grids[0][style]);
     return grids[0][style];
   }
 }
