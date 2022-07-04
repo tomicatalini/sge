@@ -46,6 +46,7 @@ import {MatTabsModule} from '@angular/material/tabs';
 import { FormularioPersonaComponent } from './core/components/formulario-persona/formulario-persona.component';
 
 import {MatPaginatorModule} from '@angular/material/paginator';
+import { SubSidenavComponent } from './shared/components/sub-sidenav/sub-sidenav.component';
 
 
 
@@ -70,7 +71,8 @@ import {MatPaginatorModule} from '@angular/material/paginator';
     LocalidadesComponent,
     PersonasComponent,
     ComponentViewerComponent,
-    FormularioPersonaComponent
+    FormularioPersonaComponent,
+    SubSidenavComponent
   ],
   imports: [
     BrowserModule,

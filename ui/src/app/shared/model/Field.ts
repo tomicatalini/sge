@@ -5,7 +5,7 @@ import { TypeOfField } from "./TypeOfField";
 export class Field {
     entity: string;
     property: string;
-
+    typeButton?:number;
     type: TypeOfField;
     label?: string;
     value?: any;        
@@ -30,6 +30,7 @@ export class Field {
         format?: any[];
         options?: {key: string, value: string}[];
         decimales?:string;
+        typeButton?:number;
     } = {}) {
         this.entity = options.entity || '';
         this.property = options.property || '';
@@ -43,5 +44,6 @@ export class Field {
         this.format = options.format || [];
         this.options = options.options || [];
         this.decimales= options.decimales == null || options.decimales== undefined? '01':options.decimales;
+        
     }
 }

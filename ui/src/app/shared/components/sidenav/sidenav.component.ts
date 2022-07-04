@@ -1,7 +1,8 @@
 import { MediaMatcher } from '@angular/cdk/layout';
-import { ChangeDetectorRef, Component, Input, OnDestroy, OnInit } from '@angular/core';
+import { ChangeDetectorRef, Component, Input, OnDestroy, OnInit, Output } from '@angular/core';
 import { Menu } from '../menu-items/menu';
 import { MenuItems } from '../menu-items/menu-items';
+
 
 @Component({
   selector: 'app-sidenav',
@@ -9,14 +10,24 @@ import { MenuItems } from '../menu-items/menu-items';
   styleUrls: ['./sidenav.component.css']
 })
 export class SidenavComponent implements OnDestroy {
-  // @Input() arrayEntity:String[];
+
   // arrayEntities:String[]=['Persona','Domicilio','Localidaes'];  
   mobileQuery: MediaQueryList;
 
   fillerNav: Menu[];
-
+  variableMenu:string= '';
+  variableSidenav:string= '';
+  arrayOptions:Object[];
+  menu:Menu;
   private _mobileQueryListener: () => void;
 
+  modifySidenav(menu:Menu){
+    this.menu=menu;
+    this.variableMenu= menu.name;
+    this.variableSidenav= menu.name.toLocaleLowerCase();
+    // this.arrayOptions=menu.options;
+    
+}
   constructor(changeDetectorRef: ChangeDetectorRef, 
     media: MediaMatcher,
     private menuItems: MenuItems) {
@@ -24,6 +35,11 @@ export class SidenavComponent implements OnDestroy {
     this._mobileQueryListener = () => changeDetectorRef.detectChanges();
     this.mobileQuery.addListener(this._mobileQueryListener);
     this.fillerNav = menuItems.getMenuItem();
+    this.modifySidenav(this.fillerNav[0]);
+    // this.arrayOptions(this.fillerNav[0].options);
+    console.log( this.menu.options);
+    console.log(this.variableMenu);
+  
   }
 
   ngOnDestroy(): void {

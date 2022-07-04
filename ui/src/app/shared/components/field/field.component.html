@@ -103,19 +103,35 @@
                     <ng-container *ngSwitchCase="10" >
                             <div >
                                 <mat-label>{{field.label}}</mat-label>
-                                <button  [formControlName]="field.property" [id]="field.property"  type="button" mat-button (click)="clicked = true">
-                                       {{field.value}}
-                                      </button>
-                                      
+                                            <ng-container [ngSwitch]="field.typeButton">
+                                                <ng-container *ngSwitchCase=1>
+                                                        <button  [formControlName]="field.property" [id]="field.property"  type="button" mat-button (click)="clicked = true">{{field.label}}
+                                                            </button>
+                                                </ng-container> 
+                                                <ng-container *ngSwitchCase=2 >
+                                                        <button  [formControlName]="field.property" [id]="field.property" mat-button color="primary"   (click)="clicked = true">{{field.label}}</button>
+                                                </ng-container>
+                                                <ng-container *ngSwitchCase=3>
+                                                        <button  [formControlName]="field.property" [id]="field.property" mat-button color="accent"  (click)="clicked = true">{{field.label}}</button>
+                                                </ng-container>
+                                                <ng-container *ngSwitchCase=4>
+                                                        <button  [formControlName]="field.property" [id]="field.property" mat-button color="warn"  (click)="clicked = true">{{field.label}}</button>
+                                                </ng-container>
+                                                <ng-container *ngSwitchCase=5>
+                                                        <button [id]="field.property"  mat-button disabled>{{field.label}}</button>
+                                                </ng-container>
+                                                <ng-template *ngSwitchCase=6>  
+                                                         <a  [formControlName]="field.property" [id]="field.property" mat-button href="https://www.google.com/"  target="_blank">{{field.label}}</a>
+                                                </ng-template>                                                                     
+                                </ng-container> 
+                                <ng-container *ngSwitchDefault> <button  [formControlName]="field.property" [id]="field.property"  type="button" mat-button (click)="clicked = true">{{field.label}}</button></ng-container>                                                                   
                             </div>
                     </ng-container> 
                     <ng-container *ngSwitchCase="11" >
                             <div class="fecha-container" >
-                                    <!-- <mat-form-field appearance="fill"> -->
                                             <mat-label class="label-fecha">{{field.label}}</mat-label>
                                          <div class="input-fecha">
                                                 <input matInput [matDatepicker]="picker" [formControlName]="field.property" [id]="field.property" class="fecha"  >
-                                                <!-- <mat-hint>DD/MM/YYYY</mat-hint> -->
                                                 <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
                                                 <mat-datepicker #picker></mat-datepicker>                                          
                                          </div>

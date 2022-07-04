@@ -489,6 +489,129 @@ export class FormService {
           }
         ],
         options: []
+      },
+      {
+        entity: 'Persona',
+        property: 'boton',
+        type: TypeOfField.BOTON,
+        label: 'BASIC',
+        value: '',
+        readonly: false,
+        order: 19,
+        typeButton:1,
+        group: 'otros',
+        format: [
+          {
+            
+            render: {float: 'expand'}
+          }
+        ],
+        options: []
+      },
+      {
+        entity: 'Persona',
+        property: 'boton',
+        type: TypeOfField.BOTON,
+        label: 'SAVE',
+        value: '',
+        readonly: false,
+        order: 19,
+        typeButton:2,
+        group: 'otros',
+        format: [
+          {
+            validation: {
+              required: true,
+              minLength: 4
+            },
+            render: {float: 'expand'}
+          }
+        ],
+        options: []
+      },
+      {
+        entity: 'Persona',
+        property: 'boton',
+        type: TypeOfField.BOTON,
+        label: 'ENFASIS',
+        value: '',
+        readonly: false,
+        order: 19,
+        typeButton:3,
+        group: 'otros',
+        format: [
+          {
+            validation: {
+              required: true,
+              minLength: 4
+            },
+            render: {float: 'expand'}
+          }
+        ],
+        options: []
+      },
+      {
+        entity: 'Persona',
+        property: 'boton',
+        type: TypeOfField.BOTON,
+        label: 'WARNING',
+        value: '',
+        readonly: false,
+        order: 19,
+        typeButton:4,
+        group: 'otros',
+        format: [
+          {
+            validation: {
+              required: true,
+              minLength: 4
+            },
+            render: {float: 'expand'}
+          }
+        ],
+        options: []
+      },
+      {
+        entity: 'Persona',
+        property: 'boton',
+        type: TypeOfField.BOTON,
+        label: 'DISABLED',
+        value: '',
+        readonly: false,
+        order: 19,
+        typeButton:1,
+        group: 'otros',
+        format: [
+          {
+            validation: {
+              required: true,
+              minLength: 5
+            },
+            render: {float: 'expand'}
+          }
+        ],
+        options: []
+      },
+      {
+        entity: 'Persona',
+        property: 'boton',
+        type: TypeOfField.BOTON,
+        label: 'Link',
+        value: '',
+        readonly: false,
+        order: 19,
+        typeButton:1,
+        group: 'otros',
+        format: [
+          {
+            validation: {
+              required: true,
+              minLength: 6
+            },
+            render: {float: 'expand'}
+          }
+        ],
+        options: []
       }
           
     ];

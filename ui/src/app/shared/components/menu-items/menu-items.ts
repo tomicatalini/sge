@@ -2,30 +2,39 @@ import { Injectable } from "@angular/core";
 import { Menu } from "./menu";
 
 const MENUITEMS: Menu[] = [
-    { state: 'personas', name: 'Persona', type: 'link', icon:'person',options:[{
+    { state: 'persona', name: 'Persona', type: 'link', icon:'person',options:[{
         key: 'op1',
-        value: 'opcion 1 -Domicilio'
+        value: 'Caracteristicas Personas' 
       },{
         key: 'op2',
-        value: 'opcion 2'
+        value: 'Detalles Personas'
       },{
         key: 'op3',
-        value: 'opcion 3'
+        value: 'Cantidad de Personas'
       },]},
-    { state: 'domicilios', name: 'Domicilio', type: 'link', icon:'directions',options:[{
+    { state: 'domicilio', name: 'Domicilio', type: 'link', icon:'directions',options:[{
         key: 'op1',
-        value: `opcion 1 -${name}`
+        value: `opcion 1 - Domicilio`
       },{
         key: 'op2',
-        value: 'opcion 2'
+        value: 'opcion 2 - Domicilio'
       },{
         key: 'op3',
-        value: 'opcion 3'
+        value: 'opcion 3 - Domicilio'
       },]},
-    { state: 'formasComunicacion', name: 'Formas de Comunicación', type: 'link', icon:'call'},
+    { state: 'formasComunicacion', name: 'Formas de Comunicación', type: 'link', icon:'call',options:[{
+        key: 'op1',
+        value: `opcion 1 Form Com`
+      },{
+        key: 'op2',
+        value: 'opcion 2 -Form Com'
+      },{
+        key: 'op3',
+        value: 'opcion 3 -Form Com'
+      },
     // { state: 'localidades', name: 'Localidad', type: 'link', icon:'map'}
 
-];
+]}];
 
 @Injectable()
 export class MenuItems {

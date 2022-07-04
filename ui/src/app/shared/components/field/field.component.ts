@@ -15,7 +15,7 @@ export class FieldComponent implements OnInit {
   @Input() field!: Field;
   @Input() form!: FormGroup;
   
-  clicked = false;
+  clicked = true;
   valor:number;
   constructor() { }
 

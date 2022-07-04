@@ -25,8 +25,8 @@ export class DataService {
         fax: null,
         tipoDocumento: 'dni',
         documento: 12123212,
-        callePrincipal: 'calle publica sin numero',
-        calleSecundaria: 'calle publica sin numero',
+        callePrincipal: 'calle sn',
+        calleSecundaria: 'calle sn',
         localidad: 'Colon',
         codigoPostal: 3288,
         provincia: 'ER',
@@ -39,25 +39,33 @@ export class DataService {
     return of(personas);
   }
 
-  getPersonasButtons(){
+  getPersonasButtons(entidad:string){
     const btns: Menu[] = [];
 
     let btn: Menu = {
-      state: 'personas',
-      name: 'Lista',
+      state: entidad,
+      name: 'Listar',
       type: 'link',
       icon: ''
     }
 
     let btn2: Menu = {
-      state: 'personas#',
+      state: entidad+'new',
       name: 'Nuevo',
+      type: 'link',
+      icon: ''
+    }
+
+    let btn3: Menu = {
+      state: entidad+'id',
+      name: 'Editar',
       type: 'link',
       icon: ''
     }
 
     btns.push(btn);
     btns.push(btn2);
+    btns.push(btn3);
 
     return btns;
   }

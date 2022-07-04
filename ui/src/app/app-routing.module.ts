@@ -9,11 +9,16 @@ import { PersonasComponent } from './core/persona/components/personas/personas.c
 
 // Iterar sobre las rutas pasadas como parametros ,tienen que ser de tipo ruta
 const routes: Routes = [
-  { path: 'personas', component: TablaComponent },
-  { path: 'personas#', component: FormularioPersonaComponent },
-  { path: 'domicilios', component: DomiciliosComponent },
+  { path: 'persona', component: TablaComponent },
+  { path: 'personaid', component: FormularioPersonaComponent },
+  { path: 'personanew', component: FormularioPersonaComponent },
+  { path: 'domicilio', component: DomiciliosComponent },
+  { path: 'domicilioid', component: DomiciliosComponent },
+  { path: 'domiciliownew', component: FormularioPersonaComponent },
   // { path: 'localidades', component: LocalidadesComponent },
-  { path: 'formasComunicacion', component: FormasComunicacionComponent }
+  { path: 'formasComunicacion', component: FormasComunicacionComponent },
+  { path: 'formasComunicacionid', component: FormularioPersonaComponent },
+  { path: 'formasComunicacionnew', component: FormularioPersonaComponent }
 ];
 
 @NgModule({

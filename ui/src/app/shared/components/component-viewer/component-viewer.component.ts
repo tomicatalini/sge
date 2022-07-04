@@ -10,7 +10,7 @@ import { Menu } from '../menu-items/menu';
 })
 export class ComponentViewerComponent implements OnInit {
 
-  @Input() entity: String;
+  @Input() entity: string;
   @Input() buttons: Menu[] = [];
 
   isSmallDevice: boolean = false;
@@ -36,7 +36,7 @@ export class ComponentViewerComponent implements OnInit {
           complete: () => console.info('complete')
         });
     
-    this.buttons = this.dataService.getPersonasButtons();
+    this.buttons = this.dataService.getPersonasButtons(this.entity.toLowerCase());
     
   }
 
