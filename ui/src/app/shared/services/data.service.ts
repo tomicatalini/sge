@@ -17,7 +17,7 @@ export class DataService {
         id: 0,
         nombre: 'Juan',
         apellido: 'Perez',
-        fechaNacimiento: new Date('23-09-1989'),
+        fechaNacimiento: new Date('1989/11/12'),
         sexo: 'F',
         email: 'juanperez@gmail.com',
         telefono: null,
@@ -33,6 +33,28 @@ export class DataService {
         pais: 'ARG',
         titulo: 'UI',
         puesto: 'desarrollador'
+      }
+      ,
+      {
+        id: 1,
+        nombre: 'Michi',
+        apellido: 'Fechter',
+        fechaNacimiento: new Date('2000/01/12'),
+        sexo: 'F',
+        email: 'lamichibienpeola@gmail.com',
+        telefono: null,
+        movil: 315676874987,
+        fax: null,
+        tipoDocumento: 'dni',
+        documento: 97569320,
+        callePrincipal: 'calle publica sin numero',
+        calleSecundaria: 'calle publica sin numero',
+        localidad: 'Paysa',
+        codigoPostal: 60000,
+        provincia: 'Paysa',
+        pais: 'URU',
+        titulo: 'UI',
+        puesto: 'RRHH'
       }
     ];
 

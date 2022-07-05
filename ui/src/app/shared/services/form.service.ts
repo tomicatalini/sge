@@ -398,7 +398,7 @@ export class FormService {
           },
           {
             key: 'Uruguay',
-            value: 'ROU'
+            value: 'URU'
           },
           {
             key: 'Brasil',
