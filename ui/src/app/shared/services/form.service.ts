@@ -15,59 +15,60 @@ export class FormService {
     const options: Field[] = [
       {
         entity: 'Permisos',
-        property: 'id',
+        property: 'usuario',
         type: TypeOfField.TEXT,
-        label: '',
+        label: 'Usuario',
         value: '',
-        required: false,
-        readonly: true,
+        readonly: false,
         order: 1,
-        group: '',
-        format: [],
+        group: 'principal',
+        format: [
+          {
+            validation: {required: true,
+              minLength: 4 
+            },
+            render: {float: 'fill'}
+          }
+      ],
         options: []
       }
       ,
       {
-        entity: 'Permiso',
-        property: 'Usuario',
-        type: TypeOfField.TEXT,
-        label: 'usuario',
-        value: '',
-        required: false,
-        readonly: false,
-        order: 1,
-        group: '',
-        format: [
-          {
-            'key': 'maxLength',
-            'value': 15
-          }
-        ],
-        options: []
-      }
-      ,{
-        entity: 'permisos',
+        entity: 'Permisos',
         property: 'contraseña',
         type: TypeOfField.TEXT,
         label: 'Contraseña',
         value: '',
-        required: true,
         readonly: false,
-        order: 1,
-        group: '',
-        format: [],
+        order: 2,
+        group: 'principal',
+        format: [
+          {
+            validation: {required: true,
+              minLength: 2 
+            },
+            render: {float: 'fill'}
+          }
+        ],
         options: []
-      },{
-        entity: 'Persona',
-        property: 'repetirContraseña',
-        type: TypeOfField.EMAIL,
-        label: 'repetir Contraseña',
+      },
+      {
+        entity: 'Permisos',
+        property: 'repetircontraseña',
+        type: TypeOfField.TEXT,
+        label: 'Repetir Contraseña',
         value: '',
-        required: true,
         readonly: false,
-        order: 1,
-        group: '',
-        format: [],
+        order: 3,
+        group: 'principal',
+        format: [
+          {
+            validation: {required: true,
+              minLength: 2 
+            },
+            render: {float: 'fill'}
+          }
+        ],
         options: []
       }
     ];

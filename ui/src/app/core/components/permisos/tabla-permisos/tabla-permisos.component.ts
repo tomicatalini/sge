@@ -1,7 +1,10 @@
 import { Component, OnInit } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
+import { Permiso } from 'src/app/core/model/permiso';
 import { PermisoService } from 'src/app/core/services/permisos.service';
 import { Field } from 'src/app/shared/model/Field';
 import { TypeOfField } from 'src/app/shared/model/TypeOfField';
+import { PermisosDialogComponent } from '../permisos-dialog/permisos-dialog.component';
 
 @Component({
   selector: 'app-tabla-permisos',
@@ -17,7 +20,6 @@ export class TablaPermisosComponent implements OnInit {
       type: TypeOfField.TEXT,
       label: 'Id',
       value: '',
-      required: true,
       readonly: false,
       order: 1,
       group: '',
@@ -35,7 +37,6 @@ export class TablaPermisosComponent implements OnInit {
       type: TypeOfField.TEXT,
       label: 'Nombre',
       value: '',
-      required: false,
       readonly: false,
       order: 1,
       group: '',
@@ -48,7 +49,6 @@ export class TablaPermisosComponent implements OnInit {
       type: TypeOfField.TEXT,
       label: 'Usuario',
       value: '',
-      required: true,
       readonly: false,
       order: 1,
       group: '',
@@ -60,7 +60,6 @@ export class TablaPermisosComponent implements OnInit {
       type: TypeOfField.DATE,
       label: 'Ultima Conexión',
       value: '',
-      required: false,
       readonly: false,
       order: 1,
       group: '',
@@ -72,7 +71,8 @@ export class TablaPermisosComponent implements OnInit {
   editable:boolean = true;
   entidad:string="Permiso";
   constructor(
-    public permisoService: PermisoService
+    public permisoService: PermisoService,
+    public dialog: MatDialog
   ) { }
 
   ngOnInit(): void {
@@ -80,5 +80,11 @@ export class TablaPermisosComponent implements OnInit {
       this.tablaHead.push('acciones')
     }  
   }
-
+  edit(persona: Permiso){
+    const dialogEdit = this.dialog.open( PermisosDialogComponent,{
+      disableClose:true,
+      width:'60%',
+      data:persona
+    });
+  }
 }

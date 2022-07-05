@@ -1,0 +1,19 @@
+<mat-card>
+    <mat-card-title>Esto es un titulo</mat-card-title>
+    <mat-card-subtitle>subtitulo</mat-card-subtitle>
+    <mat-card-content>
+        <div>
+            <h1>Pruebas Formulario Permisos</h1>
+            <!--Aca deberiamos ademas de enviar la
+             entidad y los fields.. los datos, 
+             para recuperarlos en los inputs
+            [_dataEnElFormGenerico]="dataDesdeElComponent"-->    
+            <generic-form 
+                [data]="data"
+                [entity]="permisos"
+                [fields]="fields$ | async"                
+                id="app">
+            </generic-form>
+          </div>
+    </mat-card-content>
+</mat-card>

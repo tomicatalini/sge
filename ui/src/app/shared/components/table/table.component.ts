@@ -6,6 +6,7 @@ import { MatDialog } from '@angular/material/dialog';
 import { GenericHelper } from '../../model/generic-helper';
 import { DialogComponent } from '../dialog/dialog/dialog.component';
 import { PersonaDialogComponent } from 'src/app/core/components/persona-dialog/persona-dialog/persona-dialog.component';
+import { PermisosDialogComponent } from 'src/app/core/components/permisos/permisos-dialog/permisos-dialog.component';
 
 @Component({
   selector: 'app-table',
@@ -18,7 +19,7 @@ export class TableComponent implements OnInit {
   @Input()fields!: Field[];
   @Input()tablaHead: String[]
   @Input()editable: Boolean;
-  @Input()entidad:String;
+  @Input()entidad:String;  
   dataSource: any[];
   constructor(
     public dialog: MatDialog
@@ -53,7 +54,7 @@ export class TableComponent implements OnInit {
      genericHelper.entidad= _data;
      genericHelper.isEdit=true;
     
-     const dialogEdit= this.dialog.open( PersonaDialogComponent,{
+     const dialogEdit= this.dialog.open( PermisosDialogComponent,{
        disableClose:false,
        width:'90%',
        height:'90%',

@@ -4,7 +4,6 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 
 
-
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { FieldComponent } from './shared/components/field/field.component';
@@ -37,6 +36,7 @@ import { PersonaDialogComponent } from './core/components/persona-dialog/persona
 
 
 import { FormularioPersonaComponent } from './core/components/formulario-persona/formulario-persona.component';
+import { PermisosDialogComponent } from './core/components/permisos/permisos-dialog/permisos-dialog.component';
 
 
 //import { DialogComponent } from './core/components/persona/dialog/dialog.component';
@@ -53,7 +53,8 @@ import { FormularioPersonaComponent } from './core/components/formulario-persona
     PersonaDialogComponent,
     DialogComponent,
     TablaPermisosComponent,
-    FormularioPersonaComponent
+    FormularioPersonaComponent,
+    PermisosDialogComponent
   ],
   imports: [
     BrowserModule,
