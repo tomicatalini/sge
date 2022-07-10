@@ -1,0 +1,49 @@
+
+.container {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    outline: 2xp solid red;
+}
+.card-container{
+    width: 50vw;
+    display: flex;
+    flex-direction: row;
+    position: relative;
+}
+.card-info-container{
+    width: 100%;
+    padding: 5px 8px;    
+    border-radius: .7rem; 
+    background-color: rgba(255,0,0,255);
+}
+.card-info {
+    width: 40%;
+    height: 40vh;
+    display: flex;
+    flex-direction: column;
+    box-shadow: none;
+    background-color: transparent;
+}
+
+.card-info mat-card-subtitle{ flex: 1 1 auto}
+
+.card-login{
+    position: absolute;
+    display: flex;
+    top: -5vh;
+    left: 45%;
+    flex-direction: column;
+    gap: 1rem;
+}
+.card-login mat-card-title-group {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.card-login mat-card-content{
+    flex: 1 1 auto;
+}

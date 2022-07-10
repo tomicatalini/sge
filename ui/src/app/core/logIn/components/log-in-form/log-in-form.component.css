@@ -1,0 +1,13 @@
+:host{
+    box-sizing: border-box;
+}
+
+.generic-form-comp form {
+    width: 90% !important;
+    margin: 0 auto !important;
+    padding: .5rem !important;
+    display: flex !important;
+    flex-direction: column !important;
+    /* outline: 2px solid slateblue !important; */
+
+}
