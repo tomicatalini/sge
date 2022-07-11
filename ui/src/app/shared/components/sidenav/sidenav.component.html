@@ -30,49 +30,13 @@
       <mat-sidenav #snav opened [mode]="mobileQuery.matches ? 'over' : 'side'"
                    [fixedInViewport]="mobileQuery.matches" fixedTopGap="56">
         <mat-nav-list appAccordion class="menu-vertical">
-          <!-- <div *ngFor="let menuitem of fillerNav"> -->
-              <!-- <ng-container *ngIf=" fillerNav.length > 0 ;then trueCase ;else falseCase"></ng-container>
-                <ng-template #trueCase>
-                    <h4>caso true</h4>
-                </ng-template>
-                <ng-template #falseCase>
-                    <h4>caso false</h4>
-                </ng-template> -->
                 <app-sub-sidenav [menu]="menu"></app-sub-sidenav>
-              <!-- <ng-container [ngSwitch]="menuitem.name">
-                  <ng-container *ngSwitchCase="variableMenu" >
-                    <h3>opciones Persona</h3>
-                  </ng-container>
-                  <ng-container *ngSwitchCase="variableMenu" >
-                    <h3>opciones Domicilio</h3>
-                    
-                  </ng-container>
-                  <ng-container *ngSwitchDefault> Opcion no valida 
-                  </ng-container> 
-              </ng-container> -->
-                
-          <!-- <ng-template *ngIf="menuitem.name ='{{variableMenu}}';then trueBlock;else falseBlock"></ng-template> -->
-          <!-- <ng-template #trueBlock> -->
-          <!-- <div *ngFor="let option of menuitem.options"> -->
-          <!-- <h3>{{option.value}}</h3> -->
-          <!-- </div>     -->
-                  
-          <!-- </ng-template>     -->
-          <!-- <ng-template #falseBlock>
-            <h3>'No hay menu definido'</h3>
-          </ng-template>                          -->
-         <!-- </ng-container>         -->
         </mat-nav-list>
        
       </mat-sidenav>
   
-      <mat-sidenav-content>
-     
-        <app-component-viewer entity="{{variableMenu}}"></app-component-viewer>
-        <!-- <ng-template *ngFor="let entidad of arrayEntities">
-          <app-component-viewer entity="entidad"></app-component-viewer>
-        </ng-template>
-         -->
+      <mat-sidenav-content>    
+        <app-component-viewer entity="{{variableMenu}}"></app-component-viewer> 
       </mat-sidenav-content>
     </mat-sidenav-container>
   </div>

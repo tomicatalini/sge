@@ -25,7 +25,6 @@ export class SidenavComponent implements OnDestroy {
     this.menu=menu;
     this.variableMenu= menu.name;
     this.variableSidenav= menu.name.toLocaleLowerCase();
-    // this.arrayOptions=menu.options;
     
 }
   constructor(changeDetectorRef: ChangeDetectorRef, 
@@ -36,9 +35,8 @@ export class SidenavComponent implements OnDestroy {
     this.mobileQuery.addListener(this._mobileQueryListener);
     this.fillerNav = menuItems.getMenuItem();
     this.modifySidenav(this.fillerNav[0]);
-    // this.arrayOptions(this.fillerNav[0].options);
-    console.log( this.menu.options);
-    console.log(this.variableMenu);
+    // console.log( this.menu.options);
+    // console.log(this.variableMenu);
   
   }
 

@@ -4,4 +4,5 @@ export interface Menu {
     type: string;
     icon: string;
     options?: {key: string, value: string}[];
+    subState?:string;
 }

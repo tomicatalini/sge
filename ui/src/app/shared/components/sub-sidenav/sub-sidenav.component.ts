@@ -8,8 +8,13 @@ import { Menu } from '../menu-items/menu';
 })
 export class SubSidenavComponent implements OnInit {
   @Input() menu:Menu;
-  constructor() { }
 
+  constructor() { }
+  renderComponent(a:string){
+    alert('Nueva Opcion Cargada');
+    console.log(a);
+    // this.menu.state=
+  }
   ngOnInit(): void {
   }
 

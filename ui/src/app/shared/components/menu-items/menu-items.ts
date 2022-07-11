@@ -4,37 +4,25 @@ import { Menu } from "./menu";
 const MENUITEMS: Menu[] = [
     { state: 'persona', name: 'Persona', type: 'link', icon:'person',options:[{
         key: 'op1',
-        value: 'Caracteristicas Personas' 
+        value: 'Persona' 
       },{
         key: 'op2',
-        value: 'Detalles Personas'
+        value: 'Calle'
       },{
         key: 'op3',
-        value: 'Cantidad de Personas'
+        value: 'Domicilio'
       },]},
-    { state: 'domicilio', name: 'Domicilio', type: 'link', icon:'directions',options:[{
+    { state: 'expediente', name: 'Expediente', type: 'link', icon:'article',options:[{
         key: 'op1',
-        value: `opcion 1 - Domicilio`
+        value: 'Archivados'
       },{
         key: 'op2',
-        value: 'opcion 2 - Domicilio'
+        value: 'Pendientes'
       },{
         key: 'op3',
-        value: 'opcion 3 - Domicilio'
-      },]},
-    { state: 'formasComunicacion', name: 'Formas de Comunicación', type: 'link', icon:'call',options:[{
-        key: 'op1',
-        value: `opcion 1 Form Com`
-      },{
-        key: 'op2',
-        value: 'opcion 2 -Form Com'
-      },{
-        key: 'op3',
-        value: 'opcion 3 -Form Com'
-      },
-    // { state: 'localidades', name: 'Localidad', type: 'link', icon:'map'}
-
-]}];
+        value: 'Enviados'
+      },]}   
+];
 
 @Injectable()
 export class MenuItems {

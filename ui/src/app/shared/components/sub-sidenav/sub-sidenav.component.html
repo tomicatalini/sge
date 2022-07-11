@@ -1,3 +1,3 @@
 <ng-container *ngFor="let op of menu.options">
-    <h4>{{op.value}}</h4>
+    <a  [routerLink]="['/', op.value | lowercase]" (clic)=" renderComponent(op.value);" ><h4  >{{op.value}}</h4></a>
 </ng-container>

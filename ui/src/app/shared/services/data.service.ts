@@ -42,30 +42,31 @@ export class DataService {
   getPersonasButtons(entidad:string){
     const btns: Menu[] = [];
 
-    let btn: Menu = {
-      state: entidad,
-      name: 'Listar',
-      type: 'link',
-      icon: ''
-    }
+    // let btn: Menu = {
+    //   state: entidad,
+    //   name: 'Listar',
+    //   type: 'link',
+    //   icon: ''
+    // }
 
     let btn2: Menu = {
       state: entidad+'new',
       name: 'Nuevo',
       type: 'link',
-      icon: ''
+      icon: '',
+    
     }
 
-    let btn3: Menu = {
-      state: entidad+'id',
-      name: 'Editar',
-      type: 'link',
-      icon: ''
-    }
+    // let btn3: Menu = {
+    //   state: entidad+':id',
+    //   name: 'Editar',
+    //   type: 'link',
+    //   icon: ''
+    // }
 
-    btns.push(btn);
+    // btns.push(btn);
     btns.push(btn2);
-    btns.push(btn3);
+    // btns.push(btn3);
 
     return btns;
   }

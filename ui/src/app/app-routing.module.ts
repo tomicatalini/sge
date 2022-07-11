@@ -12,13 +12,35 @@ const routes: Routes = [
   { path: 'persona', component: TablaComponent },
   { path: 'personaid', component: FormularioPersonaComponent },
   { path: 'personanew', component: FormularioPersonaComponent },
+
+  { path: 'calle', component: TablaComponent },
+  { path: 'calleid', component: FormularioPersonaComponent },
+  { path: 'callenew', component: FormularioPersonaComponent },
+
+  { path: 'expediente', component: TablaComponent },
+  { path: 'expedienteid', component: FormularioPersonaComponent },
+  { path: 'expedientenew', component: FormularioPersonaComponent },
+
   { path: 'domicilio', component: DomiciliosComponent },
   { path: 'domicilioid', component: DomiciliosComponent },
-  { path: 'domiciliownew', component: FormularioPersonaComponent },
-  // { path: 'localidades', component: LocalidadesComponent },
+  { path: 'domicilionew', component: FormularioPersonaComponent },
+
   { path: 'formasComunicacion', component: FormasComunicacionComponent },
   { path: 'formasComunicacionid', component: FormularioPersonaComponent },
-  { path: 'formasComunicacionnew', component: FormularioPersonaComponent }
+  { path: 'formasComunicacionnew', component: FormularioPersonaComponent },
+
+  { path: 'archivados', component: FormasComunicacionComponent },
+  { path: 'archivadosid', component: FormularioPersonaComponent },
+  { path: 'archivadosnew', component: FormularioPersonaComponent },
+
+  { path: 'pendientes', component: DomiciliosComponent },
+  { path: 'pendientesid', component: FormularioPersonaComponent },
+  { path: 'pendientesnew', component: FormularioPersonaComponent },
+
+  { path: 'enviados', component: TablaComponent },
+  { path: 'enviadosid', component: FormularioPersonaComponent },
+  { path: 'enviadosnew', component: FormularioPersonaComponent }
+
 ];
 
 @NgModule({

@@ -36,7 +36,7 @@ export class TableComponent implements OnInit {
         JSON.stringify(this.fields);
         JSON.stringify(response);
         this.dataSource= response as any[];
-        console.log(this.dataSource);
+        // console.log(this.dataSource);
       },
       err =>{
         console.log("Error al mostrar"+ err)

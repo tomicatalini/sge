@@ -37,6 +37,14 @@ export class ComponentViewerComponent implements OnInit {
         });
     
     this.buttons = this.dataService.getPersonasButtons(this.entity.toLowerCase());
+   
+    // modifySidenav(buttons:Menu){
+    //   this.menu=menu;
+    //   this.variableMenu= menu.name;
+    //   this.variableSidenav= menu.name.toLocaleLowerCase();
+      
+  // }
+    console.log(this.buttons);
     
   }
 
