@@ -42,6 +42,7 @@ import { LogInComponent } from './core/logIn/components/log-in/log-in.component'
 import {MatProgressBarModule} from '@angular/material/progress-bar';
 import { LogInFormComponent } from './core/logIn/components/log-in-form/log-in-form.component';
 
+
 //import { DialogComponent } from './core/components/persona/dialog/dialog.component';
 
 

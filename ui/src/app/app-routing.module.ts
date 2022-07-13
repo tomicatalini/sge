@@ -8,8 +8,20 @@ import { TablaComponent } from './core/components/tabla-Persona/tabla.component'
 // import { PersonasComponent } from './core/persona/components/personas/personas.component';
 
 const routes: Routes = [
-  { path: 'personas', component: TablaComponent },
-  { path: 'personas/:id', component: FormularioPersonaComponent },
+  // { path: 'personas', component: TablaComponent },
+  // { path: 'personas/:id', component: FormularioPersonaComponent },
+  {
+    path: 'auth',
+    loadChildren: () => import('./core/auth/auth.module').then( m => m.AuthModule )
+  },
+  {
+    path: 'dashboard',
+    loadChildren: () => import('./core/protected/protected.module').then( m => m.ProtectedModule )
+  },
+  {
+    path: '**',
+    redirectTo: 'auth'
+  }
   // { path: 'domicilios', component: DomiciliosComponent },
   // { path: 'localidades', component: LocalidadesComponent },
   // { path: 'formasComunicacion', component: FormasComunicacionComponent }

@@ -1,0 +1,35 @@
+:host{
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: slateblue;
+}
+
+.login {
+    width: 30vw;
+    height: 60vh;
+    padding: 3rem 2rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.login-header, .login-form {
+    display: flex;
+    flex-direction: column;
+    align-items: center; 
+}
+
+.login-form mat-form-field {
+    width: 100%;
+}
+
+.login-footer{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+    /* justify-content: space-between; */
+}
