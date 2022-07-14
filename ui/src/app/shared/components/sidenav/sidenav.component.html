@@ -20,23 +20,24 @@
       <button mat-icon-button class="example-icon favorite-icon"  aria-label="Example icon-button with heart icon">
         <mat-icon>account_circle</mat-icon>
       </button>
-      <button mat-icon-button class="example-icon"   aria-label="Example icon-button with share icon">
+      <!-- <button mat-icon-button class="example-icon"   aria-label="Example icon-button with share icon">
         <mat-icon>settings</mat-icon>
-      </button>
+      </button> -->
     </mat-toolbar>   
   
     <mat-sidenav-container class="example-sidenav-container"
                            [style.marginTop.px]="mobileQuery.matches ? 56 : 0">
       <mat-sidenav #snav opened [mode]="mobileQuery.matches ? 'over' : 'side'"
                    [fixedInViewport]="mobileQuery.matches" fixedTopGap="56">
+
         <mat-nav-list appAccordion class="menu-vertical">
-                <app-sub-sidenav [menu]="menu"></app-sub-sidenav>
+                <app-sub-sidenav (enviar)="receiveMessage($event)" [menu]="menu"></app-sub-sidenav>
         </mat-nav-list>
        
       </mat-sidenav>
   
       <mat-sidenav-content>    
-        <app-component-viewer entity="{{variableMenu}}"></app-component-viewer> 
+        <app-component-viewer  entity="{{variableMenu}}"></app-component-viewer> 
       </mat-sidenav-content>
     </mat-sidenav-container>
   </div>

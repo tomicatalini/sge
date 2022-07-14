@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, EventEmitter, Output } from '@angular/core';
 import { Menu } from '../menu-items/menu';
 
 @Component({
@@ -8,12 +8,16 @@ import { Menu } from '../menu-items/menu';
 })
 export class SubSidenavComponent implements OnInit {
   @Input() menu:Menu;
-
+  textoEnviar:string;
   constructor() { }
   renderComponent(a:string){
-    alert('Nueva Opcion Cargada');
-    console.log(a);
-    // this.menu.state=
+    this.textoEnviar=a;
+  }
+  
+  @Output()enviar:EventEmitter<string> = new EventEmitter<string>();
+ 
+  sendMessage(){
+    this.enviar.emit(this.textoEnviar);
   }
   ngOnInit(): void {
   }

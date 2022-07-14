@@ -9,37 +9,77 @@ import { PersonasComponent } from './core/persona/components/personas/personas.c
 
 // Iterar sobre las rutas pasadas como parametros ,tienen que ser de tipo ruta
 const routes: Routes = [
-  { path: 'persona', component: TablaComponent },
-  { path: 'personaid', component: FormularioPersonaComponent },
-  { path: 'personanew', component: FormularioPersonaComponent },
+  { path: 'personas', component: TablaComponent },
+  // { path: 'personaid', component: FormularioPersonaComponent },
+  { path: 'personasnew', component: FormularioPersonaComponent },
 
-  { path: 'calle', component: TablaComponent },
-  { path: 'calleid', component: FormularioPersonaComponent },
-  { path: 'callenew', component: FormularioPersonaComponent },
+  { path: 'usuarios', component: TablaComponent },
+  // { path: 'calleid', component: FormularioPersonaComponent },
+  { path: 'usuariosnew', component: FormularioPersonaComponent },
 
-  { path: 'expediente', component: TablaComponent },
-  { path: 'expedienteid', component: FormularioPersonaComponent },
-  { path: 'expedientenew', component: FormularioPersonaComponent },
+  { path: 'grupos', component: TablaComponent },
+  // { path: 'calleid', component: FormularioPersonaComponent },
+  { path: 'gruposnew', component: FormularioPersonaComponent },
 
-  { path: 'domicilio', component: DomiciliosComponent },
-  { path: 'domicilioid', component: DomiciliosComponent },
-  { path: 'domicilionew', component: FormularioPersonaComponent },
+  { path: 'accesos', component: TablaComponent },
+  // { path: 'calleid', component: FormularioPersonaComponent },
+  { path: 'accesosnew', component: FormularioPersonaComponent },
 
-  { path: 'formasComunicacion', component: FormasComunicacionComponent },
-  { path: 'formasComunicacionid', component: FormularioPersonaComponent },
-  { path: 'formasComunicacionnew', component: FormularioPersonaComponent },
+  { path: 'reglas', component: TablaComponent },
+  // { path: 'calleid', component: FormularioPersonaComponent },
+  { path: 'reglasnew', component: FormularioPersonaComponent },
 
-  { path: 'archivados', component: FormasComunicacionComponent },
-  { path: 'archivadosid', component: FormularioPersonaComponent },
-  { path: 'archivadosnew', component: FormularioPersonaComponent },
+  { path: 'areas', component: TablaComponent },
+  // { path: 'calleid', component: FormularioPersonaComponent },
+  { path: 'areasnew', component: FormularioPersonaComponent },
 
-  { path: 'pendientes', component: DomiciliosComponent },
-  { path: 'pendientesid', component: FormularioPersonaComponent },
-  { path: 'pendientesnew', component: FormularioPersonaComponent },
+  { path: 'expedientes', component: TablaComponent },
+  // { path: 'expedienteid', component: FormularioPersonaComponent },
+  { path: 'expedientesnew', component: FormularioPersonaComponent },
 
-  { path: 'enviados', component: TablaComponent },
-  { path: 'enviadosid', component: FormularioPersonaComponent },
-  { path: 'enviadosnew', component: FormularioPersonaComponent }
+  { path: 'enborrador', component: TablaComponent },
+  // { path: 'expedienteid', component: FormularioPersonaComponent },
+  { path: 'enborradornew', component: FormularioPersonaComponent },
+
+  { path: 'documentos', component: TablaComponent },
+  // { path: 'expedienteid', component: FormularioPersonaComponent },
+  { path: 'documentosnew', component: FormularioPersonaComponent },
+
+  { path: 'historial', component: TablaComponent },
+  // { path: 'expedienteid', component: FormularioPersonaComponent },
+  { path: 'historialnew', component: FormularioPersonaComponent },
+
+  { path: 'tiposdeexpedientes', component: TablaComponent },
+  // { path: 'expedienteid', component: FormularioPersonaComponent },
+  { path: 'tiposdeexpedientesnew', component: FormularioPersonaComponent },
+
+  { path: 'estados', component: TablaComponent },
+  // { path: 'expedienteid', component: FormularioPersonaComponent },
+  { path: 'estadosnew', component: FormularioPersonaComponent },
+
+  { path: 'configuracion', component: DomiciliosComponent },
+  // { path: 'domicilioid', component: DomiciliosComponent },
+  { path: 'configuracionnew', component: FormularioPersonaComponent },
+
+  { path: 'usuarios', component: FormasComunicacionComponent },
+  // { path: 'formasComunicacionid', component: FormularioPersonaComponent },
+  { path: 'usuariosnew', component: FormularioPersonaComponent },
+
+  { path: 'grupos', component: FormasComunicacionComponent },
+  // { path: 'archivadosid', component: FormularioPersonaComponent },
+  { path: 'gruposnew', component: FormularioPersonaComponent },
+
+  { path: 'accesos', component: DomiciliosComponent },
+  // { path: 'pendientesid', component: FormularioPersonaComponent },
+  { path: 'accesosnew', component: FormularioPersonaComponent },
+
+  { path: 'reglas', component: TablaComponent },
+  // { path: 'enviadosid', component: FormularioPersonaComponent },
+  { path: 'reglasnew', component: FormularioPersonaComponent },
+
+  { path: 'areas', component: TablaComponent },
+  // { path: 'enviadosid', component: FormularioPersonaComponent },
+  { path: 'areasnew', component: FormularioPersonaComponent }
 
 ];
 

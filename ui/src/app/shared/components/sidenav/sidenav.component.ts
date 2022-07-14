@@ -15,15 +15,17 @@ export class SidenavComponent implements OnDestroy {
   mobileQuery: MediaQueryList;
 
   fillerNav: Menu[];
-  variableMenu:string= '';
+  variableMenu:string;
   variableSidenav:string= '';
   arrayOptions:Object[];
   menu:Menu;
+  param:any;
+
   private _mobileQueryListener: () => void;
 
   modifySidenav(menu:Menu){
     this.menu=menu;
-    this.variableMenu= menu.name;
+    // this.variableMenu= menu.name;
     this.variableSidenav= menu.name.toLocaleLowerCase();
     
 }
@@ -37,8 +39,13 @@ export class SidenavComponent implements OnDestroy {
     this.modifySidenav(this.fillerNav[0]);
     // console.log( this.menu.options);
     // console.log(this.variableMenu);
-  
+      
   }
+  receiveMessage(message:string){
+    this.variableMenu=message.toLocaleLowerCase().replace(/ /g,"");;
+    console.log(this.variableMenu);
+  }
+ 
 
   ngOnDestroy(): void {
     this.mobileQuery.removeListener(this._mobileQueryListener);

@@ -12,15 +12,24 @@ export class ComponentViewerComponent implements OnInit {
 
   @Input() entity: string;
   @Input() buttons: Menu[] = [];
+  pathLink:string;
 
   isSmallDevice: boolean = false;
 
   constructor(
     private responsive: BreakpointObserver,
     private dataService: DataService
-  ) {}
+  ) {}  
+ modifyEntity(){
+  //  console.log(btn);
+  //  btn.state= this.entity+btn.state;
+  //  console.log(btn);
+
+   this.pathLink= this.dataService.getPersonasButtons(this.entity.toLowerCase())[0].state;
+ }
 
   ngOnInit(): void {
+  
     
     this.responsive
       .observe(Breakpoints.XSmall)
@@ -36,16 +45,8 @@ export class ComponentViewerComponent implements OnInit {
           complete: () => console.info('complete')
         });
     
-    this.buttons = this.dataService.getPersonasButtons(this.entity.toLowerCase());
-   
-    // modifySidenav(buttons:Menu){
-    //   this.menu=menu;
-    //   this.variableMenu= menu.name;
-    //   this.variableSidenav= menu.name.toLocaleLowerCase();
-      
-  // }
-    console.log(this.buttons);
-    
+    // this.buttons = this.dataService.getPersonasButtons(this.entity.toLowerCase());
   }
 
+  
 }

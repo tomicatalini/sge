@@ -33,7 +33,7 @@ export class FormComponent implements OnInit {
       this.formService.getFields().subscribe({ 
           next: (res) => {
             this.fields = res;
-            console.log(res)
+            // console.log(res)
           },
           error: (e) => { 
             console.warn('Error al obtener datos para el formulario');
@@ -58,7 +58,7 @@ export class FormComponent implements OnInit {
     if(this.formGroup.invalid){
       console.error("Formulario Inválido. Faltan campos o algún campo fue ingresado incorrectamente.");
     } else {
-      console.log( JSON.stringify( this.formGroup.getRawValue() ) );
+      // console.log( JSON.stringify( this.formGroup.getRawValue() ) );
     }
   }
 
