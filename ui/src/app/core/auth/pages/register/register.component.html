@@ -10,25 +10,25 @@
                   (onSubmit)="register()">
                 <mat-form-field appearance="standard">
                   <mat-label>Usuario</mat-label>
-                  <input matInput type="text" formControlName="user">
+                  <input matInput type="text" id="user" formControlName="user">
                 </mat-form-field>
                 <mat-form-field appearance="standard">
                   <mat-label>Contraseña</mat-label>
-                  <input matInput type="password" formControlName="pass">
+                  <input matInput type="password" id="pass" formControlName="pass">
                 </mat-form-field>
-                <mat-form-field appearance="standard">
+                <mat-form-field appearance="standard" >
                   <mat-label>Repetir Contraseña</mat-label>
-                  <input matInput type="password">
+                  <input matInput type="password" formControlName="pass2">
                 </mat-form-field>
                 <mat-form-field appearance="standard">
                   <mat-label>Correo Electrónico</mat-label>
-                  <input matInput type="email" formControlName="email">
+                  <input matInput type="email" id="email" formControlName="email">
                 </mat-form-field>
-                <mat-form-field appearance="standard">
+                <mat-form-field appearance="standard" >
                   <mat-label>Repetir Correo Electrónico</mat-label>
-                  <input matInput type="email">
+                  <input matInput type="email" formControlName="email2">
                 </mat-form-field>
-                <button mat-raised-button color="primary" [disabled]="!this.formulario.valid">Crear</button>
+                <button mat-raised-button color="primary" type="submit" [disabled]="!this.formulario.valid">Crear</button>
             </form>
         </mat-card-content>
         <mat-card-footer class="register-footer">

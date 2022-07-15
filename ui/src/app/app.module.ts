@@ -38,9 +38,8 @@ import { SidenavComponent } from './shared/components/sidenav/sidenav.component'
 import {MatSidenavModule} from '@angular/material/sidenav';
 import { ComponentViewerComponent } from './shared/components/component-viewer/component-viewer.component';
 import {MatListModule} from '@angular/material/list';
-import { LogInComponent } from './core/logIn/components/log-in/log-in.component';
 import {MatProgressBarModule} from '@angular/material/progress-bar';
-import { LogInFormComponent } from './core/logIn/components/log-in-form/log-in-form.component';
+import { SubSidenavComponent } from './shared/components/sub-sidenav/sub-sidenav.component';
 
 
 //import { DialogComponent } from './core/components/persona/dialog/dialog.component';
@@ -59,8 +58,7 @@ import { LogInFormComponent } from './core/logIn/components/log-in-form/log-in-f
     FormularioPersonaComponent,
     SidenavComponent,
     ComponentViewerComponent,
-    LogInComponent,
-    LogInFormComponent
+    SubSidenavComponent
   ],
   imports: [
     BrowserModule,

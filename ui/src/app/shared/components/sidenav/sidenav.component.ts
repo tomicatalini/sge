@@ -10,27 +10,37 @@ import { MenuItems } from '../menu-items/menu-items';
 })
 export class SidenavComponent implements OnDestroy {
   
-  mobileQuery: MediaQueryList;
+//  arrayEntities:String[]=['Persona','Domicilio','Localidaes'];  
+ mobileQuery: MediaQueryList;
 
-  menu: Menu = { state: 'personas', name: 'Persona', type: 'link', icon:''};
+ fillerNav: Menu[];
+ variableMenu:string= '';
+ variableSidenav:string= '';
+ arrayOptions:Object[];
+ menu:Menu;
+ private _mobileQueryListener: () => void;
 
-  fillerNav: Menu[] = [this.menu];
+ modifySidenav(menu:Menu){
+   this.menu=menu;
+   this.variableMenu= menu.name;
+   this.variableSidenav= menu.name.toLocaleLowerCase();
+   
+}
+ constructor(changeDetectorRef: ChangeDetectorRef, 
+   media: MediaMatcher,
+   private menuItems: MenuItems) {
+   this.mobileQuery = media.matchMedia('(max-width: 600px)');
+   this._mobileQueryListener = () => changeDetectorRef.detectChanges();
+   this.mobileQuery.addListener(this._mobileQueryListener);
+   this.fillerNav = menuItems.getMenuItem();
+   this.modifySidenav(this.fillerNav[0]);
+   // console.log( this.menu.options);
+   // console.log(this.variableMenu);
+ 
+ }
 
-  private _mobileQueryListener: () => void;
-
-  constructor(
-    changeDetectorRef: ChangeDetectorRef, 
-    media: MediaMatcher,
-    private menuItems: MenuItems
-    ) {
-    this.mobileQuery = media.matchMedia('(max-width: 600px)');
-    this._mobileQueryListener = () => changeDetectorRef.detectChanges();
-    this.mobileQuery.addListener(this._mobileQueryListener);
-    this.fillerNav = this.menuItems.getMenuItem();
-  }
-
-  ngOnDestroy(): void {
-    this.mobileQuery.removeListener(this._mobileQueryListener);
-  }
+ ngOnDestroy(): void {
+   this.mobileQuery.removeListener(this._mobileQueryListener);
+ }
 
 }

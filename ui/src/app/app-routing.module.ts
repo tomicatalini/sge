@@ -13,10 +13,18 @@ const routes: Routes = [
   {
     path: 'auth',
     loadChildren: () => import('./core/auth/auth.module').then( m => m.AuthModule )
-  },
+  },  
   {
     path: 'dashboard',
     loadChildren: () => import('./core/protected/protected.module').then( m => m.ProtectedModule )
+  },
+  {
+    path: 'persona',
+    loadChildren: () => import('./core/persona/persona.module').then( m => m.PersonaModule )
+  },
+  {
+    path: 'expediente',
+    loadChildren: () => import('./core/expediente/expediente.module').then( m => m.ExpedienteModule )
   },
   {
     path: '**',

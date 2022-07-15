@@ -12,7 +12,9 @@ export class RegisterComponent {
     {
       user: ['', [Validators.required, Validators.minLength(5)]],
       pass: ['', [Validators.required, Validators.minLength(6)]],
-      email: ['', [Validators.required, Validators.email]]
+      pass2: ['', [Validators.required, Validators.minLength(6)]],
+      email: ['', [Validators.required, Validators.email]],
+      email2: ['', [Validators.required, Validators.email]]
     }
   );
 
