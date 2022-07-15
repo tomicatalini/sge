@@ -1,0 +1,40 @@
+
+
+<div class="register-container">
+    <mat-card class="register">
+        <mat-card-header class="register-header">
+            <mat-card-title>Nuevo Usuario</mat-card-title>
+            <mat-card-subtitle>SDE</mat-card-subtitle>
+        </mat-card-header>
+        <mat-card-content class="register-content">
+            <form class="register-form" 
+                  [formGroup]="this.formulario"
+                  (onSubmit)="register()">
+                <mat-form-field appearance="standard">
+                  <mat-label>Usuario</mat-label>
+                  <input matInput type="text" id="user" formControlName="user">
+                </mat-form-field>
+                <mat-form-field appearance="standard">
+                  <mat-label>Contraseña</mat-label>
+                  <input matInput type="password" id="pass" formControlName="pass">
+                </mat-form-field>
+                <mat-form-field appearance="standard" >
+                  <mat-label>Repetir Contraseña</mat-label>
+                  <input matInput type="password" formControlName="pass2">
+                </mat-form-field>
+                <mat-form-field appearance="standard">
+                  <mat-label>Correo Electrónico</mat-label>
+                  <input matInput type="email" id="email" formControlName="email">
+                </mat-form-field>
+                <mat-form-field appearance="standard" >
+                  <mat-label>Repetir Correo Electrónico</mat-label>
+                  <input matInput type="email" formControlName="email2">
+                </mat-form-field>
+                <button mat-raised-button color="primary" type="submit" [disabled]="!this.formulario.valid">Crear</button>
+            </form>
+        </mat-card-content>
+        <mat-card-footer class="register-footer">
+            <span><a routerLink="/auth/login">Volver</a></span>
+        </mat-card-footer>
+    </mat-card>
+</div>
