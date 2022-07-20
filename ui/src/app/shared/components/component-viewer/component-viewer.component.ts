@@ -2,6 +2,7 @@ import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
 import { Component, Input, OnInit } from '@angular/core';
 import { DataService } from '../../services/data.service';
 import { Menu } from '../menu-items/menu';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-component-viewer',
@@ -13,24 +14,26 @@ export class ComponentViewerComponent implements OnInit {
   @Input() entity: string;
   @Input() buttons: Menu[] = [];
   pathLink:string;
-
+  @Input() id:number =0;
   isSmallDevice: boolean = false;
 
   constructor(
     private responsive: BreakpointObserver,
-    private dataService: DataService
+    private dataService: DataService,
+    private activatedRoute:ActivatedRoute
   ) {}  
  modifyEntity(){
-  //  console.log(btn);
-  //  btn.state= this.entity+btn.state;
-  //  console.log(btn);
 
-   this.pathLink= this.dataService.getPersonasButtons(this.entity.toLowerCase())[0].state;
+  
+   this.pathLink= this.dataService.getPersonasButtons(this.entity.toLowerCase(),this.id)[0].state;
+   console.log(this.pathLink);
+   this.activatedRoute.params.subscribe(()=>console.log(this.id));
+
  }
 
   ngOnInit(): void {
   
-    
+
     this.responsive
       .observe(Breakpoints.XSmall)
         .subscribe({

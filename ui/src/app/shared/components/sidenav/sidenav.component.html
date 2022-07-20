@@ -3,41 +3,31 @@
       <button mat-icon-button (click)="snav.toggle()"><mat-icon>menu</mat-icon></button>
       <h1 class="example-app-name">SGE: Sistema de Gestión de Expedientes</h1>
       <span class="example-spacer"></span>
-<!-- //agregar aca las entidades -->
-<mat-list-item appAccordionLink *ngFor="let menuitem of fillerNav" routerLinkActive="selected">
-  <a class="" appAccordionToggle [routerLink]="['/', menuitem.state]" *ngIf="menuitem.type === 'link'">
-    <div class="mainMenu-component">
-      <mat-icon class="mainMenu-component-icon" (click)="modifySidenav(menuitem)" >{{menuitem.icon}}</mat-icon> 
-      <span   class="mainMenu-component-span" (click)="modifySidenav(menuitem)">{{menuitem.name}}</span>     
-    </div>
-      
-      <span fxFlex></span>
-  </a>
 
-</mat-list-item>
-
+      <mat-list-item appAccordionLink *ngFor="let menuitem of fillerNav" routerLinkActive="selected">
+        <a class="" appAccordionToggle [routerLink]="['/', menuitem.state]" *ngIf="menuitem.type === 'link'">
+          <div class="mainMenu-component">
+            <mat-icon class="mainMenu-component-icon" (click)="modifySidenav(menuitem)" >{{menuitem.icon}}</mat-icon> 
+            <span   class="mainMenu-component-span" (click)="modifySidenav(menuitem)">{{menuitem.name}}</span>     
+          </div>            
+            <span fxFlex></span>
+        </a>
+      </mat-list-item>
 
       <button mat-icon-button class="example-icon favorite-icon"  aria-label="Example icon-button with heart icon">
         <mat-icon>account_circle</mat-icon>
       </button>
-      <!-- <button mat-icon-button class="example-icon"   aria-label="Example icon-button with share icon">
-        <mat-icon>settings</mat-icon>
-      </button> -->
-    </mat-toolbar>   
-  
-    <mat-sidenav-container class="example-sidenav-container"
-                           [style.marginTop.px]="mobileQuery.matches ? 56 : 0">
-      <mat-sidenav #snav opened [mode]="mobileQuery.matches ? 'over' : 'side'"
-                   [fixedInViewport]="mobileQuery.matches" fixedTopGap="56">
+    </mat-toolbar>     
 
-        <mat-nav-list appAccordion class="menu-vertical">
-                <app-sub-sidenav (enviar)="receiveMessage($event)" [menu]="menu"></app-sub-sidenav>
-        </mat-nav-list>
-       
-      </mat-sidenav>
-  
-      <mat-sidenav-content>    
-        <app-component-viewer  entity="{{variableMenu}}"></app-component-viewer> 
-      </mat-sidenav-content>
+    <mat-sidenav-container class="example-sidenav-container" [style.marginTop.px]="mobileQuery.matches ? 56 : 0">
+          <mat-sidenav #snav opened [mode]="mobileQuery.matches ? 'over' : 'side'"
+                      [fixedInViewport]="mobileQuery.matches" fixedTopGap="56">
+              <mat-nav-list appAccordion class="menu-vertical">
+                      <app-sub-sidenav (enviar)="receiveMessage($event)" [menu]="menu"></app-sub-sidenav>
+              </mat-nav-list>       
+          </mat-sidenav>  
+          <mat-sidenav-content>    
+                      <app-component-viewer  entity="{{variableMenu}}"></app-component-viewer> 
+          </mat-sidenav-content>
     </mat-sidenav-container>
   </div>

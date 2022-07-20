@@ -1,10 +1,7 @@
 <div class="component-viewer" [ngClass]="{'component-viewer-smallDevice': isSmallDevice}">
-    <mat-toolbar color="primary">
-        <!-- <div class="toolbar-btn-container" *ngFor="let btn of this.buttons"> -->
-                <div class="toolbar-btn-container" >
-                <a mat-flat-button  (click)="modifyEntity()" color="accent" [routerLink]="['/',entity+'new']">NUEVO</a>
-            <!-- <a mat-flat-button *ngIf="btn.type === 'link'" (click)="modifyEntity(btn)" color="accent" [routerLink]="['/', btn.state]">{{btn.name}}</a> -->
-            <!-- <a mat-flat-button *ngIf="btn.type === 'link'" color="accent" [routerLink]="['/', btn.state]">{{btn.name}}</a> -->
+    <mat-toolbar color="primary">        
+        <div class="toolbar-btn-container" >
+                <a mat-flat-button  (click)="modifyEntity()" color="accent" [routerLink]="['/',entity,id]">NUEVO</a>
         </div>
         <div class="toolbar-title">
             <span>{{entity|uppercase}}</span>

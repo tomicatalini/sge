@@ -39,7 +39,7 @@ export class DataService {
     return of(personas);
   }
 
-  getPersonasButtons(entidad:string){
+  getPersonasButtons(entidad:string,id:number){
     const btns: Menu[] = [];
 
     // let btn: Menu = {
@@ -50,7 +50,7 @@ export class DataService {
     // }
 
     let btn2: Menu = {
-      state: entidad+'new',
+      state: entidad+'/'+id,
       name: 'Nuevo',
       type: 'link',
       icon: '',

@@ -9,6 +9,7 @@ import { Menu } from '../menu-items/menu';
 export class SubSidenavComponent implements OnInit {
   @Input() menu:Menu;
   textoEnviar:string;
+  id:number=3;
   constructor() { }
   renderComponent(a:string){
     this.textoEnviar=a;
