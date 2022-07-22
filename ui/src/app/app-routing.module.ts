@@ -17,8 +17,12 @@ const routes: Routes = [
     component: ErrorComponent
   },
   {
+    path:'menu',
+    loadChildren :() => import('./menu/menu.module').then(m => m.MenuModule)
+  },
+  {
     path: '**',
-    redirectTo: 'auth'
+    redirectTo: 'menu'
   }
 ];
 

@@ -1,0 +1,18 @@
+<div class="component-viewer" [ngClass]="{'component-viewer-smallDevice': isSmallDevice}">
+    <mat-toolbar color="primary">        
+        <div class="toolbar-btn-container" >
+                <a mat-flat-button  (click)="modifyEntity()" color="accent" [routerLink]="['/',entity,id]">NUEVO</a>
+        </div>
+        <div class="toolbar-title">
+            <span>{{entity|uppercase}}</span>
+
+        </div>
+        <div class="toolbar-search-container">            
+            <span>...</span>
+        </div>
+      </mat-toolbar>
+
+    <div class="component-viewer-content">
+        <router-outlet></router-outlet>
+    </div>
+</div>

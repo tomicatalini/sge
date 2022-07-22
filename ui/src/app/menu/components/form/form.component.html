@@ -1,0 +1,13 @@
+<form [formGroup]="formGroup" (ngSubmit)="onSubmit()">
+    <app-field 
+        *ngFor="let field of fields" 
+        [field]="field" 
+        [form]="formGroup" 
+        class="{{field.property}}"></app-field>
+    <button 
+        mat-raised-button 
+        class="btn" 
+        color="primary" 
+        type="submit" 
+        [disabled]="this.formGroup.invalid">Enviar</button>
+</form>
