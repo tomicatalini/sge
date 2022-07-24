@@ -3,7 +3,8 @@ import { Injectable } from '@angular/core';
 
 import { of } from 'rxjs';
 import { Field } from '../interfaces/field';
-import { TypeOfField } from '../interfaces/typeOfField';
+import { TypeOfField } from '../interfaces/type-of-field';
+
 
 @Injectable({
   providedIn: 'root'

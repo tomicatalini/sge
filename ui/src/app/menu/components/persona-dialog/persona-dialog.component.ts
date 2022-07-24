@@ -1,22 +1,22 @@
-import { Component, Inject, OnInit } from '@angular/core';
+import * as core from '@angular/core';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { Observable } from 'rxjs';
-import { Field } from '../../interfaces/field';
 import { FormService } from '../../service/form.service';
+import { Field } from '../../interfaces/field';
 
 
-@Component({
+@core.Component({
   selector: 'app-persona-dialog',
   templateUrl: './persona-dialog.component.html',
   styleUrls: ['./persona-dialog.component.css']
 })
-export class PersonaDialogComponent implements OnInit {  
+export class PersonaDialogComponent implements core.OnInit {  
 
   fields$: Observable< Field[] >;
    constructor(
     service: FormService,
     public dialogRef: MatDialogRef<PersonaDialogComponent>,
-    @Inject(MAT_DIALOG_DATA)public persona:any     
+    @core.Inject(MAT_DIALOG_DATA)public persona:any     
   ) {    
     this.fields$ = service.getFields();
     console.log("Prueba de Datos enviados desde la tabla"+ persona.biografia);

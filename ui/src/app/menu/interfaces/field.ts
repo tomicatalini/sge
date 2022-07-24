@@ -1,4 +1,4 @@
-import { TypeOfField } from "./typeOfField";
+import { TypeOfField } from './type-of-field';
 
 
 export class Field {
@@ -46,3 +46,7 @@ export class Field {
         
     }
 }
+
+
+
+

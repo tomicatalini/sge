@@ -13,8 +13,16 @@ import { FieldComponent } from './components/field/field.component';
 import { FormComponent } from './components/form/form.component';
 import { TableComponent } from './components/table/table.component';
 import { PersonaDialogComponent } from './components/persona-dialog/persona-dialog.component';
-
-
+import {MatToolbarModule} from '@angular/material/toolbar';
+import {MatCheckboxModule} from '@angular/material/checkbox';
+import {MatSelectModule} from '@angular/material/select';
+import {MatIconModule} from '@angular/material/icon';
+import {MatSidenavModule} from '@angular/material/sidenav';
+import {MatListModule} from '@angular/material/list';
+import {MatRadioModule} from '@angular/material/radio';
+import {MatDatepickerModule} from '@angular/material/datepicker';
+import {MatTableModule} from '@angular/material/table';
+import { HomeComponent } from './components/home/home.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +32,8 @@ import { PersonaDialogComponent } from './components/persona-dialog/persona-dial
     FieldComponent,
     FormComponent,
     TableComponent,
-    PersonaDialogComponent
+    PersonaDialogComponent,
+    HomeComponent
   ],
   imports: [
     CommonModule,
@@ -33,7 +42,17 @@ import { PersonaDialogComponent } from './components/persona-dialog/persona-dial
     SharedModule,
     MatCardModule,
     MatFormFieldModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    MatToolbarModule,
+    MatCheckboxModule,
+    MatSelectModule,
+    MatIconModule,
+    MatSidenavModule,
+    MatListModule,
+    MatRadioModule,
+    MatDatepickerModule,
+    MatTableModule
+
   ]
 })
 export class MenuModule { }

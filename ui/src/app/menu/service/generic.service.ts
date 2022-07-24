@@ -2,15 +2,15 @@ import { Inject, Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { environment } from '../../../environments/environment';
 import { catchError, map, Observable, throwError } from 'rxjs';
-import {Swal} from 'sweetalert2';
+// import {Swal} from 'sweetalert2';
 // import { StringMap } from '@angular/compiler/src/compiler_facade_interface';
 
-const Toast = Swal.mixin({
-  toast: true,
-  position: "top",
-  showConfirmButton: false,
-  timer: 3000
-});
+// const Toast = Swal.mixin({
+//   toast: true,
+//   position: "top",
+//   showConfirmButton: false,
+//   timer: 3000
+// });
 @Injectable({
   providedIn: 'root'
 })
@@ -35,11 +35,11 @@ export abstract class GenericService<T> {
       const path = `${this.api}${this.endPoint}`;
       return this.http.post<any>(path, request, { headers: this.httpClientHeaders })
         .pipe(
-          catchError(e => {
-            Toast.fire({
-              icon: 'error',
-              title: e.error.mensaje
-            });
+          catchError((e: any) => {
+            // Toast.fire({
+            //   icon: 'error',
+            //   title: e.error.mensaje
+            // });
             return throwError(() => e);
           })
         );

@@ -1,12 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { GenericServiceService } from 'src/app/shared/services/genericService.service';
-
-import { Field } from 'src/app/shared/model/field';
-
 import { ActivatedRoute, Router } from '@angular/router';
-
-
-
+import { Field } from 'src/app/menu/interfaces/field';
 
 @Component({
   selector: 'app-tablaGenerica',

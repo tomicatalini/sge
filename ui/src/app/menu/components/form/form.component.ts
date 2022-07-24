@@ -1,9 +1,11 @@
 import { Component, OnInit, Input, ViewEncapsulation } from '@angular/core';
 import { FormGroup } from '@angular/forms';
-import { Field } from '../../interfaces/field';
+
 import { FieldService } from '../../service/field.service';
 import { FormService } from '../../service/form.service';
 import { GenericService } from '../../service/generic.service';
+import { Field } from '../../interfaces/field';
+
 
 
 
@@ -32,11 +34,11 @@ export class FormComponent implements OnInit {
     //Get data
     if( !this.fields ){
       this.formService.getFields().subscribe({ 
-          next: (res) => {
+          next: (res: Field[] | null) => {
             this.fields = res;
             // console.log(res)
           },
-          error: (e) => { 
+          error: (e: any) => { 
             console.warn('Error al obtener datos para el formulario');
             console.log(e)
           },
